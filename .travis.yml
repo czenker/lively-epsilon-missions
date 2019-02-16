@@ -1,0 +1,59 @@
+language: python
+sudo: false
+
+env:
+  - LUA="5.3.1" EE_BRANCH="master" LE_BRANCH="master"
+
+before_install:
+  - pip install hererocks
+  - hererocks lua_install -rlatest -l${LUA}
+  - export PATH=$PATH:$PWD/lua_install/bin # Add directory with all installed binaries to PATH
+  - gem install bundler
+
+install:
+#  - luarocks install luacheck
+  - luarocks install busted
+#  - luarocks install luacov-coveralls
+  - git clone --depth 1 --branch $LE_BRANCH https://github.com/czenker/lively-epsilon.git lively_epsilon
+  - wget "https://raw.githubusercontent.com/daid/EmptyEpsilon/${EE_BRANCH}/scripts/utils.lua" -O utils.lua
+#  - bundle install --gemfile=docs/Gemfile
+
+script:
+#  - luacheck --no-unused-args --std max+busted *.lua spec
+  - cd $TRAVIS_BUILD_DIR
+  - busted
+#  - cd $TRAVIS_BUILD_DIR/docs
+#  - rake
+#  - cd $TRAVIS_BUILD_DIR
+#  - ./create_release.sh
+
+after_success:
+#  - luacov-coveralls --exclude $TRAVIS_BUILD_DIR/lua_install
+#  - bash <(curl -s https://codecov.io/bash)
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
+#deploy:
+#  - provider: pages
+#    skip-cleanup: true
+#    local-dir: docs/_build/
+#    target-branch: gh-pages
+#    keep-history: false
+#    github-token: $GITHUB_TOKEN
+#    on:
+#      branch: master
+#
+#  - provider: releases
+#    api_key: $GITHUB_TOKEN
+#    file_glob: true
+#    file: "release-*"
+#    skip_cleanup: true
+#    on:
+#      tags: true
