@@ -12,7 +12,6 @@
 !scenario_01_krepios.lua
 !shipTemplates.lua
 !factionInfo.lua
-
-luacov.*.out
-_build
-release-*
+!LICENSE
+!Readme.md
+!create_release.sh
