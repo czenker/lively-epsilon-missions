@@ -1,6 +1,6 @@
 My = My or {}
 
-My.metalBandName = function()
+My.metalBandName = My.deduplicateName(function()
     local version = math.random(1,6)
     if version == 1 then
         return Util.random(Names.sinisterAttribute) .. " " .. Util.random(Names.sinisterNouns)
@@ -15,4 +15,4 @@ My.metalBandName = function()
     else
         return Util.random(Names.sinisterNouns) .. " of " .. Util.random(Names.scaryThing)
     end
-end
+end)

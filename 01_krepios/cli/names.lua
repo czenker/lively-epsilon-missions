@@ -1,18 +1,5 @@
-require "lively_epsilon/src/utility/lua"
-require "lively_epsilon/src/util"
-require "lively_epsilon/src/domain/trait/generic/tags"
-require "lively_epsilon/src/domain/person"
-
-require "01_krepios/names/languages/esperantish"
-require "01_krepios/names/languages/english"
-require "01_krepios/names/languages/generic"
-require "01_krepios/names/languages/greek"
-require "01_krepios/names/languages/human"
-
-require "01_krepios/names/band"
-require "01_krepios/names/person"
-require "01_krepios/names/places"
-require "01_krepios/names/ships"
+require "lively_epsilon/init"
+require "01_krepios/names/init"
 
 math.randomseed(os.time())
 

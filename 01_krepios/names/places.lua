@@ -134,6 +134,7 @@ local sector = {
     "Herculis",
     "Phoenicis",
     "Aquilae",
+    "Persei",
 
 }
 
@@ -169,7 +170,7 @@ local sectorMod = {
 
 
 
-My.nebulaName = function()
+My.nebulaName = My.deduplicateName(function()
     local version = math.random(1,3)
     if version == 1 then
         return Util.random(Names.greekAlphabet) .. " " .. Util.random(Names.greekTitans)
@@ -178,9 +179,9 @@ My.nebulaName = function()
     else
         return Names.possessive(Util.random(Names.greekTitans)) .. " " .. Util.random(Names.bodyPart)
     end
-end
+end)
 
-My.sectorName = function()
+My.sectorName = My.deduplicateName(function()
     local name = Util.random(sector)
 
     local mod = Util.random(sectorMod)
@@ -191,4 +192,4 @@ My.sectorName = function()
     end
 
     return name
-end
+end)

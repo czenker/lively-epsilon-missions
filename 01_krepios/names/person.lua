@@ -1,5 +1,5 @@
 Person = Person or {}
-Person.newHuman = function()
+Person.newHuman = My.deduplicateName(function()
     local gender = Util.random({"male", "female"})
     local firstName
     if gender == "male" then
@@ -13,8 +13,9 @@ Person.newHuman = function()
     Person:withTags(person, gender)
 
     return person
-end
-Person.newHumanScientist = function()
+end)
+
+Person.newHumanScientist = My.deduplicateName(function()
     local gender = Util.random({"male", "female"})
     local firstName
     if gender == "male" then
@@ -28,4 +29,4 @@ Person.newHumanScientist = function()
     Person:withTags(person, gender)
 
     return person
-end
+end)

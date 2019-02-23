@@ -381,21 +381,21 @@ local minerals = {
     "Zykaite",
 }
 
-My.asteroidName = function()
+My.asteroidName = My.deduplicateName(function()
     return math.random(1, 2100) .. " " .. Util.random(asteroids)
-end
+end)
 
-My.minerName = function()
+My.minerName = My.deduplicateName(function()
     return Util.random(asteroids) .. " " .. Util.random(minerals)
-end
+end)
 
-My.miningStationName = function()
+My.miningStationName = My.deduplicateName(function()
     return Util.random(asteroids) .. " " .. Util.random(romanNumbers)
-end
+end)
 
-My.scienceStationName = function()
+My.scienceStationName = My.deduplicateName(function()
     return Util.random(Names.humanLastNamesScientific) .. " " .. Util.random(Names.greekAlphabet)
-end
+end)
 
 local japaneseLocations = {
     "Abashiri",
@@ -1451,7 +1451,7 @@ local pirateShipNouns = {
 My.civilianShipName = (function()
     local suffix = Util.appendTables(neutralSuffix, mobileSuffix)
 
-    return function()
+    return My.deduplicateName(function()
         local v = math.random(1, 3)
         if v == 1 then
             return Util.random(neutralPrefix) .. Util.random(suffix)
@@ -1460,23 +1460,23 @@ My.civilianShipName = (function()
         else
             return Util.random(japaneseLocations) .. Util.random(japaneseCivilSuffix)
         end
-    end
+    end)
 end)()
 
 My.civilianStationName = (function()
     local suffix = Util.appendTables(neutralSuffix, immobileSuffix)
 
-    return function()
+    return My.deduplicateName(function()
         local v = math.random(1, 2)
         if v == 1 then
             return Util.random(neutralPrefix) .. Util.random(suffix)
         else
             return Names.esperantishWord()
         end
-    end
+    end)
 end)()
 
-My.pirateStationName = function()
+My.pirateStationName = My.deduplicateName(function()
     local prefix = Util.random(piratePrefix)
     local suffix = Util.random(pirateSuffix)
 
@@ -1485,13 +1485,13 @@ My.pirateStationName = function()
     else
         return prefix .. suffix
     end
-end
+end)
 
 My.pirateShipName = (function()
     local names = Util.appendTables(Names.greekNereids, sinisterNames)
     local scaryNouns = Util.appendTables(Names.scaryThing, Names.sinisterNouns)
 
-    return function()
+    return My.deduplicateName(function()
         local v = math.random(1, 3)
         if v == 1 then
             return Util.random(Names.sinisterAttribute) .. " " .. Util.random(pirateShipNouns)
@@ -1500,5 +1500,5 @@ My.pirateShipName = (function()
         else
             return Util.random(Names.sinisterAttribute) .. Util.random(mobileSuffix)
         end
-    end
+    end)
 end)()

@@ -19,17 +19,7 @@ require "lively_epsilon/init.lua"
 
 _G.My = {}
 
-require "01_krepios/names/languages/esperantish.lua"
-require "01_krepios/names/languages/english.lua"
-require "01_krepios/names/languages/generic.lua"
-require "01_krepios/names/languages/greek.lua"
-require "01_krepios/names/languages/human.lua"
-
-require "01_krepios/names/band.lua"
-require "01_krepios/names/person.lua"
-require "01_krepios/names/places.lua"
-require "01_krepios/names/ships.lua"
-
+require "01_krepios/names/init.lua"
 
 My.Config = {
     -- the orientation of the asteroid field
