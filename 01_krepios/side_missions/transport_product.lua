@@ -83,7 +83,6 @@ My.SideMissions.TransportProduct = function(from, to, player)
         description = t("side_mission_transport_description", amount, product:getName(), to:getCallSign(), payment, penalty),
         acceptMessage = nil,
     })
-    Mission:withTags(mission, "transport")
 
     return mission
 end

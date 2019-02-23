@@ -83,7 +83,5 @@ My.SideMissions.GatherCrystals = function(station)
         acceptMessage = t("side_mission_gather_crystals_accept"),
     })
 
-    --Mission:withTags(mission, "transport")
-
     return mission
 end

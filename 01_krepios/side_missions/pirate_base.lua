@@ -142,7 +142,5 @@ My.SideMissions.PirateBase = function(station, x, y, player)
         acceptMessage = nil,
     })
 
-    Mission:withTags(mission, "fighting")
-
     return mission
 end

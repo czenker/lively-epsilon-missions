@@ -53,7 +53,6 @@ My.SideMissions.TransportHuman = function(from, to)
         description = description,
         acceptMessage = t("side_mission_transport_human_accept"),
     })
-    Mission:withTags(mission, "transport")
 
     return mission
 end

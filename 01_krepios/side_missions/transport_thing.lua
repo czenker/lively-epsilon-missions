@@ -71,7 +71,6 @@ My.SideMissions.TransportThing = function(from, to, player)
         description = description,
         acceptMessage = nil,
     })
-    Mission:withTags(mission, "transport")
 
     return mission
 end

@@ -57,7 +57,5 @@ My.SideMissions.RagingMiner = function(station, x, y, player)
         acceptMessage = t("side_mission_raging_miner_accept"),
     })
 
-    Mission:withTags(mission, "fighting")
-
     return mission
 end

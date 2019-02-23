@@ -64,7 +64,6 @@ My.SideMissions.Buyer = function(station, product)
     })
 
     Mission:forPlayer(mission)
-    Mission:withTags(mission, "transport")
 
     return mission
 end

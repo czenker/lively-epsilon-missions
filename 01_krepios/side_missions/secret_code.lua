@@ -164,7 +164,6 @@ My.SideMissions.SecretCode = function(from, to)
     })
 
     Mission:forPlayer(mission)
-    --Mission:withTags(mission, "transport")
 
     return mission
 end

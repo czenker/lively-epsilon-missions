@@ -187,7 +187,5 @@ My.SideMissions.Repair = function(station, from, player)
         acceptMessage = t("side_mission_repair_accept"),
     })
 
-    Mission:withTags(mission, "transport")
-
     return mission
 end

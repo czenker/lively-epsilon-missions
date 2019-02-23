@@ -144,7 +144,5 @@ My.SideMissions.DisableShip = function(station, x, y, player)
         acceptMessage = t("side_mission_disable_ship_accept"),
     })
 
-    Mission:withTags(mission, "fighting")
-
     return mission
 end
