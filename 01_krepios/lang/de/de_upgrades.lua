@@ -23,17 +23,17 @@ My.Translator:register("de", {
 
     upgrade_rotation1_name = "Schubdüsen MkI",
     upgrade_rotation1_description = function(secondsPer180)
-        return f("Die MkI ist eine der einfachsten Schubdüsen, die am Markt verfügbar sind. Wendungen um 180° sind immerhin in %0.1f Sekunden möglich.", secondsPer180)
+        return f("Die MkI ist eine der einfachsten Schubdüsen, die am Markt verfügbar sind. Wendungen um 180 Grad sind immerhin in %0.1f Sekunden möglich.", secondsPer180)
     end,
 
     upgrade_rotation2_name = "Schubdüsen MkII",
     upgrade_rotation2_description = function(secondsPer180)
-        return f("Eine zielgerichtetere Steuerung der Schubdüsen erhöht die Wendigkeit des Schiffes immens und erlaubt es dem Schiff in weniger als %0.1f Sekunden eine 180° Wende auszuführen.", secondsPer180)
+        return f("Eine zielgerichtetere Steuerung der Schubdüsen erhöht die Wendigkeit des Schiffes immens und erlaubt es dem Schiff in weniger als %0.1f Sekunden eine 180 Grad Wende auszuführen.", secondsPer180)
     end,
 
     upgrade_rotation3_name = "Schubdüsen MkIII",
     upgrade_rotation3_description = function(secondsPer180)
-        return f("Dieses Update verteilt die Energie zwischen Schubdüsen und Impulsantrieb dynamisch und erlaubt so in weniger als %0.1f Sekunden eine 180° Wende auszuführen.", secondsPer180)
+        return f("Dieses Update verteilt die Energie zwischen Schubdüsen und Impulsantrieb dynamisch und erlaubt so in weniger als %0.1f Sekunden eine 180 Grad Wende auszuführen.", secondsPer180)
     end,
 
     upgrade_storage1_name = "Lagerraum S",
@@ -199,7 +199,7 @@ My.Translator:register("de", {
     end,
     upgrade_laserRefit_beam_info_button = "Information",
     upgrade_laserRefit_beam_info_range = function(range, minAngle, maxAngle)
-        return f("Der Laser kann Ziele in einem Winkel von  %0.0f - %0.0f°  und einer Entfernung von bis zu  %0.3fu  erfassen.", minAngle, maxAngle, range)
+        return f("Der Laser kann Ziele in einem Winkel von  %0.0f - %0.0f Grad  und einer Entfernung von bis zu  %0.3fu  erfassen.", minAngle, maxAngle, range)
     end,
     upgrade_laserRefit_beam_info_damage = function(damage, shotsPerMinute, damagePerMinute)
         return f("Er feuert %0.1f Schüsse pro Minute, die jeweils  %0.1f  Schaden verursachen können. Der maximale Schaden pro Minute beträgt somit bis zu  %0.1f.", shotsPerMinute, damage, damagePerMinute)

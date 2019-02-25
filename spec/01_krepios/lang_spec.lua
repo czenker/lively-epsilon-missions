@@ -30,7 +30,7 @@ insulate("01 Krepios", function()
     require "01_krepios.init"
     require "lively_epsilon.spec.asserts"
 
-    for locale, dictonary in pairs(My.Translator:getDictionaries()) do
+    for locale, dictionary in pairs(My.Translator:getDictionaries()) do
         insulate("translation " .. locale, function()
 
             -- here happens black magic: We hook into the lua engine, stop when a translation function is called
@@ -49,7 +49,7 @@ insulate("01 Krepios", function()
                 end
             end, "c")
 
-            for key, value in pairs(dictonary) do
+            for key, value in pairs(dictionary) do
                 it(key .. " is a string and does not error", function()
                     if isFunction(value) then
                         local ret = value()

@@ -27,7 +27,7 @@ My.Config = {
     segment = 60,
     avgDistance = 200000,
     width = 40000,
-    avgAsteroidDistance = 2000,
+    avgAsteroidDistance = 1500,
 
     -- the colonel that gave the crew the task to fly to the SMC main station
     colonel = Person:byName("John Doe"),
@@ -76,48 +76,6 @@ function init()
             My.World.miningStation3:addUpgrade(upgrade)
         end
     end
-
-    Menu:addGmMenuItem(Menu:newItem("Spawn Attackers", function()
-        My.EventHandler:fire("onAttackersSpawn")
-    end))
-    Menu:addGmMenuItem(Menu:newItem("Reward Laser Refit", function()
-        My.EventHandler:fire("onLaserRefitReward")
-    end))
-    Menu:addGmMenuItem(Menu:newItem("Reward Power Presets", function()
-        My.EventHandler:fire("onPowerPresetsReward")
-    end))
-
-    Menu:addGmMenuItem(Menu:newItem("Stations", function()
-        local menu = Menu:new()
-
-        local stations = {}
-
-        for _,station in pairs(My.World.stations) do
-            if station:isValid() then table.insert(stations, station) end
-        end
-        local fortress = My.World.fortress
-        if fortress:isValid() then table.insert(stations, fortress) end
-
-        table.sort(stations, function(a, b)
-            if a:isValid() then a = a:getCallSign() else a = "" end
-            if b:isValid() then b = b:getCallSign() else b = "" end
-            return a < b
-        end)
-
-        for i,station in ipairs(stations) do
-            menu:addItem(Menu:newItem(station:getCallSign(), function()
-                return f(
-                        "%s (%s: %s)\n---------------------\n%s",
-                        station:getCallSign(),
-                        t("player_science_sector"),
-                        station:getSectorName(),
-                        station:getDescription("simple")
-                )
-            end, i))
-        end
-
-        return menu
-    end))
     --
     --My.Simulations.HelmsEvasion:add()
     --My.Simulations.HelmsManeuver:add()

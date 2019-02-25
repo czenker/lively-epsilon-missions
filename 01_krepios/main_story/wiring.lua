@@ -17,11 +17,11 @@ My.EventHandler:register("onFirstMoneyEarned", function()
 
     Cron.once(function()
         My.EventHandler:fire("onLaserRefitReward")
-    end, 60 * 30)
+    end, 60 * 25)
 
     Cron.once(function()
         My.EventHandler:fire("onPowerPresetsReward")
-    end, 60 * 45)
+    end, 60 * 40)
 
     Cron.once(function()
         My.EventHandler:fire("onAttackersSpawn")

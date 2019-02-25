@@ -48,6 +48,10 @@ local myPackages = {
     "01_krepios/comms/upgrade_broker.lua",
     "01_krepios/comms/who_are_you.lua",
 
+    "01_krepios/gamemaster/player.lua",
+    "01_krepios/gamemaster/stations.lua",
+    "01_krepios/gamemaster/story.lua",
+
     "01_krepios/side_missions/buyer.lua",
     "01_krepios/side_missions/capture.lua",
     "01_krepios/side_missions/disable_ship.lua",

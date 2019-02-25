@@ -533,7 +533,7 @@ My.Upgrades.nuke1 = (function()
     return upgrade
 end)()
 My.Upgrades.nuke2 = (function()
-    local amount = 1
+    local amount = 2
     local storageMalus = 16
 
     local upgrade = BrokerUpgrade:new({
@@ -752,7 +752,7 @@ My.Upgrades.hull2 = (function()
     local upgrade = BrokerUpgrade:new({
         name = t("upgrade_hull2_name"),
         onInstall = function(upgrade, player)
-            player:setShieldsMax(amount, amount)
+            player:setHullMax(amount, amount)
         end,
         id = "hull2",
         price = 200,
