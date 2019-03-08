@@ -25,7 +25,7 @@ My.SideMissions.Buyer = function(station, product)
             else
                 screen:addText(t("side_mission_buyer_comms_reminder", product:getName()))
             end
-            screen:addText("\n\n" .. t("side_mission_buyer_comms_todo", info.remainingAmount, product:getName(), paymentBonus))
+            screen:addText("\n\n" .. t("side_mission_buyer_comms_todo", info.remainingAmount, paymentBonus))
             if player:isDocked(station) then
                 if info.maxAmount > 0 then
                     screen:addReply(Comms:newReply(t("side_mission_buyer_comms_sell_label", info.maxAmount), info.link(info.maxAmount)))

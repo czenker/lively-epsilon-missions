@@ -8,16 +8,16 @@ local flying_trader_who_are_you = function(captainPerson, job)
         "Ich kaufe und verkaufe Waren aller Art in der Hoffnung genügend Profit zu machen.",
     }) .. " " .. job .. " " .. Util.random({
         "Ehrlich gesagt bin ich froh, wenn ich den Sektor wieder verlassen kann. An den Stationen habe ich Angst, dass ein besoffener Miner mir mein Schiff auf der Suche nach Ersatzteilen auseinander nimmt.",
-        "Wenn ich aus dem Drecksloch wieder raus bin werde ich mich sehr freuen. Hier nagt der Zahn der Zeit sichtbar.",
+        "Wenn ich aus dem Drecksloch wieder raus bin, werde ich mich sehr freuen. Hier nagt der Zahn der Zeit sichtbar.",
     })
 end
 
 My.Translator:register("de", {
-    flying_trader_description = function(shipCallSign, captainPerson)
+    flying_trader_description = function(shipCallSign)
         return Util.random({
             "Ein großer Transporter, der für Flüge zwischen verschiedenen Systemen konstruiert wurde.",
             "Ein Handelsschiff, das zwischen mehreren Systemen verkehrt.",
-            "Hin und wieder kommen solche großen Handelsschiffe nach Krepios um Handel zu betreiben."
+            "Hin und wieder kommen solche großen Handelsschiffe nach Krepios, um Handel zu betreiben."
         }) .. " " .. Util.random({
             "Im Gegensatz zu den systemeigenen Schiffen sieht dieser Transporter einigermaßen ansehnlich aus.",
             "Auf den ersten Blick sieht man ihm an, dass es nicht aus Krepios kommt. Dafür ist es zu sauber und gut in Schuss gehalten.",

@@ -6,8 +6,8 @@ local lateForJobDescription = function(role, task, clientPerson, stationCallSign
         "Ich arbeite als " .. role .. " bei der Saiku Mining Corporation und wurde von",
         "Als " .. role .. " bei der Saiku Mining Corporation wurde ich von",
         "In meinem Beruf als " .. role .. " bei der Saiku Mining Corporation wurde ich von",
-        "Ich bin als " .. role .. " bei der Saiku Mining Corporation angestellt. Heute morgen wurde ich von",
-        "Ich bin " .. role .. " bei der Saiku Mining Corporation. Gestern abend wurde ich von",
+        "Ich bin als " .. role .. " bei der Saiku Mining Corporation angestellt. Heute Morgen wurde ich von",
+        "Ich bin " .. role .. " bei der Saiku Mining Corporation. Gestern Abend wurde ich von",
     }) .. " " .. stationCallSign .. " " .. Util.random({
         "angefordert, um",
         "beauftragt",
@@ -74,7 +74,7 @@ My.Translator:register("de", {
             Util.random({
                 "die Rentabilität der Station einzuschätzen",
                 "Verbesserungen in den Arbeitsabläufen vorzunehmen",
-                "Über Neuinvestitionen zu verhandeln",
+                "über Neuinvestitionen zu verhandeln",
             }),
             clientPerson,
             stationCallSign,
@@ -109,9 +109,9 @@ My.Translator:register("de", {
             payment
         )
     end,
-    side_mission_transport_human_accept = "Vielen Dank, dass sie mich mitnehmen werden. Ich hatte schon befürchtet, dass ich hier ewig festsitzen muss.",
+    side_mission_transport_human_accept = "Vielen Dank, dass Sie mich mitnehmen werden. Ich hatte schon befürchtet, dass ich hier ewig festsitzen muss.",
     side_mission_transport_human_accept_hint = function(stationCallSign, clientPerson)
-        return f("Docken Sie an %s um %s abzuholen", stationCallSign, clientPerson:getFormalName())
+        return f("Docken Sie an %s, um %s abzuholen", stationCallSign, clientPerson:getFormalName())
     end,
     side_mission_transport_human_load_log = function(clientPerson)
         return clientPerson:getFormalName() .. " ist an Board gekommen"
@@ -120,7 +120,7 @@ My.Translator:register("de", {
         return f("Bringen Sie %s nach %s", clientPerson:getFormalName(), stationCallSign)
     end,
     side_mission_transport_human_success = function(stationCallSign, payment)
-        return f("Vielen Dank, dass sie mich nach %s gebracht haben. Die ausgemachte Bezahlung von %0.2fRP habe ich Ihnen selbstverständlich soeben überwiesen.", stationCallSign, payment)
+        return f("Vielen Dank, dass Sie mich nach %s gebracht haben. Die ausgemachte Bezahlung von %0.2fRP habe ich Ihnen selbstverständlich soeben überwiesen.", stationCallSign, payment)
     end,
 
 })

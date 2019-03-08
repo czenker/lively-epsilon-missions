@@ -7,11 +7,11 @@ My.Translator:register("de", {
     side_mission_gather_crystals_description = function(person, amount, payment)
         return Util.random({
             "Hey Sie. Sind sie an Wissenschaft interessiert?",
-            "Sie sehen nicht so aus als hätten sie ein Problem damit im Interesse der Wissenschaft einen kleinen Botengang zu absolvieren.",
+            "Sie sehen nicht so aus, als hätten sie ein Problem damit im Interesse der Wissenschaft einen kleinen Botengang zu absolvieren.",
         }) .. " " .. Util.random({
             "Meinen Namen haben Sie sicherlich schon in der Fachpresse gelesen.",
             "Ich bin ihnen sicher aus zahlreichen Publikationen bekannt.",
-            "Bestimmt kennen sie mich aus meinen veröffentlichten Forschungsartikeln.",
+            "Bestimmt kennen Sie mich aus meinen veröffentlichten Forschungsartikeln.",
         }) .. " " .. Util.random({
             "Nein? Nicht?",
             "Nein? Wirklich nicht?",
@@ -46,7 +46,7 @@ My.Translator:register("de", {
     end,
     side_mission_gather_crystals_accept = function()
         return Util.random({
-            "Im Namen der Wissenschaft danke ich Ihnen für Ihre Unterstützung.",
+            "Im Namen der Wissenschaft danke ich Ihnen für ihre Unterstützung.",
             "Ich werde mich nun wieder meinen Forschungen zu wenden.",
             "Was wollen Sie noch hier? Machen Sie sich an die Arbeit.",
         }) .. " " .. Util.random({
@@ -83,7 +83,7 @@ My.Translator:register("de", {
             "Soll ihr Räuspern mir etwas mitteilen? Achso, ihre Bezahlung.",
             "Wie bitte? Ich hab ihre Bezahlung vergessen?",
         }) .. " " .. Util.random({
-            f("Was interessieren mich ihre menschlichen Bedürfnisse. Hier nehmen Sie schon die %0.2fRP.", payment),
+            f("Was interessieren mich ihre menschlichen Bedürfnisse! Hier nehmen Sie schon die %0.2fRP.", payment),
             f("Wenn ihnen der wissenschaftliche Fortschritt gar nichts bedeutet, dann nehmen sie doch diese %0.2fRP aus meinem Forschungsetat.", payment),
             f("Kein Geld der Welt kann die Freude bezahlen, die einem die Kristallographie bringt. Insofern bedauere ich sehr, dass sie sich mit diesen %0.2fRP zufrieden müssen.", payment),
         }) .. "\n\n" .. Util.random({

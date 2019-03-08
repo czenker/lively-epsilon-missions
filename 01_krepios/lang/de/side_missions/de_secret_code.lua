@@ -28,7 +28,7 @@ My.Translator:register("de", {
             f("Suchen Sie auf der Station nach jemandem mit dem Namen \"%s\". Natürlich ist das ein Deckname.", receiverPerson:getFormalName()),
         }) .. " " .. Util.random({
             "Ich erwarte absolute Vertraulichkeit.",
-            "Wenn Sie die Nachricht ausplaudern werde ich sie leider töten müssen. Aber so weit müssen Sie es ja nicht kommen lassen, oder? ... Kleiner Spass meinerseits.",
+            "Wenn Sie die Nachricht ausplaudern werde ich sie leider töten müssen. Aber so weit müssen Sie es ja nicht kommen lassen, oder? ... Kleiner Spaß meinerseits.",
         }) .. " " .. Util.random({
             f("Sobald Sie die Nachricht erfolgreich überbracht haben, werden Ihnen %0.2fRP gezahlt.", payment),
             f("Ihre Verschwiegenheit in der Sache wird mit %0.2fRP entlohnt.", payment),
@@ -37,7 +37,7 @@ My.Translator:register("de", {
 
     side_mission_secret_code_not_docked = function(stationCallSign)
         return Util.random({
-            f("Bitte treffen sie mich persönlich auf %s um die Angelegenheit zu besprechen.", stationCallSign)
+            f("Bitte treffen Sie mich persönlich auf %s, um die Angelegenheit zu besprechen.", stationCallSign)
         }) .. " ".. Util.random({
             "Ich würde ihre Hilfe nicht brauchen, wenn ich die Nachricht auch einfach funken könnte.",
         })
@@ -60,7 +60,7 @@ My.Translator:register("de", {
             "Sie dürfen Sie auf keinen Fall vergessen.",
             "Vergessen Sie sie nicht.",
             "Sie müssen sich die Nachricht merken.",
-            "Ich hoffe ihr Gedächtnis ist in Topform."
+            "Ich hoffe, ihr Gedächtnis ist in Topform."
         }) .. " " .. Util.random({
             "Die Nachricht ist:",
             "Sagen Sie folgendes:",
@@ -81,10 +81,10 @@ My.Translator:register("de", {
     side_mission_secret_code_comms_not_docked = function(stationCallSign)
         return Util.random({
             "Wer sind sie? Ich kenne sie nicht!",
-            "Warum kontaktieren sie mich? Sicher haben Sie sich verwählt.",
+            "Warum kontaktieren Sie mich? Sicher haben Sie sich verwählt.",
         }) .. " " .. Util.random({
-            f("Wenn Sie vertrauliche Angelegenheiten besprechen wollen, treffen sie mich bitte auf %s.", stationCallSign),
-            f("Vertrauliche Dinge sollte man nicht über Comms besprechen. Bitte treffen sie mich persönlich auf %s.", stationCallSign),
+            f("Wenn Sie vertrauliche Angelegenheiten besprechen wollen, treffen Sie mich bitte auf %s.", stationCallSign),
+            f("Vertrauliche Dinge sollte man nicht über Comms besprechen. Bitte treffen Sie mich persönlich auf %s.", stationCallSign),
         })
     end,
 
@@ -100,7 +100,7 @@ My.Translator:register("de", {
             "Hey Sie. Jetzt schauen Sie doch nicht so auffällig.",
             "Hier drüben! Ist ihnen auch niemand gefolgt?",
         }) .. " " .. Util.random({
-            f("Falls sie %s suchen haben sie " .. ihnSie .. " gefunden.", receiverPerson:getFormalName()),
+            f("Falls sie %s suchen haben Sie " .. ihnSie .. " gefunden.", receiverPerson:getFormalName()),
             t("comms_generic_introduction", receiverPerson) .. " Ich habe sie erwartet.",
         })
         .. " " .. Util.random({
@@ -122,8 +122,8 @@ My.Translator:register("de", {
             "Das erklärt selbstverständlich die Vorkommnisse in letzter Zeit.",
             "Daran hätte ich auch selber denken können.",
             "Diese Information lässt die Situation natürlich in einem ganz anderen Licht erscheinen.",
-            "Wenn das so ist, dann erklärt das das merkwürde Verhalten der letzten Tage.",
-            "So etwas in der Art dachte ich mir schon. Aber dass es so schlimm ist hätte ich nicht erwartet.",
+            "Wenn das so ist, dann erklärt das das merkwürdige Verhalten der letzten Tage.",
+            "So etwas in der Art dachte ich mir schon. Aber dass es so schlimm ist, hätte ich nicht erwartet.",
             "Und ich hatte schon an etwas anderes gedacht. Gut, dass die Information noch rechtzeitig bei mir angekommen ist.",
             "Das heißt also, dass ich die ganze Zeit falsche Schlussfolgerungen gezogen habe. Danke, dass sie mir geholfen haben die Zusammenhänge zu verstehen.",
         }) .. " " .. Util.random({
@@ -148,7 +148,7 @@ My.Translator:register("de", {
             f("Niemals hat %s das gesagt.", senderPerson:getFormalName()),
             "Die Nachricht ergibt so überhaupt keinen Sinn.",
         }) .. " " .. Util.random({
-            "Verschwinden Sie und lassen sie mich in Frieden.",
+            "Verschwinden Sie und lassen Sie mich in Frieden.",
             "Da müssen Sie sich verhört haben.",
         }) .. " " .. Util.random({
             "Eine Belohnung bekommen Sie von mir für so einen Mumpitz sicher nicht.",

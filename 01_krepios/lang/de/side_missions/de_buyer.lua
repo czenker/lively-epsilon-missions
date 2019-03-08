@@ -52,7 +52,7 @@ My.Translator:register("de", {
             f("Ihr habt noch nicht alle Einheiten %s geliefert.", productName),
         })
     end,
-    side_mission_buyer_comms_todo = function(missingAmount, productName, paymentBonus)
+    side_mission_buyer_comms_todo = function(missingAmount, paymentBonus)
         return Util.random({
             f("Es fehlen noch %d Einheiten.", missingAmount),
         }) .. " " .. Util.random({

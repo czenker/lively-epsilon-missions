@@ -8,7 +8,7 @@ My.Translator:register("de", {
             f("Schiff abfangen in Sektor %s", sectorName),
         })
     end,
-    side_mission_disable_ship_description = function(shipCallSign)
+    side_mission_disable_ship_description = function()
         return Util.random({
             "Das Schiff ist im Vergleich zu anderen Schiffen im Sektor eher modern und gilt als eines der Schiffe mit der höchsten Geschwindigkeit.",
             "Ungewöhnliche Signaturen aus Richtung des Impulsantriebs legen nahe, dass das der Antrieb des Schiffs gepimpt wurde.",
@@ -27,21 +27,21 @@ My.Translator:register("de", {
                 "in der Spielhalle",
                 "im Handelszentrum",
                 "bei der Zollbehörde",
-            }) .. " und als ich zurück in den Hangar kam wurde mein Raumschiff von " .. thiefPerson:getFormalName() .. " gestohlen.",
+            }) .. " und als ich zurück in den Hangar kam, wurde mein Raumschiff von " .. thiefPerson:getFormalName() .. " gestohlen.",
             thiefPerson:getFormalName() .. " hat mich im Hangar mit vorgehaltenem Laser meines Raumschiffs beraubt.",
         }) .. " " .. Util.random({
             "Jetzt ist " .. (thiefPerson:hasTag("male") and "er" or "sie") .. " im Sektor " .. sectorName .. " unterwegs.",
             "Daraufhin hat " .. (thiefPerson:hasTag("male") and "er" or "sie") .. " sich auf den Weg in Richtung Sektor " .. sectorName .. " gemacht.",
         }) .. "\n\n" .. Util.random({
-            f("Ihr müsst mir helfen mein Raumschiff %s zurück zu bekommen.", shipCallSign),
-            f("Ohne mein Raumschiff %s bin ich nicht in der Lage diese Station zu verlassen. Ihr müsst es zurück bringen!", shipCallSign),
+            f("Ihr müsst mir helfen mein Raumschiff %s zurückzubekommen.", shipCallSign),
+            f("Ohne mein Raumschiff %s bin ich nicht in der Lage diese Station zu verlassen. Ihr müsst es zurückbringen!", shipCallSign),
         }) .. " " .. Util.random({
-            f("Wenn ihr mein Schiff zurück bringt zahle ich euch %0.2fRP - plus einen Bonus von bis zu %0.2fRP, wenn die Hülle meines Schiffs unbeschädigt ist.", minPayment, maxBonus),
+            f("Wenn ihr mein Schiff zurückbringt, zahle ich euch %0.2fRP - plus einen Bonus von bis zu %0.2fRP, wenn die Hülle meines Schiffs unbeschädigt ist.", minPayment, maxBonus),
             f("Bringt mein Schiff zurück und ihr bekommt %0.2fRP. Aber zerstört nur den Antrieb oder ich kann euch den Bonus von %0.2fRP nicht vollständig auszahlen.", minPayment, maxBonus),
         })
     end,
     side_mission_disable_ship_accept = "Bitte, bitte zerstören Sie mein Schiff nicht. Zielen sie auf den Antrieb und versuchen Sie die Hülle nicht zu beschädigen.",
-    side_mission_disable_ship_comms_too_close = "Sie befinden sich zu nah am Zielgebiet um die Mission zu starten.",
+    side_mission_disable_ship_comms_too_close = "Sie befinden sich zu nah am Zielgebiet, um die Mission zu starten.",
     side_mission_disable_ship_start_hint = function(shipName, sectorName)
         return f("Finden Sie das Schiff %s im Sektor %s.", shipName, sectorName)
     end,
@@ -50,16 +50,16 @@ My.Translator:register("de", {
     end,
     side_mission_disable_ship_approach_comms = function(thiefPerson, shipName)
         return Util.random({
-            "Haha, seid ihr hier um das Schiff zurück zu holen?",
+            "Haha, seid ihr hier, um das Schiff zurückzuholen?",
         }) .. " " .. Util.random({
             "Ihr glaubt nicht wirklich, dass ich mich freiwillig stelle?",
             "Das wird euch nicht gelingen.",
-            "Viel Spass beim Versuch, aber es wird euch nicht gelingen!",
+            "Viel Spaß beim Versuch, aber es wird euch nicht gelingen!",
             "Aber mit eurem kleinen Schiffchen wird das nicht funktionieren.",
         }) .. " " .. Util.random({
             f("%s ist das schnellste Schiff im ganzen Sektor.", shipName),
             f("Ich bin mit dem Schiff verschwunden, bevor ihr auch nur blinzelt."),
-            f("Wenn ich den Antrieb auf volle Stärke lade seht ihr nur noch die Plasmawolke hinter mir."),
+            f("Wenn ich den Antrieb auf volle Stärke lade, seht ihr nur noch die Plasmawolke hinter mir."),
         }) .. "\n\n- " .. thiefPerson:getFormalName()
     end,
 
@@ -73,18 +73,18 @@ My.Translator:register("de", {
         }) .. " " .. Util.random({
             f("%s ist das schnellste Schiff im ganzen Sektor.", shipCallSign),
             f("Ich bin mit dem Schiff verschwunden, bevor ihr auch nur blinzelt."),
-            f("Wenn ich den Antrieb auf volle Stärke lade seht ihr nur noch die Plasmawolke hinter mir."),
+            f("Wenn ich den Antrieb auf volle Stärke lade, seht ihr nur noch die Plasmawolke hinter mir."),
         })
     end,
     side_mission_disable_ship_taunt_hail2 = "Fangt mich doch, wenn ihr könnt.",
 
     side_mission_disable_ship_surrender_comms = function(shipCallSign, playerCallSign, thiefPerson, stationCallSign)
         return Util.random({
-            "Ok, ok. Ich gebe auf!",
+            "OK, OK. Ich gebe auf!",
             f("Hört auf mich weiter zu beschießen, %s. Ich gebe auf!", playerCallSign)
         }) .. "\n\n" .. Util.random({
-            f("Ich habe den Autopilot aktiviert und \"%s\" fliegt selbstständig zurück nach %s.", shipCallSign, stationCallSign),
-            f("Ich habe %s als Ziel für den Autopilot einprogrammiert. \"%s\" wird automatisch dort hin zurück fliegen.", stationCallSign, shipCallSign)
+            f("Ich habe den Autopiloten aktiviert und \"%s\" fliegt selbstständig zurück nach %s.", shipCallSign, stationCallSign),
+            f("Ich habe %s als Ziel für den Autopiloten einprogrammiert. \"%s\" wird automatisch dort hin zurückfliegen.", stationCallSign, shipCallSign)
         }) .. "\n\n- " .. thiefPerson:getFormalName()
     end,
 
@@ -104,7 +104,7 @@ My.Translator:register("de", {
     side_mission_disable_ship_success_comms = function(shipCallSign, person, payment)
         return Util.random({
             f("Gute Arbeit. \"%s\" ist auf dem Weg zurück zu mir.", shipCallSign),
-            f("Ihr habt mein Schiff zurück geholt? Vielen Dank."),
+            f("Ihr habt mein Schiff zurückgeholt? Vielen Dank."),
             f("Der Autopilot zeigt an, dass sich \"%s\" auf dem Rückweg befindet. Danke.", shipCallSign),
         }) .. " " .. Util.random({
             f("Da ich von eurem Bonus noch Reparaturkosten abziehen muss, erhaltet ihr in der Summe eine Bezahlung von %0.2fRP. Das ist doch auch nicht übel, oder?", payment),

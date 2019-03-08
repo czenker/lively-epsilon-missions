@@ -13,14 +13,14 @@ local f = string.format
 
 My.Translator:register("de", {
 
-    mines_miner_station_description = function(stationCallSign)
+    mines_miner_station_description = function()
         return Util.random({
             "Ein Stützpunkt für Schürfer.",
             "Von hier aus brechen Schürfer auf, um die umliegenden Asteroiden abzubauen.",
             "Eine der alten Handelsstationen im Sektor, von dem aus Schürfer aufbrechen.",
             "Eine in die Jahre gekommenene Schürfstation der SMC.",
         }) .. " " .. Util.random({
-            "Schürfer kehren hierhin zurück um ihre Ausbeute zu verkaufen und ihre Einnahmen zu versaufen.",
+            "Schürfer kehren hierhin zurück, um ihre Ausbeute zu verkaufen und ihre Einnahmen zu versaufen.",
         })
     end,
 
@@ -32,7 +32,7 @@ My.Translator:register("de", {
             "Ein zum Schürfer umgebauter Transporter.",
         }) .. " " .. Util.random({
             "Die Hülle ist mit Kratzern übersäht.",
-            "Wie dieses Schiff noch fliegen kann ist ein Geheimnis.",
+            "Wie dieses Schiff noch fliegen kann, ist ein Geheimnis.",
             "Ein notdürftig geflicktes Loch in der Hülle erzählt von der jüngeren Geschichte des Schiffs.",
             "Jemand hat mit weißer Farbe groß den Schiffsnahmen \"" .. shipCallSign .. "\" auf die Hülle geschmiert.",
             "Das Schiff zieht eine riesige Wolke aus Asteroidenstaub hinter sich her.",
@@ -59,14 +59,14 @@ My.Translator:register("de", {
             f("Meine Aufgabe ist %s aus Asteroiden abzubauen.", minedProducts),
         }) .. " " .. Util.random({
             "Die Bezahlung ist nicht die Beste, aber irgendwie muss ich meinen Lebensunterhalt verdienen.",
-            "Für die Gefahren, die ich hier draußen täglich eingehe werde ich viel zu schlecht bezahlt. Aber für einen besseren Job bin ich nicht qualifiziert genug.",
+            "Für die Gefahren, die ich hier draußen täglich eingehe, werde ich viel zu schlecht bezahlt. Aber für einen besseren Job bin ich nicht qualifiziert genug.",
         })
     end,
 
-    mines_miner_undocking_chat_1 = function(minerCallSign, stationCallSign, shipPerson, stationPerson)
+    mines_miner_undocking_chat_1 = function()
         return Util.random({
             "Und auf gehts zu einer weiteren Stunde umgeben von Asteroiden.",
-            "Der Boss sagt ich soll die nächste Tour fliegen.",
+            "Der Boss sagt, ich soll die nächste Tour fliegen.",
 
             -- say bye
             "Bis später. Ich muss Asteroiden lasern.",
@@ -77,14 +77,14 @@ My.Translator:register("de", {
                 "der Antrieb",
                 "das Schild",
                 "die Steuerung",
-            }) .. " heute nicht wieder " .. Util.random({"spinnt", "versagt", "ausfällt"}) .. " wird die Schicht schnell vergehen.",
+            }) .. " heute nicht wieder " .. Util.random({"spinnt", "versagt", "ausfällt"}) .. ", wird die Schicht schnell vergehen.",
         })
     end,
-    mines_miner_undocking_chat_2 = function(minerCallSign, stationCallSign, shipPerson, stationPerson, randomPerson)
+    mines_miner_undocking_chat_2 = function(minerCallSign, randomPerson)
         return Util.random({
             -- personal
             "Und wer wischt deine Kotze im Hangar weg?",
-            "Komm ja zurück. Heute Abend gibt es eine Revange.",
+            "Komm ja zurück. Heute Abend gibt es eine Revanche.",
             "Wir sehen uns dann heute Abend " .. Util.random({
                 "bei " .. randomPerson:getNickName() .. ".",
                 "im Kasino.",
@@ -98,11 +98,11 @@ My.Translator:register("de", {
                 "Der Mechaniker meinte",
                 "Die Mechanikerin meinte",
                 randomPerson:getNickName() .. " meinte",
-            }) .. f(" der Schrotthaufen, den du %s nennst sollte diesen Flug noch überstehen.", minerCallSign),
+            }) .. f(" der Schrotthaufen, den du %s nennst, sollte diesen Flug noch überstehen.", minerCallSign),
         })
     end,
 
-    mines_miner_dock_initiation_chat_request = function(minerCallSign, stationCallSign, shipPerson, stationPerson)
+    mines_miner_dock_initiation_chat_request = function(stationCallSign, shipPerson, stationPerson)
         local hail = Util.random({
             f("Hey %s.", stationCallSign),
             f("Hallo %s.", stationCallSign),
@@ -115,14 +115,14 @@ My.Translator:register("de", {
         })
         local jobDone = Util.random({
             "Ich habe meine Schicht beendet und befinde mich im Anflug auf die Station.",
-            "Wenn die Schrottmühle noch einen Augenlick hält, bin ich sofort bei euch.",
-            "Falls ihr wollt, dass mein Schiff nicht sofort auseinander fällt solltet ihr schon mal ein Reparaturteam bereit stellen. Ich bin sofort da.",
+            "Wenn die Schrottmühle noch einen Augenblick hält, bin ich sofort bei euch.",
+            "Falls ihr wollt, dass mein Schiff nicht sofort auseinander fällt, solltet ihr schon mal ein Reparaturteam bereitstellen. Ich bin sofort da.",
             "Stellt mir schon mal ein Bier kalt. Ich bin sofort zurück.",
         })
 
         return hail .. " " .. jobDone
     end,
-    mines_miner_dock_initiation_chat_response = function(minerCallSign, stationCallSign, shipPerson, stationPerson, randomPerson)
+    mines_miner_dock_initiation_chat_response = function(stationCallSign, shipPerson, randomPerson)
         local response = Util.random({
             "Und ich dachte schon, du bist gegen einen Asteroiden geflogen.",
             f("Du lebst noch? Scheiße, jetzt muss ich %s einen Drink spendieren.", randomPerson:getNickName()),

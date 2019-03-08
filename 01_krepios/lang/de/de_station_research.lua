@@ -2,7 +2,7 @@ local f = string.format
 
 My.Translator:register("de", {
 
-    research_station_description = function(stationCallSign, nebulaName)
+    research_station_description = function(nebulaName)
         return Util.random({
             "Eine kleine Forschungsstation in ".. nebulaName .. ".",
         }) .. " " .. Util.random({

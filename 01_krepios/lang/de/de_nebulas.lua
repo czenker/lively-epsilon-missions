@@ -16,7 +16,7 @@ My.Translator:register("de", {
             "Man sagt, er sei einer der schönsten in der Gegend.",
             "Reiseführer empfehlen einen Flug hier hin, weil das Farbenspiel unvergleichlich ist.",
             "Gelegentlich verirren sich kleine Reisegruppen oder Transporter hier hin.",
-            "Man sagt, wer hier hin reist wird als glücklicher Mensch zurück kehren. Ob das auch für Aliens gilt ist unbekannt.",
+            "Man sagt, wer hier hinreist wird als glücklicher Mensch zurückkehren. Ob das auch für Aliens gilt ist unbekannt.",
             "Er ist vermutlich der uninteressanteste Nebel in der Region.",
             "Sonst gibt es nichts weiter über ihn zu sagen.",
             "Und das ist auch schon alles, das man über ihn wissen muss.",
@@ -34,7 +34,7 @@ My.Translator:register("de", {
     nebulas_description_research = function(nebulaName, size, sectorName, researchStationName)
         return description(nebulaName, size, sectorName) .. " " .. Util.random({
             f("Kaum ein Raumschiff, dass sich hierhin verirrt möchte nicht zur Station %s fliegen.", researchStationName),
-            f("Falls man nicht die Station %s besuchen möchte lohnt es sich nicht diesen Nebel zu besuchen.", researchStationName),
+            f("Falls man nicht die Station %s besuchen möchte, lohnt es sich nicht diesen Nebel zu besuchen.", researchStationName),
             f("Glaubt man den Reiseführern, so sollte man diesen Nebel nicht besuchen, weil er von den \"Eierköpfen von %s\" bewohnt wird.", researchStationName),
         })
     end,

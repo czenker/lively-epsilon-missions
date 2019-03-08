@@ -13,7 +13,7 @@ My.Translator:register("de", {
         })
     end,
     station_abandoned_hail_docked = "Die Landeluke eures Schiffs ist an die Luftschleuse der Station angedockt. Ein Schild weißt darauf hin, dass im Falle eines Energieausfalls die Luftschleuse durch manuelle Entriegelung geöffnet werden kann.\n\nDoch keiner weiß, was hinter der Schleuse verborgen liegt.",
-    station_abandoned_hail_docked_searched = "Die Luftschleuse der Station laesst sich leicht oeffnen. Dahinter ist nur gähnende Leere zu sehen. Alles von Wert wurde bereits von Schatzjägern, Piraten und Opportunisten entfernt.",
+    station_abandoned_hail_docked_searched = "Die Luftschleuse der Station lässt sich leicht öffnen. Dahinter ist nur gähnende Leere zu sehen. Alles von Wert wurde bereits von Schatzjägern, Piraten und Opportunisten entfernt.",
     station_abandoned_enter = "Station betreten",
 
     -- empty

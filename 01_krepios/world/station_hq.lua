@@ -121,7 +121,7 @@ My.EventHandler:register("onStart", function()
         ship:addTag("merchant")
         ship:addTag("local")
 
-        local description = t("station_hq_ship_description", ship:getCallSign(), ship:getCaptain(), My.Config.metalBandName)
+        local description = t("station_hq_ship_description", ship:getCallSign(), My.Config.metalBandName)
         ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
         ship:setDescriptionForScanState("friendorfoeidentified", description)
         ship:setDescriptionForScanState("simple", description)

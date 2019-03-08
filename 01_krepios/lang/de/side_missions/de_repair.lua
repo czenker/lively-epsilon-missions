@@ -6,7 +6,7 @@ My.Translator:register("de", {
         return Util.random({
             f("Hey, ich bin %s, Captain eines Raumschiffs", captainPerson:getFormalName())
         }) .. ".\n\n" .. Util.random({"Aufgrund", "Wegen"}) .. " " .. Util.random({
-            "eines Kurzschluss im System",
+            "eines Kurzschlusses im System",
             "einer Überlastung des Reaktors",
             "des Auslaufs von Kühlmittel",
         }) .. " " .. Util.random({
@@ -18,17 +18,17 @@ My.Translator:register("de", {
             "Die Schäden übersteigen meine technischen Fähigkeiten"
         }) .. ". " .. Util.random({
             f("Ich bin auf dem Flug von %s nach %s stecken geblieben.", fromCallSign, toCallSign),
-            f("Ich war auf dem Flug von %s nach %s als das Problem auftrat.", fromCallSign, toCallSign),
+            f("Ich war auf dem Flug von %s nach %s, als das Problem auftrat.", fromCallSign, toCallSign),
             f("Eigentlich wollte ich entspannt von %s nach %s fliegen und dann passiert so etwas.", fromCallSign, toCallSign),
             f("Ich war noch nicht lange von %s abgedockt als ich die Probleme bemerkte. Jetzt komme ich nicht bis %s.", fromCallSign, toCallSign),
         }) .. "\n\n" .. Util.random({
             f("Könnt ihr mir %d eurer Techniker ausleihen?", crewCount),
             f("Mit Unterstützung von %d Technikern bekomme ich das Problem sicher in Griff.", crewCount),
-            f("Könnt ihr zeitweise %d eurer Techniker entbehren um mich zu unterstützen?", crewCount),
+            f("Könnt ihr zeitweise %d eurer Techniker entbehren, um mich zu unterstützen?", crewCount),
         }) .. " " .. Util.random({
             f("%0.2fRP zahle ich für Hilfe.", payment),
             f("Eure Hilfe ist mir %0.2fRP wert.", payment),
-            f("Sobald das Problem behoben ist bekommt ihr eure Techniker zurück und ich lege %0.2fRP drauf.", payment),
+            f("Sobald das Problem behoben ist, bekommt ihr eure Techniker zurück und ich lege %0.2fRP drauf.", payment),
             f("Für %0.2fRP?", payment),
         })
     end,
@@ -39,7 +39,7 @@ My.Translator:register("de", {
             "Ganz ausgezeichnet",
             "Großartig",
         }) .. ". " .. Util.random({
-            "Kommt zum Rendevous Punkt",
+            "Kommt zum Rendezvous Punkt",
             "Trefft mich auf meinem Schiff",
         }) .. ". " .. Util.random({
             "Ich, ähm... warte hier auf euch.",
@@ -59,7 +59,7 @@ My.Translator:register("de", {
             "bis auf 1u",
             "dicht",
             "sehr nah",
-        }) .. " an mein Schiff heran, dann kann euer Engineer die " .. Util.random({"Kollegen", "Techniker", "Ingenieure", "Reparaturmitarbeiter"}) .. " rüber schicken."
+        }) .. " an mein Schiff heran, dann kann euer Engineer die " .. Util.random({"Kollegen", "Techniker", "Ingenieure", "Reparaturmitarbeiter"}) .. " rüberschicken."
     end,
 
 
@@ -83,7 +83,10 @@ My.Translator:register("de", {
             "ich informiere euch, wenn die Arbeit erledigt ist",
             "ich sage Bescheid, sobald die Maschine wieder läuft",
             "ich melde mich, wenn alles fertig ist"
-        }) .. "."
+        }) .. ". " .. Util.random({
+            "Das kann mehrere Minuten dauern.",
+            "Wahrscheinlich dauert das eine gute Weile.",
+        })
     end,
     side_mission_repair_crew_arrived_hint = function(callSign)
         return f("Warten Sie, bis die Reparaturen auf %s abgeschlossen sind. Das kann mehrere Minuten dauern. ", callSign)
@@ -126,7 +129,7 @@ My.Translator:register("de", {
     end,
 
     side_mission_repair_crew_ready_hint = function(callSign, stationCallSign)
-        return f("Holen Sie Ihre Techniker von %s ab. Das Schiff befindet sich auf dem Weg zur Station %s.", callSign, stationCallSign)
+        return f("Holen Sie ihre Techniker von %s ab. Das Schiff befindet sich auf dem Weg zur Station %s.", callSign, stationCallSign)
     end,
     side_mission_repair_crew_returned_hail = function()
         return Util.random({
@@ -144,8 +147,8 @@ My.Translator:register("de", {
             f("Hier habt ihr wie versprochen die %0.2fRP.", payment),
         })
     end,
-    side_mission_repair_failure_comms_crew_lost = "Das Schiff auf das ihr eure Techniker ausgeliehen habt ist von unserem Schirm verschwunden. Eure Crew wird wohl nicht wieder auftauchen. Ist scheiße, aber so ist das Leben hier draußen. Leben und Sterben liegen dicht beeinander.",
-    side_mission_repair_failure_comms = "Das Schiff auf das ihr eure Techniker ausleihen solltet ist von unserem Schirm verschwunden. Die Crew wird wohl nicht wieder auftauchen.",
+    side_mission_repair_failure_comms_crew_lost = "Das Schiff, auf das ihr eure Techniker ausgeliehen habt, ist von unserem Schirm verschwunden. Eure Crew wird wohl nicht wieder auftauchen. Ist scheiße, aber so ist das Leben hier draußen. Leben und Sterben liegen dicht bei einander.",
+    side_mission_repair_failure_comms = "Das Schiff, auf das ihr eure Techniker ausleihen solltet, ist von unserem Schirm verschwunden. Die Crew wird wohl nicht wieder auftauchen.",
 
 
     side_mission_repair_comms_label = "Wie laufen die Reparaturen?",
@@ -157,7 +160,7 @@ My.Translator:register("de", {
     side_mission_repair_comms_6 = "Die meisten Probleme sind behoben. Hin und wieder flackert noch ein Lämpchen, aber das System funktioniert wieder. Eure Techniker feiern im Lager - sollte also demnächst mit fertig sein.",
     side_mission_repair_comms_7 = "Es sieht wieder alles gut aus. Eure Techniker waschen sich gerade noch die Hände und stoßen mit Selbstgebranntem an. Sie sollten jeden Augenblick fertig sein.",
     side_mission_repair_comms_completed = function(stationCallSign)
-        return f("Eure Techniker haben gute Arbeit geleistet. Alle Systeme sind wieder online.\n\nIhr könnt eure Techniker jederzeit wieder abholen.\n\nIch bin auf dem Weg zur Station %s. Fliegt bis auf 1u an mein Schiff heran, damit euer Engineer eure Kollegenzurück holen kann.", stationCallSign)
+        return f("Eure Techniker haben gute Arbeit geleistet. Alle Systeme sind wieder online.\n\nIhr könnt eure Techniker jederzeit wieder abholen.\n\nIch bin auf dem Weg zur Station %s. Fliegt bis auf 1u an mein Schiff heran, damit euer Engineer eure Kollegen zurückholen kann.", stationCallSign)
     end,
 
     side_mission_repair_return_crew_label = function(crewCount)

@@ -69,7 +69,7 @@ My.Translator:register("de", {
     defense_squadron_command_dock_label = "Dockt an [...]",
     defense_squadron_command_dock_hail = "An welche Station sollen wir docken?",
     defense_squadron_command_dock_ok = function(callSign)
-        return f("Gut. Wir docken an die Station %s um zu reparieren und unsere Bewaffnung aufzufüllen.", callSign)
+        return f("Gut. Wir docken an die Station %s, um zu reparieren und unsere Bewaffnung aufzufüllen.", callSign)
     end,
     defense_squadron_command_dock_nok = "Diese Station existiert nicht.",
     defense_squadron_command_dock_success = "Wir haben die Reparaturen abgeschlossen und unsere Waffen aufgefüllt.",
@@ -88,12 +88,12 @@ My.Translator:register("de", {
         return f("Gut. Wir werden unsere Laser auf %dTHz justieren.", frequency)
     end,
 
-    defense_squadron_command_enable_warp_label = "Fliegt mit Warp-Antrieb",
-    defense_squadron_command_enable_warp_ok = "Wir werden unseren Warp-Antrieb wieder aktivieren.",
+    defense_squadron_command_enable_warp_label = "Fliegt mit Warpantrieb",
+    defense_squadron_command_enable_warp_ok = "Wir werden unseren Warpantrieb wieder aktivieren.",
 
 
     defense_squadron_command_disable_warp_label = "Fliegt mit Impulsantrieb",
-    defense_squadron_command_disable_warp_ok = "Wir werden unseren Warp-Antrieb deaktivieren und mit Impulseantrieb fliegen.",
+    defense_squadron_command_disable_warp_ok = "Wir werden unseren Warpantrieb deaktivieren und mit Impulsantrieb fliegen.",
 
     defense_squadron_report = "Statusbericht",
     defense_squadron_report_hull = "Hülle",

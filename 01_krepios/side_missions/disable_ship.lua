@@ -67,7 +67,7 @@ My.SideMissions.DisableShip = function(station, x, y, player)
         local target = ShipTemplate()
         target:setCallSign(shipCallSign)
         target:setPosition(x, y)
-        target:setScannedDescription(t("side_mission_disable_ship_description", target:getCallSign()))
+        target:setScannedDescription(t("side_mission_disable_ship_description"))
         target:setHailText(t("side_mission_disable_ship_taunt_hail1"))
 
         target:addComms(Comms:newReply(

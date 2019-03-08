@@ -258,7 +258,7 @@ My.ChatterNoise:addChatFactory(Chatter:newFactory(2, function(one, two)
 
     return {
         {one, t("chatter_hartman_1", My.Config.commander)},
-        {two, t(secondId, My.Config.commander)},
+        {two, t(secondId)},
     }
 end, {
     filters = {

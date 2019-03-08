@@ -34,7 +34,7 @@ My.FlyingBuyer = function(station, carriedProducts, freighterName)
             storage[product] = station:getMaxProductStorage(product)
         end
 
-        local description = t("flying_trader_description", ship:getCallSign(), ship:getCaptain())
+        local description = t("flying_trader_description", ship:getCallSign())
         ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
         ship:setDescriptionForScanState("friendorfoeidentified", description)
         ship:setDescriptionForScanState("simple", description)
@@ -138,7 +138,7 @@ My.FlyingSeller = function(station, carriedProducts, freighterName)
             storage[product] = station:getMaxProductStorage(product)
         end
 
-        local description = t("flying_trader_description", ship:getCallSign(), ship:getCaptain())
+        local description = t("flying_trader_description", ship:getCallSign())
         ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
         ship:setDescriptionForScanState("friendorfoeidentified", description)
         ship:setDescriptionForScanState("simple", description)

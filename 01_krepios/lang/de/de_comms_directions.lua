@@ -22,6 +22,6 @@ My.Translator:register("de", {
             f("Von meiner Position aus ist das in etwa %du in Richtung %d.", distance, heading),
         })
     end,
-    comms_directions_detail_close = "Die Station befindet sich in meiner unmittelaren Nähe.",
+    comms_directions_detail_close = "Die Station befindet sich in meiner unmittelbaren Nähe.",
     comms_directions_detail_error = "Ich habe keine Ahnung, wo das ist.",
 })

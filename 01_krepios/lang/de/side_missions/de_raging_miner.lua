@@ -6,7 +6,7 @@ My.Translator:register("de", {
     end,
     side_mission_raging_miner_description = function(payment)
         local cause = Util.random({
-            "einen Meteorideneinschlag",
+            "einen Asteroideneinschlag",
             "Altersschwäche",
             "Weltraumschrott",
             "einen elektromagnetischen Impuls",
@@ -26,8 +26,8 @@ My.Translator:register("de", {
             "gestern",
             "vor ein paar Stunden",
         }) .. " schwer beschädigt. Dabei sind einige Systeme ausgefallen. " .. Util.random({
-            "Leider habe ich den Autopilot aktiviert",
-            "Bevor ich das Schiff verlassen habe habe ich noch den Autopilot aktiviert",
+            "Leider habe ich den Autopiloten aktiviert",
+            "Bevor ich das Schiff verlassen habe, habe ich noch den Autopiloten aktiviert",
         }) .. " doch jetzt " .. Util.random({
             "läuft das Schiff Amok",
             "dreht der Schrotthaufen endgültig durch",
@@ -41,7 +41,7 @@ My.Translator:register("de", {
             "tödlich",
         }) .. ". Hinzu kommt, dass die Schilde " .. Util.random({
             "verrückt spielen",
-            "einen Knacks weghaben",
+            "einen Knacks weg haben",
             "einen Schaden haben",
             "zerfetzt wurden",
             "einen Kurzschluss haben",
@@ -50,7 +50,7 @@ My.Translator:register("de", {
         }) .. ", sondern stattdessen einen heftigen EMP Impuls aussenden. Ich brauche jemanden, der das Schrottding zerstört und dabei dachte ich an euch. " .. f("Wie klingen %0.2fRP als Belohnung?", payment)
     end,
 
-    side_mission_raging_miner_too_close = "Ey Alter, du bist viel zu nah am Zielgebiet.", -- @TODO
+    side_mission_raging_miner_too_close = "Sie befinden sich zu nah am Zielgebiet, um die Mission zu starten.",
     side_mission_raging_miner_accept = "Yeah. Ein Zweikampf mit einer durchgeknallten Maschine. Schade, dass ich nicht zu schauen kann.",
 
     side_mission_raging_miner_ship_description = function()

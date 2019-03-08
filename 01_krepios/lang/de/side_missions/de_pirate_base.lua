@@ -20,7 +20,7 @@ My.Translator:register("de", {
             f("Unsere Sensoren haben eine mögliche Feindstation im Sektor %s geortet.", sectorName),
             f("Unser Science Officer hat uns verdächtige Feindaktivitäten in Sektor %s gemeldet. Es sieht nach einer neuen Station aus.", sectorName),
             f("Wie es aussieht versuchen die Piraten einmal mehr Fuß in Sektor %s zu fassen und eine Station zu errichten.", sectorName),
-            f("Wir haben eine Baustelle im Sektor %s entdeckt. Da sie nicht angemeldet ist müssen wir davon ausgehen, dass unsere Feinde versuchen eine Basis in Sektor %s zu errichten.", sectorName, sectorName),
+            f("Wir haben eine Baustelle im Sektor %s entdeckt. Da sie nicht angemeldet ist, müssen wir davon ausgehen, dass unsere Feinde versuchen eine Basis in Sektor %s zu errichten.", sectorName, sectorName),
         }) .. " " .. Util.random({
             "Das ist natürlich nicht hinnehmbar.",
             "Das ist für uns natürlich sehr unerfreulich.",
@@ -45,7 +45,7 @@ My.Translator:register("de", {
 
         return Util.random({
             f("Im Sektor %s wurde ein feindlicher Warp Jammer geortet.", sectorName),
-            f("Unsere Feinde haben im Sektor %s einen Warp Jammer installiert um unsere Handelsrouten zu stören.", sectorName),
+            f("Unsere Feinde haben im Sektor %s einen Warp Jammer installiert, um unsere Handelsrouten zu stören.", sectorName),
         }) .. " " .. Util.random({
             "Das ist natürlich nicht hinnehmbar.",
             "Ohne Frage muss er zerstört werden.",
@@ -58,16 +58,16 @@ My.Translator:register("de", {
             f("Wenn Sie uns helfen die Handelsrouten wieder sicher zu machen zahlen wir Ihnen %0.2fRP als Belohnung.", payment),
         })
     end,
-    side_mission_pirate_base_comms_too_close = "Sie halten sich zu nah am Zielgebiet auf. Wir wollen Sie nicht unnötig gefährden. Bitte halten Sie mehr Abstand um den Auftrag anzunehmen.",
+    side_mission_pirate_base_comms_too_close = "Sie halten sich zu nah am Zielgebiet auf. Wir wollen Sie nicht unnötig gefährden. Bitte halten Sie mehr Abstand, um den Auftrag anzunehmen.",
     side_mission_pirate_base_station_description = "Eine Baustelle der Piraten. Die Station ist noch nicht funktionsfähig und kaum über den Rohbau hinaus.",
     side_mission_pirate_base_jammer_description = "Ein Warp Jammer der Piraten, der die nahe gelegenen Handelsrouten stört.",
-    side_mission_pirate_base_ship_description = function(shipCallSign)
+    side_mission_pirate_base_ship_description = function()
         return Util.random({
             "Ein dunkel lackiertes Schiff auf dessen Hülle ein riesiger Totenkopf gezeichnet wurde.",
             "Auf der Hülle dieses Schiffs wird eine Strichliste geführt, die offenbar die Abschussliste des Piloten repräsentiert.",
             "Den Energiesignaturen nach zu urteilen hat das Schiff offenbar einige illegale Verbesserungen installiert.",
-            "Aus der Entfernung sieht es aus, als sei das Schiff bis an die Zähne bewaffnet. Ein Scan zeigt allerdings, dass die Hälfte der Waffen nur Atrappen sind. Gefährlich ist das Schiff aber dennoch.",
-            "Der Name des Schiffes wird eingrahmt aus einer Komposition von Laserstrahlen und Rosendornen.",
+            "Aus der Entfernung sieht es aus, als sei das Schiff bis an die Zähne bewaffnet. Ein Scan zeigt allerdings, dass die Hälfte der Waffen nur Attrappen sind. Gefährlich ist das Schiff aber dennoch.",
+            "Der Name des Schiffes auf der Hülle wird eingerahmt von einer Komposition von Laserstrahlen und Rosendornen.",
         })
     end,
 

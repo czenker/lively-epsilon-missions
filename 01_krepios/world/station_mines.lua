@@ -36,7 +36,7 @@ local numberOfMiners = 4
 
 local function makeItAMine(station)
     station:setCallSign(My.miningStationName())
-    station:setScannedDescription(t("mines_miner_station_description", station:getCallSign()))
+    station:setScannedDescription(t("mines_miner_station_description"))
 
     Station:withStorageRooms(station, {
         [products.ore] = 400,
@@ -126,8 +126,8 @@ local function makeItAMine(station)
             onUndocking = function(ship, theStation)
                 if theStation == station then
                     My.Chatter:converse({
-                        { ship, t("mines_miner_undocking_chat_1", ship:getCallSign(), station:getCallSign(), ship:getCaptain(), station:getCrewAtPosition("relay")) },
-                        { station, t("mines_miner_undocking_chat_2", ship:getCallSign(), station:getCallSign(), ship:getCaptain(), station:getCrewAtPosition("relay"), Person:newHuman()) },
+                        { ship, t("mines_miner_undocking_chat_1") },
+                        { station, t("mines_miner_undocking_chat_2", ship:getCallSign(), Person:newHuman()) },
                     })
 
                 end
@@ -135,8 +135,8 @@ local function makeItAMine(station)
             onDockInitiation = function(ship, theStation)
                 if theStation == station then
                     My.Chatter:converse({
-                        { ship, t("mines_miner_dock_initiation_chat_request", ship:getCallSign(), station:getCallSign(), ship:getCaptain(), station:getCrewAtPosition("relay")) },
-                        { station, t("mines_miner_dock_initiation_chat_response", ship:getCallSign(), station:getCallSign(), ship:getCaptain(), station:getCrewAtPosition("relay"), Person:newHuman()) },
+                        { ship, t("mines_miner_dock_initiation_chat_request", station:getCallSign(), ship:getCaptain(), station:getCrewAtPosition("relay")) },
+                        { station, t("mines_miner_dock_initiation_chat_response", station:getCallSign(), ship:getCaptain(), Person:newHuman()) },
                     })
                 end
             end,
@@ -148,7 +148,7 @@ local function makeItAMine(station)
         local size = math.random(1, 3)
         local ship = TraderTemplate(size):setFaction(station:getFaction()):setCallSign(My.civilianShipName())
 
-        ship:setScannedDescription(t("station_hq_ship_description", ship:getCallSign(), ship:getCaptain(), My.Config.metalBandName))
+        ship:setScannedDescription(t("station_hq_ship_description", ship:getCallSign(), My.Config.metalBandName))
         ship.whoAreYouResponse = function()
             return t("station_hq_ship_buyer_who_are_you", ship:getCaptain(), station:getCallSign() or "", product:getName())
         end

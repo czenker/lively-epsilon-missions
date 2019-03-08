@@ -41,13 +41,13 @@ My.Translator:register("de", {
             f("Diese Datensticks müssen %s gebracht werden.", stationCallSign),
         }) .. " " .. Util.random({
             "Ich bin nicht befugt Ihnen zu sagen, welche Daten sich darauf befinden.",
-            "Wir vertrauen auf Ihre Diskretion bei der Lieferung der Speichermedien.",
+            "Wir vertrauen auf ihre Diskretion bei der Lieferung der Speichermedien.",
             "Die Kiste ist versiegelt und darf nur vom Empfänger geöffnet werden.",
         }) .. " " .. Util.random({
             f("Können Sie %d Einheiten in ihrem Laderaum entbehren?", amount),
             f("Die Datensticks benötigen %d Einheiten Platz.", amount),
         }) .. " " .. Util.random({
-            f("Wenn Sie an dem Auftrag interessiert sind können wir Ihnen %0.2fRP zahlen.", payment),
+            f("Wenn Sie an dem Auftrag interessiert sind, können wir Ihnen %0.2fRP zahlen.", payment),
             f("Ihre Diskretion ist uns die Summe von %0.2fRP wert.", payment),
         })
     end,
@@ -59,39 +59,39 @@ My.Translator:register("de", {
             f("Auf der Station %s werden Mineralien benötigt.", stationCallSign),
             f("Diese Kiste mit Mineralien muss zur Station %s gebracht werden.", stationCallSign),
         }) .. " " .. Util.random({
-            "Soweit ich erfahren habe werden sie dort von den Eierköpfen untersucht.",
-            "Ich weiß nicht wofür sie die brauchen, aber die Bezahlung ist gut, darum stelle ich keine Fragen.",
-            "Der Chefwissenschaftler hat irgendwas erzählt wofür sie die brauchen, aber ich habs wieder vergessen.",
+            "Soweit ich erfahren habe, werden sie dort von den Eierköpfen untersucht.",
+            "Ich weiß nicht, wofür sie die brauchen, aber die Bezahlung ist gut. Darum stelle ich keine Fragen.",
+            "Der Chefwissenschaftler hat irgendwas erzählt, wofür sie die brauchen, aber ich habs wieder vergessen.",
         }) .. " " .. Util.random({
             f("Können Sie %d Einheiten in ihrem Laderaum entbehren?", amount),
             f("Die Datensticks benötigen %d Einheiten Platz.", amount),
         }) .. " " .. Util.random({
-            f("Wenn Sie an dem Auftrag interessiert sind können wir Ihnen %0.2fRP zahlen.", payment),
+            f("Wenn Sie an dem Auftrag interessiert sind, können wir Ihnen %0.2fRP zahlen.", payment),
             f("Ihre Diskretion ist uns die Summe von %0.2fRP wert.", payment),
         })
     end,
 
-    side_mission_transport_thing_no_storage = "Ihr Schiff hat keinen Laderaum. Ich hoffe, Sie haben Verstaendnis, dass wir diesen Auftrag darum nicht an Sie vergeben werden.",
+    side_mission_transport_thing_no_storage = "Ihr Schiff hat keinen Laderaum. Ich hoffe, Sie haben Verständnis, dass wir diesen Auftrag darum nicht an Sie vergeben werden.",
     side_mission_transport_thing_small_storage = function(storageAmount)
-        return f("Es tut uns sehr leid, aber der Laderaum Ihres Schiffes ist leider zu klein um diesen Auftrag anzunehmen. Sie benötigen mindestens einen Laderaum von %d.", storageAmount)
+        return f("Es tut uns sehr leid, aber der Laderaum ihres Schiffes ist leider zu klein, um diesen Auftrag anzunehmen. Sie benötigen mindestens einen Laderaum von %d.", storageAmount)
     end,
 
     side_mission_transport_thing_accept_hint = function(stationCallSign, productName)
-        return f("Docken Sie an %s um %s zu laden", stationCallSign, productName)
+        return f("Docken Sie an %s, um %s zu laden", stationCallSign, productName)
     end,
     side_mission_transport_thing_load_log = function(productName)
         return productName .. " geladen"
     end,
     side_mission_transport_thing_load_hint = function(stationCallSign, productName)
-        return f("Docken Sie an %s um %s auszuliefern", stationCallSign, productName)
+        return f("Docken Sie an %s, um %s auszuliefern", stationCallSign, productName)
     end,
     side_mission_transport_thing_insufficient_storage = function(productName, storageAmount)
-        return f("Laderaum zu klein um %s aufzunehmen. %d benötigt.", productName, storageAmount)
+        return f("Laderaum zu klein, um %s aufzunehmen. %d benötigt.", productName, storageAmount)
     end,
     side_mission_transport_thing_success_log = function(productName)
         return productName .. "  ausgeliefert. Mission abgeschlossen"
     end,
     side_mission_transport_thing_success = function(payment)
-        return f("Vielen Dank fuer die Lieferung. Wir haben Ihnen die Bezahlung in Höhe von %0.2fRP ueberwiesen. Wenn Sie wieder einen Auftrag suchen melden Sie sich bei uns.", payment)
+        return f("Vielen Dank für die Lieferung. Wir haben Ihnen die Bezahlung in Höhe von %0.2fRP überwiesen. Wenn Sie wieder einen Auftrag suchen, melden Sie sich bei uns.", payment)
     end,
 })

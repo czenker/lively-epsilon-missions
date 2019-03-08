@@ -16,7 +16,7 @@ My.EventHandler:register("onWorldCreation", function()
     My.World.Helper.eraseAsteroidsAround(x, y, 2000)
     local station = StationTemplate():setPosition(x, y)
     station:setCallSign(My.scienceStationName())
-    station:setScannedDescription(t("research_station_description", station:getCallSign(), nebula:getName()))
+    station:setScannedDescription(t("research_station_description", nebula:getName()))
     Station:withCrew(station, {
         relay = Person:newHumanScientist(),
         crystallographer = Person.newHumanScientist(),

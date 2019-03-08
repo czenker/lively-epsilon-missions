@@ -37,12 +37,12 @@ My.Translator:register("de", {
 
 
 
-    fortress_improvement_hint = "Unsere Techniker sind gerade ohne Arbeit. Was sollen sie als nächstes tun?",
+    fortress_improvement_hint = "Unsere Techniker sind gerade ohne Arbeit. Was sollen sie als Nächstes tun?",
     fortress_improvement_progress = function(improvementName)
         return "Unsere Technikteams arbeiten gerade an folgendem: " .. improvementName .. "."
     end,
     fortress_improvement_label = "Technikern Aufgabe geben",
-    fortress_improvement_what_next = "Was sollen wir als nächstes tun?",
+    fortress_improvement_what_next = "Was sollen wir als Nächstes tun?",
     fortress_improvement_confirmation = "Wir machen uns sofort an die Arbeit.",
 
 
@@ -72,7 +72,7 @@ My.Translator:register("de", {
     fortress_improvement_emp_completion = "Die bestellten EMPs wurden gefertigt und zu unserem Lager hinzugefügt.",
 
     fortress_improvement_nuke_name = "Nuklear Rakete produzieren",
-    fortress_improvement_nuke_confirmation = "Wenn wir dem Feind etwas entgegen setzen wollen können wir uns nicht auf konventionelle Waffen verlassen. Unsere Ingeneure tun ihr Bestes um eine Nuke herzustellen.",
+    fortress_improvement_nuke_confirmation = "Wenn wir dem Feind etwas entgegensetzen wollen, können wir uns nicht auf konventionelle Waffen verlassen. Unsere Ingeneure tun ihr Bestes, um eine Nuke herzustellen.",
     fortress_improvement_nuke_completion = "Wir haben eine Nuke gefertigt und zu unserem Lager hinzugefügt.",
 
     fortress_improvement_repair_name = "Reparaturdock in Gang setzen",
@@ -80,7 +80,7 @@ My.Translator:register("de", {
     fortress_improvement_repair_completion = "Die Werkstatt wurde repariert. Wir sind nun in der Lage die Hülle eures Schiffes zu reparieren, sollten es die Umstände erforderlich machen.",
 
     fortress_improvement_shield_name = "Schilde wiederherstellen",
-    fortress_improvement_shield_confirmation = "Ok, mal schauen, ob wir die Schilde auf dieser Station wieder ans Laufen bekommen. Drückt uns die Daumen.",
+    fortress_improvement_shield_confirmation = "OK, mal schauen, ob wir die Schilde auf dieser Station wieder ans Laufen bekommen. Drückt uns die Daumen.",
     fortress_improvement_shield_completion = "Wir haben die Schilde der Station wieder aktiviert bekommen. Noch sind sie fern von ihrer maximalen Leistung, aber immerhin sind wir nicht mehr ganz schutzlos.",
 
     fortress_improvement_shield2_name = "Schilde verstärken",
@@ -102,17 +102,17 @@ My.Translator:register("de", {
             "Wir haben das Upgrade  " .. upgradeName .. "  jetzt im Angebot.",
             "Wir können das Upgrade  " .. upgradeName .. "  auf eurem Schiff installieren.",
             "Habt ihr Interesse an einem Upgrade?  " .. upgradeName .. "?",
-            "Klingt  " .. upgradeName .. "  nach einem Upgrade an dem ihr interesse haben könntet?",
+            "Klingt  " .. upgradeName .. "  nach einem Upgrade, an dem ihr Interesse haben könntet?",
             "Gute Nachrichten:  Kommt nach " .. fortressCallSign .. " für das Upgrade  " .. upgradeName .. ".",
         }) .. "\n\n" ..
         Util.random({
             "Einer unserer " .. Util.random({"Techniker", "Technikerinnen"}) .. " konnte es aus einem alten Raumschiff ausbauen.",
-            "Es scheint so als wurde das hier auf der Station vergessen.",
+            "Es scheint so, als wurde das hier auf der Station vergessen.",
             "Ein pazifistisches Genie mit brauner Lederjacke konnte ein kaputtes Teil mit etwas Draht und einer Kugelschreibermine reparieren. Keiner weiß, wie er das gemacht hat, aber jetzt funktioniert es wieder.",
             "Eigentlich ist das Teil nicht für den Kampfeinsatz gedacht, aber im Krieg haben wir kaum eine Wahl.",
             "Wir haben das Teil in einem Lager gefunden, das " .. Util.random({"ein kleiner Junge", "ein kleines Mädchen"}) .. " beim Spielen entdeckt hat.",
             "Hinter einer elektronischen Tür haben wir eine Werkstatt gefunden. Mann, haben wir da viele Ersatzteile gefunden.",
-            "Weltraumschrott ist halt doch nicht immer Schrott. Manchmal findet man auch etwas brauchbares darunter.",
+            "Weltraumschrott ist halt doch nicht immer Schrott. Manchmal findet man auch etwas Brauchbares darunter.",
         }) .. " " ..
         Util.random({
             f("Für %.2fRP können wir das Upgrade installieren.", upgradePrice),
@@ -137,7 +137,7 @@ My.Translator:register("de", {
         return f("Wir werden im Augenblick von Flotte %d angegriffen und nehmen Schaden.", closestFleetId)
     end,
     fortress_intel_distance = function(distanceInU, closestFleetId)
-        return f("Die naheste Feindflotte ist Flotte %d. Sie befindet sich etwa %du von uns.", closestFleetId, distanceInU)
+        return f("Die nächste Feindflotte ist Flotte %d. Sie befindet sich etwa %du von uns.", closestFleetId, distanceInU)
     end,
     fortress_intel_detail_button = function(number)
         return "Flotte " .. number

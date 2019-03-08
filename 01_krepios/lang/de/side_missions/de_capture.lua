@@ -76,7 +76,7 @@ My.Translator:register("de", {
             criminalPerson:getFormalName()
         )
     end,
-    side_mission_capture_too_close = "Ey Alter, du bist viel zu nah am Zielgebiet.", -- @TODO
+    side_mission_capture_too_close = "Sie befinden sich zu nah am Zielgebiet, um die Mission zu starten.",
     side_mission_capture_start_hint = function(criminalPerson, sectorName)
         return f("Finden Sie %s in Sektor %s", criminalPerson:getFormalName(), sectorName)
     end,

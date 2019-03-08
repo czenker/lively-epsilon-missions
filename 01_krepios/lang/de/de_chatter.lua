@@ -49,7 +49,7 @@ My.Translator:register("de", {
     chatter_distance_to_dock = function(stationCallSign, distance)
         return Util.random({
             "Reisen im All dauern eine Ewigkeit.",
-            "Das Warten bis man am Ziel angekommen ist nervt.",
+            "Das Warten, bis man am Ziel angekommen ist, nervt.",
             "Laaaaangweilig.",
         }) .. " " .. Util.random({
             f("Aber zum Glück sind es nur noch %du bis nach %s.", distance, stationCallSign),
@@ -82,7 +82,7 @@ My.Translator:register("de", {
 
     chatter_miner_retire_1 = function()
         return Util.random({
-            "Was wirst du tun, wenn du genügend Geld gesammelt hast um aus diesem Drescksloch zu verschwinden?",
+            "Was wirst du tun, wenn du genügend Geld gesammelt hast, um aus diesem Drescksloch zu verschwinden?",
         })
     end,
     chatter_miner_retire_2 = function(metalBandName)
@@ -118,7 +118,7 @@ My.Translator:register("de", {
             "So lange mein Chef mich so schlecht bezahlt bleibt das aber ein Traum.",
             "Aber dafür müsste ich erst einmal beim Pokern gewinnen.",
             "Zuerst muss ich aber meine Wettschulden abbezahlen.",
-            "Das klappt nur nicht so lange ich mein Geld versaufe.",
+            "Das klappt nur nicht, so lange ich mein Geld versaufe.",
         })
     end,
 
@@ -129,7 +129,7 @@ My.Translator:register("de", {
             f("Hallöchen %s.", merchantCallSign),
         }) .. " " .. Util.random({
             "Was kostet denn dein heißer Schlitten?",
-            "Wieviel kostet es mal eine kleine Spritztour mit deinem Gefährt zu machen?",
+            "Wie viel kostet es mal eine kleine Spritztour mit deinem Gefährt zu machen?",
             "Was willst du denn im Tausch gegen dein Schiff haben?"
         })
     end,
@@ -143,11 +143,11 @@ My.Translator:register("de", {
     chatter_abandoned_station_1 = function(stationCallSign)
         return Util.random({
             f("Hast du Lust %s mal aus der Nähe zu erforschen?", stationCallSign),
-            f("Wie ist deine Einstellung zu Schatzsuchen auf verlassenen Stationen."),
+            f("Wie ist deine Einstellung zu Schatzsuchen auf verlassenen Stationen?"),
             f("Ich suche noch eine Person, die mit mir %s plündern würde?", stationCallSign),
         })
     end,
-    chatter_abandoned_station_2 = function(stationCallSign)
+    chatter_abandoned_station_2 = function()
         return Util.random({
             "Ich bin kein Schatzjäger. Ich halte mich von den verlassenen Stationen fern. Man weiß ja nie, was da für Gefahren lauern.",
             "Das soll nicht ganz ungefährlich sein. Undichte Reaktoren, kurzgeschlossene Leitungen. Da kann alles mögliche passieren.",
@@ -159,14 +159,14 @@ My.Translator:register("de", {
         return Util.random({
             f("Hast du %s schon mal aus der Nähe gesehen?", nebulaName),
             f("Ich habe gehört %s soll wunderschön sein.", nebulaName),
-            f("Glaubst du %s ist ein geeigneter Ort um sich vor Geldeintreibern zu verstecken?", nebulaName),
+            f("Glaubst du, %s ist ein geeigneter Ort, um sich vor Geldeintreibern zu verstecken?", nebulaName),
         })
     end,
-    chatter_nebula_2 = function(nebulaName)
+    chatter_nebula_2 = function()
         return Util.random({
-            "Ich versuche mich von Nebeln fern zu halten.",
+            "Ich versuche mich von Nebeln fernzuhalten.",
             "Da bekommen mich keine zehn Pferde hin.",
-            "Mein Vater hat mir schon als Kind geraten mich von Nebeln fern zu halten."
+            "Mein Vater hat mir schon als Kind geraten mich von Nebeln fernzuhalten."
         }) .. " " .. Util.random({
             "Man weiß nie, was da für Gesindel lebt.",
             "Letztes Jahr bin ich in einem Nebel auf Piraten getroffen. Ich bin gerade noch mit meinem Leben davon gekommen.",
@@ -193,8 +193,8 @@ My.Translator:register("de", {
 
     chatter_waste = function()
         local thing = Util.random({
-            "einem alten Sateliten",
-            "einem tiefgefrohrenen leblosen Körper",
+            "einem alten Satelliten",
+            "einem tiefgefrorenen leblosen Körper",
             "Weltraumschrott",
             "Asteroidenbrocken",
             "einem Klappstuhl",
@@ -209,7 +209,7 @@ My.Translator:register("de", {
             }) .. " " .. Util.random({
                 f("Nur ein kurzer Sekundenschlaf und schon kollidiert man mit %s.", thing),
                 f("Ich wäre fast mit %s zusammen gestoßen.", thing),
-                f("Wenn man nicht höllisch aufpasst macht man viel zu schnell mit %s Bekanntschaft.", thing),
+                f("Wenn man nicht höllisch aufpasst, macht man viel zu schnell mit %s Bekanntschaft.", thing),
             })
         })
     end,
@@ -232,7 +232,7 @@ My.Translator:register("de", {
         return Util.random({
             f("Ich habe gehört, du hast %s %dRP an %s verloren.", reason, amount, person:getFormalName()),
             f("Stimmt es wirklich, dass du %s %dRP an %s verloren hast?", reason, amount, person:getFormalName()),
-            f("Mir ist zu Ohren gekommen, dass dich %s beim %s um %dRP erleichtert hat. Ist an der Geschichte was dran?", person:getFormalName(), reason, amount),
+            f("Mir ist zu Ohren gekommen, dass dich %s %s um %dRP erleichtert hat. Ist an der Geschichte was dran?", person:getFormalName(), reason, amount),
             f("Stimmt es, dass du jetzt %dRP weniger hast, weil du %s gegen %s verloren hast?", amount, reason, person:getFormalName()),
         })
     end,
@@ -244,8 +244,8 @@ My.Translator:register("de", {
             "Von wem hast du denn die Geschichte?",
             "Wer erzählt denn die Geschichte rum? Sicher irgend ein Plappermaul.",
         }) .. " " .. Util.random({
-            "Ich habe aber schon einen Plan, wie ich das Geld zurück bekomme.",
-            "Heute abend gibt es eine Revange.",
+            "Ich habe aber schon einen Plan, wie ich das Geld zurückbekomme.",
+            "Heute Abend gibt es eine Revanche.",
             "Das nächste Mal habe ich mehr Glück. Ich habe jetzt einen neuen Talisman.",
         })
     end,
@@ -253,7 +253,7 @@ My.Translator:register("de", {
     chatter_hope_for_peaceful_flight = function(product)
         return Util.random({
             f("Ich hoffe, meine Ladung mit %s lockt keine Piraten an.", product:getName()),
-            f("Bei den Geschichten, die man immer hört kann man nur hoffen, dass meine Ladung %s keine Piraten anlockt.", product:getName()),
+            f("Bei den Geschichten, die man immer hört, kann man nur hoffen, dass meine Ladung %s keine Piraten anlockt.", product:getName()),
             f("Meine Ladung %s unter einem Haufen getragener Socken zu verstecken war die beste Idee, die ich je hatte. Kein Pirat wird auf die Idee kommen darunter nach zu schauen.", product:getName()),
             f("Letzte Woche ist schon wieder ein Pilot bei einem Piratenangriff drauf gegangen. Ich kann nur hoffen, dass sie an meiner Ladung %s kein Interesse haben.", product:getName()),
         })
@@ -297,13 +297,13 @@ My.Translator:register("de", {
         return Util.random({
             "Argh!!!",
             "Jetzt mal ehrlich:",
-        }) .. " " .. person:getFormalName() .. " ist der " .. insultingAdjectivs[1] .. " und " .. insultingAdjectivs[2] .. " " .. Util.random(insult) .. " " .. Util.random({
+        }) .. " " .. person:getFormalName() .. " ist der " .. insultingAdjectivs[1] .. " und " .. insultingAdjectivs[2] .. " " .. Util.random(insult) .. ", " .. Util.random({
             "der mir in meinem Leben untergekommen ist",
             "den ich je gesehen habe",
         }) .. "."
     end,
 
-    chatter_hartman_2_accept = function(person)
+    chatter_hartman_2_accept = function()
         return Util.random({
             "Haha, gut gesagt.",
             "Ja, gibs ihm.",
@@ -313,7 +313,7 @@ My.Translator:register("de", {
         })
     end,
 
-    chatter_hartman_2_reject = function(person)
+    chatter_hartman_2_reject = function()
         return Util.random({
             "So würde ich das nicht sagen. Sicher hat er einen Grund, warum er sich so verhält.",
             "Wenn das die falschen Leute hören, wirst du ganz schnell Ärger an der Backe haben.",
@@ -324,8 +324,8 @@ My.Translator:register("de", {
 
     chatter_treasure_1 = function(dropSectorName)
         return Util.random({
-            f("Ein Freund hat mir erzählt, dass es im Sektor %s einen Schiffscontainer ohne Besitzer gibt. Wenn das Minenfeld dort nicht wäre würde ich mir den holen.", dropSectorName),
-            f("Ich habe von einer schnellen Möglichkeit gehört um an Geld zu kommen. Im Sektor %s gibt es in einem Minenfeld einen Schiffscontainer, den keiner vermisst.", dropSectorName),
+            f("Ein Freund hat mir erzählt, dass es im Sektor %s einen Schiffscontainer ohne Besitzer gibt. Wenn das Minenfeld dort nicht wäre, würde ich mir den holen.", dropSectorName),
+            f("Ich habe von einer schnellen Möglichkeit gehört, um an Geld zu kommen. Im Sektor %s gibt es in einem Minenfeld einen Schiffscontainer, den keiner vermisst.", dropSectorName),
             f("Lust auf ein paar schnelle RP? Im Minenfeld von %s gibt es angeblich einen Container ohne Besitzer. Bestimmt sind die Minen schon so alt, dass sie nicht mehr auslösen.", dropSectorName),
             f("Hey. Ich habe da einen Tipp, wie du ganz schnell an Geld kommst: Im Sektor %s gibt es einen Schiffscontainer, den keiner vermisst.", dropSectorName),
         })
@@ -334,8 +334,8 @@ My.Translator:register("de", {
         return Util.random({
             "In einem Minenfeld? Bist du wahnsinnig?",
             "Willst du wirklich von einer Mine zerfetzt werden?",
-            "Dann machen wir es so: Du holst dir den Container und ich überlebe in der Zwischenzeit. Ok?",
-            "Und wenn ich darauf wette, dass du nicht lebend zurück kommst bin ich auch stinkreich.",
+            "Dann machen wir es so: Du holst dir den Container und ich überlebe in der Zwischenzeit. OK?",
+            "Und wenn ich darauf wette, dass du nicht lebend zurückkommst, bin ich auch stinkreich.",
         })
     end,
 
