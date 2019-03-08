@@ -1,4 +1,4 @@
-insulate("01 Krepios", function()
+insulate("01 Krepios Names", function()
 
     require "lively_epsilon.init"
     require "lively_epsilon.spec.mocks"
@@ -38,7 +38,6 @@ insulate("01 Krepios", function()
         ["Human Names"] = Person.newHuman,
         ["Human Scientist Names"] = Person.newHumanScientist,
     }) do
-        print(thing)
         it("does not generate duplicate " .. thing, function()
             -- the birthday paradox makes collisions more likely than you would think
             local names = {}
