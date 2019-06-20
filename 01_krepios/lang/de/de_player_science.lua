@@ -14,7 +14,7 @@ My.Translator:register("de", {
 
     player_science_info_upgrade_button = "Upgrades",
     player_science_info_upgrade_base_price = "unverbindliche Preisempfehlung",
-    player_science_info_upgrade_required_ugprade = function(upgradeName)
+    player_science_info_upgrade_required_upgrade = function(upgradeName)
         return f("Die Installation dieses Upgrades setzt voraus, dass das Upgrade \"%s\" bereits auf dem Schiff installiert wurde.", upgradeName)
     end
 })

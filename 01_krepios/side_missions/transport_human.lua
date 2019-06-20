@@ -10,17 +10,17 @@ My.SideMissions.TransportHuman = function(from, to)
     local stories = {}
 
     if to:hasTag("mining") then
-        table.insert(stories, t("side_mission_transport_human_desription_technician", person, to:getCallSign(), payment))
-        table.insert(stories, t("side_mission_transport_human_desription_chemist", person, to:getCallSign(), payment))
-        table.insert(stories, t("side_mission_transport_human_desription_physician", person, to:getCallSign(), payment))
+        table.insert(stories, t("side_mission_transport_human_description_technician", person, to:getCallSign(), payment))
+        table.insert(stories, t("side_mission_transport_human_description_chemist", person, to:getCallSign(), payment))
+        table.insert(stories, t("side_mission_transport_human_description_physician", person, to:getCallSign(), payment))
     end
 
     if to:hasTag("science") then
-        table.insert(stories, t("side_mission_transport_human_desription_scientist", person, to:getCallSign(), payment))
+        table.insert(stories, t("side_mission_transport_human_description_scientist", person, to:getCallSign(), payment))
     end
 
-    table.insert(stories, t("side_mission_transport_human_desription_ceo", person, to:getCallSign(), payment))
-    table.insert(stories, t("side_mission_transport_human_desription", person, to:getCallSign(), payment))
+    table.insert(stories, t("side_mission_transport_human_description_ceo", person, to:getCallSign(), payment))
+    table.insert(stories, t("side_mission_transport_human_description", person, to:getCallSign(), payment))
 
     local description = Util.random(stories)
 

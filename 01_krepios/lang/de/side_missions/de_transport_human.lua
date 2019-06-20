@@ -28,7 +28,7 @@ My.Translator:register("de", {
             f("Bringe Person nach %s", stationCallSign),
         })
     end,
-    side_mission_transport_human_desription = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description = function(clientPerson, stationCallSign, payment)
         return t("comms_generic_hail", clientPerson) .. " " .. Util.random({
             "Ich bin auf der Suche nach einer Mitfluggelegenheit nach ".. stationCallSign .. ".",
             "Fliegen Sie nach ".. stationCallSign .. "?",
@@ -41,7 +41,7 @@ My.Translator:register("de", {
             f("Ich habe %0.2fRP - die würde ich ihnen im Gegenzug bezahlen.", payment),
         })
     end,
-    side_mission_transport_human_desription_technician = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description_technician = function(clientPerson, stationCallSign, payment)
         return lateForJobDescription(
             "Cheftechniker",
             Util.random({
@@ -55,7 +55,7 @@ My.Translator:register("de", {
             payment
         )
     end,
-    side_mission_transport_human_desription_chemist = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description_chemist = function(clientPerson, stationCallSign, payment)
         return lateForJobDescription(
             "Chemiker",
             Util.random({
@@ -68,7 +68,7 @@ My.Translator:register("de", {
             payment
         )
     end,
-    side_mission_transport_human_desription_ceo = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description_ceo = function(clientPerson, stationCallSign, payment)
         return lateForJobDescription(
             "Executive Officer",
             Util.random({
@@ -81,7 +81,7 @@ My.Translator:register("de", {
             payment
         )
     end,
-    side_mission_transport_human_desription_physician = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description_physician = function(clientPerson, stationCallSign, payment)
         return lateForJobDescription(
             "Arzt",
             Util.random({
@@ -96,7 +96,7 @@ My.Translator:register("de", {
             payment
         )
     end,
-    side_mission_transport_human_desription_scientist = function(clientPerson, stationCallSign, payment)
+    side_mission_transport_human_description_scientist = function(clientPerson, stationCallSign, payment)
         return lateForJobDescription(
             "Wissenschaftler",
             Util.random({

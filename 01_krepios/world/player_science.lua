@@ -168,7 +168,7 @@ My.EventHandler:register("onStart", function()
                     )
                 end
                 if upgrade:getRequiredUpgradeString() ~= nil and My.Upgrades[upgrade:getRequiredUpgradeString()] ~= nil then
-                    text = text .. "\n" .. t("player_science_info_upgrade_required_ugprade", My.Upgrades[upgrade:getRequiredUpgradeString()]:getName()) .. "\n"
+                    text = text .. "\n" .. t("player_science_info_upgrade_required_upgrade", My.Upgrades[upgrade:getRequiredUpgradeString()]:getName()) .. "\n"
                 end
 
                 return text
