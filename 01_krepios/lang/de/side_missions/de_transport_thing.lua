@@ -45,7 +45,7 @@ My.Translator:register("de", {
             "Die Kiste ist versiegelt und darf nur vom Empfänger geöffnet werden.",
         }) .. " " .. Util.random({
             f("Können Sie %d Einheiten in ihrem Laderaum entbehren?", amount),
-            f("Die Datensticks benötigen %d Einheiten Platz.", amount),
+            f("Die Mineralien benötigen %d Einheiten Platz.", amount),
         }) .. " " .. Util.random({
             f("Wenn Sie an dem Auftrag interessiert sind, können wir Ihnen %0.2fRP zahlen.", payment),
             f("Ihre Diskretion ist uns die Summe von %0.2fRP wert.", payment),

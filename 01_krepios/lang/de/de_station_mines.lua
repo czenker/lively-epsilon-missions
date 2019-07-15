@@ -1,16 +1,6 @@
 local t = My.Translator.translate
 local f = string.format
 
--- things a typical miner cares about:
---  - hate for their job
---  - health issues
---  - drinking
---  - gambling
---  - hate for their crappy ship
---  - that they got no money
---  - hope for a better future far away
---  - listening to Heavy Metal music
-
 My.Translator:register("de", {
 
     mines_miner_station_description = function()
@@ -107,7 +97,7 @@ My.Translator:register("de", {
             f("Hey %s.", stationCallSign),
             f("Hallo %s.", stationCallSign),
             f("Captain %s an die Deppen auf %s.", shipPerson:getFormalName(), stationCallSign),
-            f("Hört mich jemand auf %s?.", stationCallSign),
+            f("Hört mich jemand auf %s?", stationCallSign),
             f("Hey, %s. Hört ihr mich?", stationCallSign),
             f("Hallo?? Hört ihr mich, %s?", stationCallSign),
             f("Hörst du mich, %s? Mein Funk scheint wieder zu spinnen.", stationPerson:getNickName()),

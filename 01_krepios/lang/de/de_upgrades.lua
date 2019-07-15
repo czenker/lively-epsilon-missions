@@ -166,7 +166,7 @@ My.Translator:register("de", {
 
     upgrade_shield2_name = "Schild MkII",
     upgrade_shield2_description = function(strength)
-        return f("Die Nennkapazität von 100 dieses Schilds für Handelsschiffe bietet einen grundlegenden Schutz gegen angreifende Piraten. Nicht selten hat die Langlebigkeit des Schilds dafür gesorgt, dass Handelsschiffe lange genug ausharren konnten, bis Begleitschiffe den Feind vertreiben konnten.", strength)
+        return f("Die Nennkapazität von %d dieses Schilds für Handelsschiffe bietet einen grundlegenden Schutz gegen angreifende Piraten. Nicht selten hat die Langlebigkeit des Schilds dafür gesorgt, dass Handelsschiffe lange genug ausharren konnten, bis Begleitschiffe den Feind vertreiben konnten.", strength)
     end,
 
     upgrade_shield3_name = "Schild MkIII",

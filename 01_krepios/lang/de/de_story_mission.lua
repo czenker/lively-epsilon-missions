@@ -9,7 +9,7 @@ My.Translator:register("de", {
     story_welcome_1_response_good = "Jawoll Sir. Wir melden uns zum Dienst.",
     story_welcome_1_response_bad = "Hey, wir sind keine Grünschnäbel!",
 
-    story_welcome_2_good = "Hah. So wie ihr redet, habt ihr an der Akademie den Streber-Kurs mit Bravour bestanden. Das könnt ihr \z
+    story_welcome_2_good = "Hah. So wie ihr redet, habt ihr an der Akademie den Streberkurs mit Bravour bestanden. Das könnt ihr \z
         euch hier gleich abgewöhnen, euer Gelaber interessiert hier niemanden.",
     story_welcome_2_bad = function(colonelPerson)
         return "Oh mein Gott. Natürlich seid ihr keine Grünschnäbel, sondern ein Haufen Heulsusen. Wegen mir könnt ihr \z
@@ -178,7 +178,7 @@ My.Translator:register("de", {
             f("Wir haben leider kein aktives Sprungloch, um euch Unterstützung zu schicken. Ich hoffe diese %0.2fRP können euch helfen.", amount),
         }) .. " " .. Util.random({
             "Setzt das Geld sinnvoll ein.",
-            "Zeigt denen, dass man sich nicht mit der Human Navy anlegt.",
+            "Zeigt denen, dass man sich nicht mit der Terranischen Navy anlegt.",
             "Schützt den Sektor vor dem Feind.",
             "Kauft euch ein sinnvolles Upgrade von dem Geld.",
         }) .. "\n\n- Colonel " .. colonelPerson:getFormalName()
@@ -221,7 +221,7 @@ My.Translator:register("de", {
         keine Chance."
     end,
     story_defense_briefing_2_response = "Das sind ungewohnt freundliche Worte von ihnen.",
-    story_defense_briefing_2 = function(colonelPerson)
+    story_defense_briefing_2 = function()
         return "Wie ihr wisst, ist unsere Kampfkraft hier auf Krepios nicht besonders stark, aber wir haben noch einige \z
         erfahrene Kampfpiloten aus den Terranischen Kriegen, die euch unterstützen können. Wir können allerdings nur ein \z
         Geschwader bemannen. Ihr müsst entscheiden, welches das ist:\n\n\z
@@ -296,7 +296,7 @@ My.Translator:register("de", {
     end,
 
     story_mission_debrief_1 = function(commanderPerson)
-        return "Ihr habt das unmögliche möglich gemacht! Auf unseren Schirmen sehen wir keine Feindflotten mehr. \z
+        return "Ihr habt das Unmögliche möglich gemacht! Auf unseren Schirmen sehen wir keine Feindflotten mehr. \z
         Heute ist ein wahrer Tag zum Feiern. Eure Mission auf Krepios ist hiermit beendet - bitte nutzt das Wurmloch, um \z
         euch mit mir zu treffen.\n\n\z- " .. commanderPerson:getFormalName()
     end,
@@ -344,7 +344,7 @@ My.Translator:register("de", {
         Weggetreten, " .. playerCallSign .. "."
     end,
     story_final_evacuation_debrief_lost = function(playerCallSign, commanderPerson)
-        return "Heute ist ein trauriger Tag für die Human Navy. Wir haben den Sektor Krepios an eine unbekannte Macht \z
+        return "Heute ist ein trauriger Tag für die Terranische Navy. Wir haben den Sektor Krepios an eine unbekannte Macht \z
         verloren. Viele Zivilisten und " .. commanderPerson:getFormalName() .. " haben ihr Leben in dem Sektor gelassen. \z
         Umso mehr stimmt es mich glücklich, dass wenigstens ihr es heil zurückgeschafft habt. Wir werden jede Crew brauchen, \z
         um uns dem unbekannten Feind zu stellen. Ihr habt gezeigt, dass er verwundbar ist. Und mit einer großen Flotte \z

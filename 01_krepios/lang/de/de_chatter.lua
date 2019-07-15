@@ -80,11 +80,7 @@ My.Translator:register("de", {
     chatter_expensive_products_3 = "Natürlich nicht. Aber das ist doch skandalös.",
 
 
-    chatter_miner_retire_1 = function()
-        return Util.random({
-            "Was wirst du tun, wenn du genügend Geld gesammelt hast, um aus diesem Drescksloch zu verschwinden?",
-        })
-    end,
+    chatter_miner_retire_1 = "Was wirst du tun, wenn du genügend Geld gesammelt hast, um aus diesem Drescksloch zu verschwinden?",
     chatter_miner_retire_2 = function(metalBandName)
         return Util.random({
             "Ich würde gern",

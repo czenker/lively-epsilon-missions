@@ -6,7 +6,6 @@ My.EventHandler:register("onFortressManned", function()
     local fortress = My.World.fortress
     local player = My.World.player
     local commanderPerson = My.Commander:getPerson()
-    local colonel = My.Config.colonel
 
     local dialog3Screen = function(initialText)
         local screen = Comms:newScreen(initialText .. "\n\n" .. t("story_defense_briefing_3", player:getCallSign()))
@@ -34,7 +33,7 @@ My.EventHandler:register("onFortressManned", function()
     end
 
     local dialog2 = function()
-        local screen = Comms:newScreen(t("story_defense_briefing_2", colonel))
+        local screen = Comms:newScreen(t("story_defense_briefing_2"))
         screen:addReply(Comms:newReply(t("story_defense_briefing_2_response_artillery"), dialog3Artillery))
         screen:addReply(Comms:newReply(t("story_defense_briefing_2_response_gunship"), dialog3Gunship))
 
