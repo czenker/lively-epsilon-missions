@@ -2,6 +2,8 @@
 -- Description: The player crew finds itself in a mining colony far away from any civilization.
 --- Recommended to be played with 20u scanner range.
 -- Type: Mission
+-- Variation[English]: english translation
+-- Variation[German]: Deutsche Uebersetzung
 
 -- ----------------------------
 --
@@ -45,6 +47,11 @@ require "01_krepios/init.lua"
 function init()
     local t = My.Translator.translate
 
+    if getScenarioVariation() == "German" then
+        My.Translator:useLocale("de")
+    else
+        My.Translator:useLocale("en")
+    end
 
     Translator:printInspection(My.Translator)
 

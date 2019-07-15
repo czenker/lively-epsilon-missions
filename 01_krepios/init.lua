@@ -27,10 +27,11 @@ My.EventHandler = EventHandler:new({allowedEvents = {
 }, unique = true})
 
 My.Translator = Translator:new("de")
-My.Translator:useLocale("de")
+My.Translator:useLocale("en")
 
 local myPackages = {
     "01_krepios/lang/de/init.lua",
+    "01_krepios/lang/en/init.lua",
 
     "01_krepios/products.lua",
 
