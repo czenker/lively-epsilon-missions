@@ -1,0 +1,48 @@
+:attribute-missing: warn
+:attribute-undefined: drop
+
+:toc: left
+:toclevels: 2
+:icons: font
+
+= Lively Epsilon Missions
+
+
+== Krepios
+
+You find yourself in the _Krepios System_, a mining sector that has seen its golden years half a century back and is now
+mostly abandoned. Only few miners who are too poor or too stubborn to leave are still working for the
+_Saiku Mining Corporation_ (SMC) to extract the last remaining ores from the asteroid belt. Alcoholism, Poverty and Crime
+are a daily occurrence.
+
+Players::
+Crew of 5 or 6 recommended, but can be also played with 3/4 players or even solo.
+Game Master optional, but recommended.
+
+Play Time::
+2-3 hours
+
+Disclaimer::
+Contains strong language and alcoholism. So its probably not suitable for kids.
+
+Features::
+* **open world like**, where you can pick missions to your liking
+* you start with a weak gunboat, but can **upgrade** it to your liking to become a decent frigate
+* **trade** with stations to make money or restock your weapons
+* **lively universe**: ships around you seem to be doing stuff and talking about it
+* **randomized** world: every playthrough will be slightly different
+* **english** and **german** localization
+* quality of life **improvements**, like
+** a mission tracker
+** quick dial for Relay
+** presets for engineering
+** and lots more
+* lots of descriptions and texts. Relay will not get bored.
+* 4 slightly **different endings** – apart from you killing yourself
+
+Details::
+* <<01_krepios_guide.adoc#,Players Guide>> – the spoiler free guide when you play without Game Master or want more information
+* **!!!SPOILERS!!** <<01_krepios_gm.adoc#,Game Master Guide>> – more insight if you are the Game Master. Don't read if you want to enjoy the scenario yourself.
+
+== About
+

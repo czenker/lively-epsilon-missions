@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'asciidoctor'
+gem 'coderay'
+gem 'rake'
+gem 'tilt'

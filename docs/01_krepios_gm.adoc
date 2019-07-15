@@ -1,0 +1,227 @@
+:attribute-missing: warn
+:attribute-undefined: drop
+
+:toc: left
+:toclevels: 2
+:icons: font
+
+= Krepios Game Master Guide
+
+[WARNING]
+====
+**SPOILERS AHEAD!!**
+
+Don't read any further if you want to experience the scenario for yourself.
+====
+
+Playing the scenario with a Game Master is recommended, as there are some glitches and probably bugs
+with the scenario.
+
+
+== Krepios System
+
+Every time you load the scenario the map will look differently. Usually it is not centered – so you need to zoom out
+first and look the for asteroid belt. It does not span all around the map as it might have a negative impact on
+game performance.
+
+The asteroid belt contains
+
+* **SMC HQ** as the biggest station. It is usually around the center of the belt. The players start right in front of it.
+* **3 mining stations** are distributed around SMC HQ in 20-30u distance.
+* **3 abandoned mining stations** on the map serve as mission locations and can be explored by the players
+* **several nebulas** on the map also serve as mission locations
+* **one science station** is situated in one of the nebulas. It also gives missions and trades to the players.
+* **SMC Alpha** is counter-clock wise on the far side of the asteroid belt. It serves as a location for the main mission. More on it later.
+* **Minefields** on the map can be used strategically by the players and have a container in the center that gives the players credits (RP) and energy.
+* A **wormhole** at the center near the planet is used at the end of the mission. Outer World traders start there, but the players should not go there until they are tasked to.
+* Far, far away in sector `F80` is a dummy station called **John Doe**. The players jump there at the end and the scenario is over. They are not supposed to fly there or even know of its existence.
+
+
+== Customization Options
+
+* In `scenario_01_krepios.lua` you can edit the `My.Config` object to change the name of the player ship and the main characters. Just in case you do not like them.
+* You can **rename** all ships, stations, nebulae on the map. Theoretically all occurrences of its name should be updated. If not, you can consider this a bug and report it.
+* You can **move stations** – it does work. But don't overdo it, as the mission areas assigned to the stations do not move.
+* You can **command all ships** on the map. They will do what you tell them and return to their previous routine if you give them the command to _Idle_.
+* It is **not possible** to create ships and stations from the **Create** menu as they will be created with default descriptions and none of the enhancements of the scenario. Sorry.
+* Mines etc should be fine though.
+
+== GM Menu
+
+The GM interface has the ultimate Cheat Menu and we will briefly go over it:
+
+Player > Reputation::
+Reputation (RP) is basically used as a currency in game. You could also use the slider in the _Tweak_ interface to change the
+reputation, but the buttons let you work more fine grained.
+
+Player > Crew::
+There is a mission for the crew to lend their repair crew. Having the ship destroyed will make the crew unobtainable.
+In case that happens (or you want to help the crew) you can modify the crew count here.
+
+Player > Upgrades::
+Upgrades are basically what the crew is striving for and you can support them if you need to. You get a list of all upgrades that are available and can gift them to the players
+for free. Note that most upgrades require a certain upgrade to be installed, and you have to honor this dependency.
+Upgrade names in parentheses `[]` are already installed on the ship, upgrades with an angled arrow at the end `>` will be installed when you click the button.
+The players do not get a notification and don't need to pay for the upgrade.
+
+Player > Storage::
+Manipulate what the ship has loaded. Good for role playing or fixing, when the players buy stuff that they can not sell anywhere.
+
+Player > Reset Menus::
+Some custom menus on the crew stations are nested (like the in-game database of the Science Officer).
+In theory there should _always_ be a back button `<=` visible to the stations to go back to the main menu.
+To my knowledge it has never happened that this button was not there or inaccessible, but should it ever happen
+you can force _all stations_ to the main menu with a click on the _Reset Menu_ button.
+
+Stations > Storage::
+Same as with the players storage you can manipulate the storage on the station effectively also influencing how much
+the station buys or sells.
+
+Stations > Missions::
+You get a climbs of the missions a station offers. If you dislike it, select it and hit the _Replace_ button.
+
+Story::
+Theoretically you should never need to trigger story events as they run automatically, but if your crew gets bored, you can advance the story quicker.
+
+
+== Plot Line
+
+=== Phase 0: Intro
+
+During Phase 0 the players have all the time in the world. If you have newbies, now is the time to get them accustomed
+to their stations.
+
+==== Welcome
+As soon as the game starts the team is "welcomed" by Commander Wright Hartman. Depending on how nicely they
+answer, they get more or less RP at the beginning.
+
+_Relay_ should start looking for missions to earn RP. The crew can choose between multiple fighting and non-fighting missions.
+Additionally they have missions to visit all inhabited stations in the sector.
+
+They should start exploring their surroundings, doing missions and shipping goods.
+
+=== Phase 1: Sandbox
+
+The open world phase where the players can do whatever they want
+
+==== Money earned (onFirstMoneyEarned)
+Phase 1 starts as soon as they have `150RP` gathered by doing a few mission. Wright Hartman says hi again and insults them,
+but this event does little more than start a few timers.
+
+==== Laser Refit Module (onLaserRefitReward)
+
+25 minutes after Phase 1 starts, Wright Hartman contacts the crew again and installs a module for the Weapons Officer.
+This allows them to modify their lasers to be more powerful, have further reach, etc and can be used for strategic
+purposes. This is mostly helpful to experienced players. Everything regarding the module should be described
+in-game.
+
+You can trigger this event early through the menu.
+
+==== Power Preset Module (onPowerPresetsReward)
+
+40 minutes after Phase 1 starts, Wright Hartman gifts them another upgrade for the Engineering Officer which allows
+them to store presets for power and coolant distribution. If you played Artemis, this should be pretty familiar.
+
+You can trigger this event early through the menu.
+
+=== Phase 2: Enemies
+
+==== Enemies (onAttackersSpawn)
+
+60 minutes after Phase 1 starts, five enemy fleets spawn simultaneously close to the stations. The faction is called
+Legion, but nobody has any information who they are. They start heading towards the stations and attack ships.
+
+Shortly afterwards the player also get a warning by HQ that something is going on.
+
+==== Enemy detection (onAttackersDetection)
+
+As soon as the players have scanned any enemy ship or they are close enough to the player or any station to
+attack an emergency broadcast is sent to the whole sector commanding for evacuation to `SMC Alpha`, the abandoned
+mining station.
+
+At the same time Wright Hartman mans a ship with warp drive to go to SMC Alpha.
+If the players are really unlucky Hartman is killed on his way there, but this should rarely happen. Especially if you are trying to avoid it. ;)
+
+The players should now be on their way to SMC Alpha to plan the defenses. They can (and should) scan some of the enemies,
+but are not supposed to fight them head on. The enemy is cheating at that point and is quickly repairing themselves and replenishing
+missiles. This is intentional to make it very hard to defeat the enemy.
+
+==== Defense planning (onDefensePlanned)
+
+Sooner or later the players should make it to SMC Alpha and start the dialog with Wright Hartman to plan the defenses.
+He gives the players control over one squadron and the stations. The players now have new options:
+
+* The Relay Officer can control a defense fleet through communications.
+* Relay Officer can issue commands to SMC Alpha on what to do next (build missiles, reactivate shields, etc)
+* SMC Alpha will randomly offer upgrades. This is the first option to have a chance to get the upgrade to store nukes
+* The high command will randomly send RP to the player
+* Scanning enemy ships reveals more intel in a dialog the Relay Officer can have with SMC Alpha.
+
+==== All bases destroyed (onAllStationsDestroyed)
+
+As soon as all stations are destroyed the cheat that repairs the enemies and replenishes their missiles is turned off
+and the players have a more realistic chance of fighting the enemy.
+
+You can speed up that progress by deleting all stations (SMC HQ, the three inhabited mining stations, the science station)
+or commanding the fleets directly.
+
+=== Phase 3: Evacuation
+
+The attack of the enemy is intentionally designed to be very hard. Experienced crews can destroy the fleets, but sooner or later
+Phase 3 will start and it gives the players the option to finish the scenario with more or less heroism.
+
+==== Enemies closing in on Fortress (onClosingInToFortress)
+
+Once the first enemy fleet is close to the fortress high command recalls the players and they can finish the scenario by
+flying through the wormhole close to the planet.
+
+==== SMC Alpha destroyed (onCommanderDead)
+
+Once SMC Alpha is destroyed a second recall is issued by High Command. The players could stay in the sector to fight the last
+enemies, but at this point they should not have any way of replenishing missiles. Sooner or later they should make their way to the wormhole.
+
+You can speed up or delay this event by destroying or saving SMC Alpha.
+
+=== The End
+
+The scenario sooner or later ends with the crew flying through the wormhole. As soon as that happens an ending
+dialog appears on screen and when the player are through with it the scenario ends. Congratulations.
+
+The four endings are:
+
+* Hartman is dead, enemy lives (probably the most common one)
+* Hartman is dead, enemy destroyed (a rare one)
+* Hartman lives, enemy lives (this happens if the crew evacuates quickly)
+* Hartman lives, enemy destroyed (can be considered the best one)
+
+Each of those has a different text at the end.
+
+== GM Hints
+
+This chapter should help you understand the game better
+
+* Stations rotate one of their offered mission every few minutes to keep the missions fresh.
+* Stations always offer at least one fighting mission and one non-fighting missions for the crew to choose from.
+* Flying Traders spawn close to the wormhole to keep the economy alive. They buy items when the storage of a station is full and sell items when it is empty.
+* You can destroy all trading ships without problem. After a few minutes a replacement will spawn.
+
+=== Navigating fleets
+
+There are some fleets in the scenario, most notably the five enemy fleets and the defending fleet. A fleet means
+one fleet leader and multiple wingmen. Once the fleet leader is killed a wingman takes over their place and carries
+on with the same order.
+
+To change the order of a fleet select the one ship that does **not** have the _Fly in formation_ order and issue a new one.
+If you want the fleet to return to their previous order just issue the _Idle_ command.
+
+You can also command wingmen by issuing them orders. This will not change the order of the fleet though. To let the wingman
+fly back into formation give them the _Idle_ order.
+
+=== Things to look out for
+
+There are some glitches that you should have an eye on:
+
+* Trading ships commonly build clumps where none of them moves. This is quite common (also in other scenarios). Please help them get unstuck.
+* Wingmen of fleets with the _Fly in formation_ command have the bad habit of flying straight into mines. Either navigate fleets around
+minefields or break up the formation temporarily by issuing flight commands to all wingmen individually. Once they have passed
+the minefield issue the _Idle_ order to make them fly back in formation.

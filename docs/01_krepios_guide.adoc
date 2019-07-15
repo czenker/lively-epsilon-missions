@@ -1,0 +1,112 @@
+:attribute-missing: warn
+:attribute-undefined: drop
+
+:toc: left
+:toclevels: 2
+:icons: font
+
+= Krepios Player Guide
+
+This is the spoiler-free guide for players who want to enjoy the game without a Game Master or are just interested.
+
+== Setting
+
+You and your crew have been sent to the _Krepios_ System by _Colonel John Doe_, your superior in the _Terran Navy_.
+Your task is to contact _Wright Hartman_, the Commander of the Krepios Sector, to offer him help and follow his command.
+
+You find yourself in the _Krepios System_, a mining sector that has seen its golden years half a century back and is now
+mostly abandoned. Only few miners who are too poor or too stubborn to leave are still working for the
+_Saiku Mining Corporation_ (SMC) to extract the last remaining ores from the asteroid belt. Alcoholism, Poverty and Crime
+are a daily occurrence.
+
+You have been sent on an old gunboat that is below the standards that you are accustomed to.
+But the old ship blends in with the dated and decaying structures and ships you find around you.
+
+== Hints for Stations
+
+_Relay_ is probably the most stressful station for this scenario – part of the stress might be caused by all
+the typos you might encounter. But over all the Relay Officer will have most of the things to do, especially
+during the starting phase.
+I personally would put a more experienced Officer on that station.
+
+_Helms_ and _Weapons_ are probably less involved except for special occasions. If you do not want to have a
+dedicated _Captain_ one of those could take over that role. Using the _Tactical_ screen might also be an option
+to make the station more intriguing.
+
+Here are few things the stations should know that are scenario specific:
+
+=== Helms
+
+* Sorry, you got a bit of a crappy ship at the beginning. Ask your Relay Officer to buy Upgrades that help you maneuver the ship better.
+* Your Engineering Officer can also overcharge some systems to let you better handle the ship.
+
+=== Weapons
+
+* You might already have noticed that you are not on a frigate. Your Relay Officer can buy Upgrades from
+stations to allow you to store more missiles and turn your ship into a better fighter.
+* Missiles have to be bought at stations by your Relay Officer. Let them know if you need a refill.
+
+=== Science
+
+* I recommend not using the classic _Database_. Information on factions and ships could spoil the fun for you. And you won't need it.
+* Instead you have access to in-game information through custom menus. To access them, click the _Scanning_ button on your screen and select _Other_. Don't ignore that! It will help your crew a lot:
+** You have a mission for a station or nebula your crew has not discovered yet? Look up its sector in the _Stations_ or _Nebulae_ menu.
+** To find rewarding trading routes check the _Products_ menu for buyers, sellers and average prices.
+** To get an overview at what _Upgrades_ are known in the Sector check the according menu.
+
+=== Relay
+
+* I recommend to add the _Main Screen Controls_ to your station. Some of the communications you have could be interesting for your captain and you could bring them up on the main screen.
+* There are communication requests that you can not _Ignore_ as these are important story drivers. If the communications are important for the main story it will also automatically appear on the main screen.
+* The _Missions_ button is your friend. Use it often. It will show you what missions you have accepted and your next step to complete them.
+* _Quick Dial_ opens communications to stations that you already discovered even if they are inside the Fog of War. More will be added as you dock to them for the first time.
+* The ship log might pick up interesting chit-chat from ships around you.
+
+=== Engineering
+
+* You also manage the _Storage Room_ of the ship which could be used for trading. Please note that
+products could take up more than one unit of storage. Your Science Officer has information of the size of
+products.
+
+=== Captain
+
+* Your task is to make yourself useful in the sector. Try to ask the stations around you for missions or trade.
+* Your Relay Officer can tell you all current missions that you have. Ask them regularly if you do not know what to do next.
+* Use your earned RP to buy Upgrades from stations to improve your ship. But always keep some spare – missiles have a price.
+* The game has a defined timer-based end. Try to have as much fun as possible until then. :)
+
+== The Fluff
+
+=== Krepios
+
+_Krepios_ is the planet in the center of the Krepios System. Up until 150 years ago it was mostly know for
+its military facility that was rumored to develop new weapon system for the _Terran Navy_. But then a gigantic explosion in one of the
+research facilities made the whole planet uninhabitable. The atmosphere turned into plasma and killed everyone close
+to the epicenter in the blink of an eye. Massive earthquakes traveled the planet and damaged Terran structures all over the
+planet. The explosion also ripped the planets crust and catapulted minerals from within the planet into
+space. This debris formed the asteroid belt around the planet.
+
+The _Terran Navy_ quickly abandoned the planet as the increase of surface temperature and radiation made it
+a hostile environment for any biological life. Instead many opportunists came to the sector to make quick money
+by mining the readily accessible ores from the asteroids around Krepios. Many companies tried to dominate
+the sector, but at the end the newly formed _Saiku Mining Company_ (SMC) came out on top.
+
+About 60 years ago the golden age of mining in the Krepios Sector where over, as it became more and more
+expensive to mine less and less ore from the asteroids. Interest in the sector declined and stations where
+abandoned or reconstructed in other sectors.
+
+Today less than 10% of the former population still live in the asteroid belt of _Krepios_. Most of them
+are miners or traders who live on the stations with their families and are too poor, too old or to stubborn
+to leave the sector. Many of them have debt that was often caused by excessive drinking or gambling and they need
+to work under harsh conditions with little profit to make a living.
+
+=== Wright Hartman
+
+_Wright Hartman_ is the Commander of the _Krepios System_. He has been stationed there 20 years ago for disciplinary
+reasons. Years of boredom and cheap alcohol have turned him into a cynical commander who is counting the days
+to his retirement.
+
+=== John Doe
+
+_John Doe_ is your superior in the _Terran Navy_. He does not have any remarkable traits and you always seem
+to forget what he looks like.

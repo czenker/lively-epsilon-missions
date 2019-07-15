@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (1.5.7)
+    coderay (1.1.2)
+    rake (10.1.0)
+    tilt (2.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  asciidoctor
+  coderay
+  rake
+  tilt

@@ -7,6 +7,9 @@
 !.travis.yml
 !01_krepios
 !01_krepios/**
+!docs
+!docs/**
+docs/_build
 !spec
 !spec/**
 !scenario_01_krepios.lua
