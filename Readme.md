@@ -7,39 +7,15 @@ on the framework [Lively Epsilon](https://czenker.github.io/lively-epsilon/).
 
 ### Installation
 
-Installation has to be done on all stations. There are two installation possibilities with benefits and drawbacks.
-Go with the **Easy way** if you want little hassle.  
+Installation has to be done on all stations.
 
-#### Easy way
-
-1. Locate the `scripts` directory in your Empty Epsilon installation. It is the one that contains `scenario_00_basic.lua`
-amongst others.
-2. Make a backup of that `scripts` directory now! You won't be able play any of the original scenarios
-once you installed LE. Copying the directory and calling it `scripts_backup` is sufficient.
-3. Remove all the files starting with `scenario_` in that directory.
-4. Extract the content of the [Release](https://github.com/czenker/lively-epsilon-missions/releases) into that
-directory. It will override some of the files, which is fine.
-
-#### Experimental way
-
-This is the recommended way, but might probably not work. If you do not like tinkering, take the **Easy way**
-as it is pretty fail-safe.
-
-The advantage with this way of installation is that you can easily switch between Empty Epsilon and Lively Epsilon.
-
-1. Locate the `resources/mods` directory in your Empty Epsilon installation. It is empty by default.
-2. Create a directory in it called `le` and extract the [Release](https://github.com/czenker/lively-epsilon-missions/releases) there.
-3. Start Empty Epsilon with the command `EmptyEpsilon mod=le`.
-4. Be aware that none of the default scenarios will work with the mod enabled. They pop up on the mission selection still, but ignore these. ;)
-
-If everything went well, you should see the scenario `Krepios` in the scenario selection. The reason I would not
-recommend this way of installation is, that there is currently a bug that shows scenarios from mods, but they can not be
-started properly and give a message that the scenario could not be found.
-
-A [pull request](https://github.com/daid/EmptyEpsilon/pull/620) is already issued, but not merged yet, but 
-you could be able to circumvent the bug by calling `EmptyEpsilon mod=/le` on Linux or `EmptyEpsilon mod=\\le` on Windows.
-I have not tried if this works,... but it should... theoretically. But as soon as you see the scenario getting
-started everything should work from there on. Good luck, friend.
+1. Locate EmptyEpsilon's directory of your installation. On Windows this is the directory the `EmptyEpsilon.exe`
+file is located in. On Linux and Mac use `~/.emptyepsilon`.
+2. This directory contains the `options.ini` file. Open it with any text editor, locate the line that starts with `mod=` and change it to `mod=le/`.
+3. Close the file and make sure the `resources/mods` directory exists in the same directory. If not, just create it.
+4. Inside the `resources/mods` directory create a directory called `le` and extract the [Release](https://github.com/czenker/lively-epsilon-missions/releases) there.
+5. Start Empty Epsilon and you should be able to start a mission called `Krepios`.
+6. Be aware that none of the default scenarios will work with the mod enabled. They pop up on the mission selection still, but ignore these. To run EE's vanilla scenarios switch the line in `options.ini` back to `mod=`.
 
 ### Contact
 
