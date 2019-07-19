@@ -146,7 +146,7 @@ My.Translator:register("en", {
 
     chatter_nebula_1 = function(nebulaName)
         return Util.random({
-            f("Did you ever seen %s from up close?", nebulaName),
+            f("Have you ever seen %s from up close?", nebulaName),
             f("I heard %s is beautiful.", nebulaName),
             f("Do you think %s is a good place to hide from money collectors?", nebulaName),
         })
@@ -193,7 +193,7 @@ My.Translator:register("en", {
             Util.random({
                 "Garbage in space is the biggest problem our generation has to solve.",
                 "Waste everywhere.",
-                "You look at it, it's just junk all over the place.",
+                "Look at that! It's just junk all over the place.",
                 "This garbage everywhere is a huge problem."
             }) .. " " .. Util.random({
                 f("Just a quick nap and you collide with %s.", thing),
