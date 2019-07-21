@@ -1,5 +1,5 @@
 require "lively_epsilon/init"
-require "01_krepios/names/init"
+require "names/init"
 
 math.randomseed(os.time())
 

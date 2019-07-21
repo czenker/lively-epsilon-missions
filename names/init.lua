@@ -1,16 +1,16 @@
 local myPackages = {
-    "01_krepios/names/util/deduplicator.lua",
+    "names/util/deduplicator.lua",
 
-    "01_krepios/names/languages/esperantish.lua",
-    "01_krepios/names/languages/english.lua",
-    "01_krepios/names/languages/generic.lua",
-    "01_krepios/names/languages/greek.lua",
-    "01_krepios/names/languages/human.lua",
+    "names/languages/esperantish.lua",
+    "names/languages/english.lua",
+    "names/languages/generic.lua",
+    "names/languages/greek.lua",
+    "names/languages/human.lua",
 
-    "01_krepios/names/band.lua",
-    "01_krepios/names/person.lua",
-    "01_krepios/names/places.lua",
-    "01_krepios/names/ships.lua",
+    "names/band.lua",
+    "names/person.lua",
+    "names/places.lua",
+    "names/ships.lua",
 }
 
 if package ~= nil and package.path ~= nil then

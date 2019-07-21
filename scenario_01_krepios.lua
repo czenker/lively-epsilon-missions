@@ -21,7 +21,7 @@ require "lively_epsilon/init.lua"
 
 _G.My = {}
 
-require "01_krepios/names/init.lua"
+require "names/init.lua"
 
 My.Config = {
     -- the orientation of the asteroid field

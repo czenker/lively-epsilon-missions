@@ -7,6 +7,10 @@
 !.travis.yml
 !01_krepios
 !01_krepios/**
+!names
+!names/**
+!cli
+!cli/**
 !docs
 !docs/**
 docs/_build

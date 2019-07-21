@@ -1,9 +1,9 @@
-insulate("01 Krepios Names", function()
+insulate("Names", function()
 
     require "lively_epsilon.init"
     require "lively_epsilon.spec.mocks"
-    require "01_krepios.init"
-    require "01_krepios.names.init"
+    --require "01_krepios.init"
+    require "names.init"
     require "lively_epsilon.spec.asserts"
 
     for thing, func in pairs({
