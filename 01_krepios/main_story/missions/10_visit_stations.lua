@@ -5,12 +5,12 @@ local missions = {}
 My.EventHandler:register("onStart", function()
     for _, station in pairs(My.World.stations) do
         if station == My.World.hq then
-            table.insert(My.World.player.quickDials, station)
+            My.World.player:addQuickDial(station)
         else
             local visitMission = Missions:visit(station, {
                 onSuccess = function(self)
                     My.World.player:addReputationPoints(10)
-                    table.insert(My.World.player.quickDials, station)
+                    My.World.player:addQuickDial(station)
                     logInfo("Mission " .. self:getTitle() .. " successful.")
                     self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
                 end,

@@ -67,7 +67,7 @@ My.deployDefenseArtillery = function()
 
     Fleet:withOrderQueue(fleet)
 
-    table.insert(My.World.player.quickDials, fleet)
+    My.World.player:addQuickDial(fleet)
 end
 My.deployDefenseGunships = function()
     local fortress = My.World.fortress
@@ -84,7 +84,7 @@ My.deployDefenseGunships = function()
 
     Fleet:withOrderQueue(fleet)
 
-    table.insert(My.World.player.quickDials, fleet)
+    My.World.player:addQuickDial(fleet)
 end
 
 My.EventHandler:register("onDefensePlanned", function(self, event)
