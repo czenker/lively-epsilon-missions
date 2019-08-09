@@ -24,8 +24,8 @@ Every time you load the scenario the map will look differently. Usually it is no
 first and look the for asteroid belt. It does not span all around the map as it might have a negative impact on
 game performance.
 
-When opening the GM screen you can find the area of operations by scrolling to sector `O13`, about 8 sectors out you
-can find the asteroid belt. As the placement is random you might have to browse a little.
+When opening the GM screen you will find it looking empty. Click the button next to `Global Message` to jump
+to the player ship and the area of operations.
 
 The asteroid belt contains
 
