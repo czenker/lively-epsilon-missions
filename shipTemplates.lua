@@ -9,7 +9,7 @@ require("shipTemplates_OLD.lua")
 -- player ship
 
 template = ShipTemplate():setName("Ranger TX5"):setClass("Frigate", "Cruiser"):setModel("AtlasHeavyFighterGrey"):setType("playership")
-template:setDescription([[Lorem ipsum]])
+template:setDescription([[TODO]])
 template:setHull(100)
 template:setShields(70, 70)
 template:setSpeed(60, 10, 10)
@@ -57,6 +57,50 @@ template:addDoor(6, 3, false);
 template:addDoor(6, 4, false);
 template:addDoor(8, 3, false);
 template:addDoor(8, 4, false);
+
+template = ShipTemplate():setName("Guard Station"):setClass("Corvette", "Support"):setModel("space_station_4")
+template:setDescription([[TODO]])
+template:setRadarTrace("radartrace_smallstation.png")
+template:setHull(200)
+template:setShields(500)
+template:setSpeed(0, 0, 0)
+template:setDockClasses("Starfighter", "Frigate")
+--                        Arc, Dir, Range, CycleTime, Dmg
+template:setBeamWeapon(0, 30, 0, 2500, 6.0, 6)
+template:setBeamWeaponTurret(0, 300, 0, 2)
+template:setBeamWeapon(1, 30, 180, 2500, 6.0, 6)
+template:setBeamWeaponTurret(1, 300, 180, 2)
+
+template:setTubes(4, 30.0)
+template:setWeaponStorage("Homing", 20)
+template:setTubeDirection(0, 0)
+template:weaponTubeAllowMissle(1, "Homing")
+template:setTubeDirection(1, 90)
+template:weaponTubeAllowMissle(2, "Homing")
+template:setTubeDirection(2, 180)
+template:weaponTubeAllowMissle(0, "Homing")
+template:setTubeDirection(3, 270)
+template:weaponTubeAllowMissle(3, "Homing")
+
+-- TODO: fix the rooms to be more realistic
+template:addRoomSystem(0, 0, 3, 3, "FrontShield");
+template:addRoomSystem(0, 3, 3, 3, "Reactor");
+template:addRoomSystem(0, 6, 3, 3, "RearShield");
+template:addRoomSystem(3, 0, 3, 3, "BeamWeapons");
+template:addRoomSystem(3, 3, 3, 3, "Warp");
+template:addRoomSystem(3, 6, 3, 3, "MissileSystem");
+template:addRoomSystem(6, 0, 3, 3, "Maneuver");
+template:addRoomSystem(6, 3, 3, 3, "JumpDrive");
+template:addRoomSystem(6, 6, 3, 3, "Impulse");
+
+template:addDoor(4, 3, true)
+template:addDoor(1, 6, true)
+template:addDoor(4, 6, true)
+template:addDoor(7, 6, true)
+template:addDoor(3, 1, false)
+template:addDoor(3, 4, false)
+template:addDoor(6, 1, false)
+template:addDoor(6, 4, false)
 
 -- enemy ship
 

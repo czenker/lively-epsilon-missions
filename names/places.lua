@@ -135,7 +135,8 @@ local sector = {
     "Phoenicis",
     "Aquilae",
     "Persei",
-
+    "Apollo",
+    "Gemini",
 }
 
 local sectorMod = {

@@ -1448,6 +1448,75 @@ local pirateShipNouns = {
     "Virtue",
 }
 
+local strongAdjectives = {
+    "Big",
+    "Bright",
+    "Fire",
+    "First",
+    "Giant",
+    "Golden",
+    "Heavy",
+    "Iron",
+    "Outer",
+    "Solid",
+    "Steel",
+    "Stone",
+    "Storm",
+    "War",
+}
+
+local strongStructures = {
+    "Barrack",
+    "Base",
+    "Bastille",
+    "Bastion",
+    "Battery",
+    "Blockade",
+    "Bulwark",
+    "Bunker",
+    "Camp",
+    "Caponier",
+    "Casemate",
+    "Castle",
+    "Cavalier",
+    "Chemise",
+    "Citadel",
+    "Depot",
+    "Dun",
+    "Encampment",
+    "Enclave",
+    "Fort",
+    "Fortress",
+    "Front",
+    "Frontier",
+    "Garrison",
+    "Gate",
+    "Guard",
+    "Hold",
+    "Keep",
+    "Limes",
+    "Moon",
+    "Mountain",
+    "Outpost",
+    "Palisade",
+    "Pillar",
+    "Pillbox",
+    "Point",
+    "Post",
+    "Rampart",
+    "Redoubt",
+    "Reduit",
+    "Shelter",
+    "Shield",
+    "Site",
+    "Stockade",
+    "Stronghold",
+    "Tomb",
+    "Tower",
+    "Wall",
+    "Watch",
+}
+
 My.civilianShipName = (function()
     local suffix = Util.appendTables(neutralSuffix, mobileSuffix)
 
@@ -1502,3 +1571,7 @@ My.pirateShipName = (function()
         end
     end)
 end)()
+
+My.militaryStationName = My.deduplicateName(function()
+    return Util.random(strongAdjectives) .. " " .. Util.random(strongStructures)
+end)
