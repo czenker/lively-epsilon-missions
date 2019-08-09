@@ -11,7 +11,7 @@ end
 local fuzzDistance = function(distance) return Util.round(distance, 2) end
 local fuzzHeading = function(heading) return Util.round(heading, 20) end
 
-mainMenu = function(self, ship, player)
+mainMenu = function(ship, player)
     local screen = Comms:newScreen(t("comms_directions_main"))
 
     local targets = {}
@@ -39,7 +39,7 @@ mainMenu = function(self, ship, player)
 end
 
 detail = function(station)
-    return function(self, ship, player)
+    return function(ship, player)
         local screen = Comms:newScreen()
 
         if isStationValid(station, ship, player) then
@@ -62,6 +62,6 @@ detail = function(station)
     end
 end
 
-Comms.directions = Comms:newReply(t("comms_directions_label"), mainMenu, function(self, comms_target, comms_source)
+Comms.directions = Comms:newReply(t("comms_directions_label"), mainMenu, function(comms_target, comms_source)
     return not comms_target:hasTag("mute") and not comms_target:isEnemy(comms_source)
 end)

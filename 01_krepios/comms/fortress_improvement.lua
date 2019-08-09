@@ -6,7 +6,7 @@ My.Comms = My.Comms or {}
 My.Comms.FortressImprovement = (function()
     local menu, confirm
 
-    menu = function(self, comms_target, comms_source)
+    menu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("fortress_improvement_what_next"))
 
         local improvements = {}
@@ -26,7 +26,7 @@ My.Comms.FortressImprovement = (function()
     end
 
     confirm = function(improvement)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             My.World.fortress:improve(improvement)
 

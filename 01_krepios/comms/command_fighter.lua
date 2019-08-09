@@ -5,7 +5,7 @@ My.Comms = My.Comms or {}
 
 My.Comms.commandFighter = (function()
     local commandMenu, attackMenu, defendMenu, moveMenu, dockMenu, attackFleet, attackShip, defend, move, dock, strategyMenu, frequencyMenu, frequency, enableWarp, disableWarp
-    commandMenu = function(self, comms_target, comms_source)
+    commandMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen()
 
         if Ship:hasFleet(comms_target) and not comms_target:isFleetLeader() then
@@ -25,7 +25,7 @@ My.Comms.commandFighter = (function()
         return screen
     end
 
-    attackMenu = function(self, comms_target, comms_source)
+    attackMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_attack_hail"))
 
         for _, thing in pairs(comms_target:getObjectsInRange(getLongRangeRadarRange())) do
@@ -46,7 +46,7 @@ My.Comms.commandFighter = (function()
 
     attackFleet = function(fleetId)
         local enemyFleet = My.EnemyFleet:getFleets()[fleetId]
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             if Fleet:isFleet(enemyFleet) and enemyFleet:isValid() then
                 local attacker = comms_target
@@ -68,7 +68,7 @@ My.Comms.commandFighter = (function()
     end
 
     attackShip = function(ship)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             if ship:isValid() then
                 local attacker = comms_target
@@ -97,7 +97,7 @@ My.Comms.commandFighter = (function()
         end
     end
 
-    moveMenu = function(self, comms_target, comms_source)
+    moveMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen()
         if comms_source:getWaypointCount() > 0 then
             screen:addText(t("defense_squadron_command_move_hail"))
@@ -114,7 +114,7 @@ My.Comms.commandFighter = (function()
     end
 
     move = function(x, y)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             local target = comms_target
             if Ship:hasFleet(comms_target) then
@@ -140,7 +140,7 @@ My.Comms.commandFighter = (function()
         end
     end
 
-    defendMenu = function(self, comms_target, comms_source)
+    defendMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_defend_hail"))
 
         for _, target in pairs({
@@ -156,7 +156,7 @@ My.Comms.commandFighter = (function()
     end
 
     defend = function(target)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             if target:isValid() then
                 local defender = comms_target
@@ -176,7 +176,7 @@ My.Comms.commandFighter = (function()
         end
     end
 
-    dockMenu = function(self, comms_target, comms_source)
+    dockMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_dock_hail"))
 
         for _, target in pairs({
@@ -191,7 +191,7 @@ My.Comms.commandFighter = (function()
     end
 
     dock = function(target)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen()
             if target:isValid() then
                 local docker = comms_target
@@ -220,12 +220,12 @@ My.Comms.commandFighter = (function()
         end
     end
 
-    strategyMenu = function(self, comms_target, comms_source)
+    strategyMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_strategy_hail"))
 
         screen:addReply(Comms:newReply(t("defense_squadron_command_frequency_label"), frequencyMenu))
-        screen:addReply(Comms:newReply(t("defense_squadron_command_enable_warp_label"), enableWarp, function(self, comms_target) return comms_target.warpDisabled == true end))
-        screen:addReply(Comms:newReply(t("defense_squadron_command_disable_warp_label"), disableWarp, function(self, comms_target) return comms_target:hasWarpDrive() end))
+        screen:addReply(Comms:newReply(t("defense_squadron_command_enable_warp_label"), enableWarp, function(comms_target) return comms_target.warpDisabled == true end))
+        screen:addReply(Comms:newReply(t("defense_squadron_command_disable_warp_label"), disableWarp, function(comms_target) return comms_target:hasWarpDrive() end))
         screen:addReply(Comms:newReply(t("generic_button_back"), commandMenu))
         return screen
     end
@@ -250,7 +250,7 @@ My.Comms.commandFighter = (function()
         end
     end
 
-    frequencyMenu = function(self, comms_target, comms_source)
+    frequencyMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_frequency_hail"))
         for i=0,20,1 do
             local freq = 400 + 20 * i
@@ -262,7 +262,7 @@ My.Comms.commandFighter = (function()
 
     frequency = function(frequencyBand)
         local frequency = 400 + 20 * frequencyBand
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local factor = 1
             if math.abs(frequencyBand - My.EnemyFleet:getShieldFrequencyBand()) < 2 then
                 factor = 0.5
@@ -295,7 +295,7 @@ My.Comms.commandFighter = (function()
             ship.warpDisabled = true
         end
     end
-    enableWarp = function(self, comms_target, comms_source)
+    enableWarp = function(comms_target, comms_source)
         local screen = Comms:newScreen()
 
         if Ship:hasFleet(comms_target) then
@@ -311,7 +311,7 @@ My.Comms.commandFighter = (function()
         return screen
     end
 
-    disableWarp = function(self, comms_target, comms_source)
+    disableWarp = function(comms_target, comms_source)
         local screen = Comms:newScreen()
 
         if Ship:hasFleet(comms_target) then

@@ -56,7 +56,7 @@ end
 
 My.Comms.shipReport = (function()
     local report
-    report = function(self, comms_target, comms_source)
+    report = function(comms_target, comms_source)
         local screen = Comms:newScreen()
 
         if Ship:hasFleet(comms_target) and comms_target:isFleetLeader() then

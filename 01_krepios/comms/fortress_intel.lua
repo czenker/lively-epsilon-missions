@@ -13,7 +13,7 @@ My.Comms.FortressIntel = (function()
     local menu
 
     local detail = function(fleetId)
-        return function(self, comms_target, comms_source)
+        return function(comms_target, comms_source)
             local screen = Comms:newScreen(t("fortress_intel_detail_button", fleetId) .. "\n\n")
             local fleet = My.EnemyFleet:getFleets()[fleetId]
 
@@ -105,7 +105,7 @@ My.Comms.FortressIntel = (function()
     end
 
 
-    menu = function(self, comms_target, comms_source)
+    menu = function(comms_target, comms_source)
         local screen = Comms:newScreen()
         local fleets = My.EnemyFleet:getFleets()
 

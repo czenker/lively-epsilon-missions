@@ -40,7 +40,7 @@ My.SideMissions.Repair = function(station, from, player)
 
     local mission
 
-    local comms = function(self, comms_target, comms_source)
+    local comms = function(comms_target, comms_source)
         local screen = Comms:newScreen()
         local workLeft = mission:getTimeToReady() / duration
 
