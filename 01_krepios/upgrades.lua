@@ -226,7 +226,7 @@ My.Upgrades.warpDrive = (function()
 end)()
 
 My.Upgrades.jumpDrive = (function()
-    local rangeInU = 30
+    local rangeInU = 45
     local upgrade = BrokerUpgrade:new({
 
         name = t("upgrade_jumpDrive_name", rangeInU),
