@@ -170,7 +170,7 @@ My.Translator:register("en", {
             f("Unluckily we do not have a worm hole to send you support. But I hope these %0.2fRP help you.", amount),
         }) .. " " .. Util.random({
             "Try to spend them wisely.",
-            "Show them to not mess with the Terran Navy.",
+            "Show them to not mess with the Human Navy.",
             "Defend the sector of this enemy.",
             "Buy a reasonable upgrade with this money.",
         }) .. "\n\n- Colonel " .. colonelPerson:getFormalName()
@@ -329,7 +329,7 @@ My.Translator:register("en", {
         Dismissed, " .. playerCallSign .. "."
     end,
     story_final_evacuation_debrief_lost = function(playerCallSign, commanderPerson)
-        return "Today is a sad day for the Terran Navy. We lost a sector Krepios to an unknown enemy force. Many \z
+        return "Today is a sad day for the Human Navy. We lost a sector Krepios to an unknown enemy force. Many \z
         civilians and " .. commanderPerson:getFormalName() .. " lost their lives in the sector. \z
         All the more I'm glad that at least you made it back alive. We will need every crew when we face our unknown enemy. \z
         You have showed that they are vulnerable and with your experience we might be successful in a fight against them.\n\n\z

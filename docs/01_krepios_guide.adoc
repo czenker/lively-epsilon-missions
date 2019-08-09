@@ -11,7 +11,7 @@ This is the spoiler-free guide for players who want to enjoy the game without a 
 
 == Setting
 
-You and your crew have been sent to the _Krepios_ System by _Colonel John Doe_, your superior in the _Terran Navy_.
+You and your crew have been sent to the _Krepios_ System by _Colonel John Doe_, your superior in the _Human Navy_.
 Your task is to contact _Wright Hartman_, the Commander of the Krepios Sector, to offer him help and follow his command.
 
 You find yourself in the _Krepios System_, a mining sector that has seen its golden years half a century back and is now
@@ -80,13 +80,13 @@ products.
 === Krepios
 
 _Krepios_ is the planet in the center of the Krepios System. Up until 150 years ago it was mostly know for
-its military facility that was rumored to develop new weapon system for the _Terran Navy_. But then a gigantic explosion in one of the
+its military facility that was rumored to develop new weapon system for the _Human Navy_. But then a gigantic explosion in one of the
 research facilities made the whole planet uninhabitable. The atmosphere turned into plasma and killed everyone close
 to the epicenter in the blink of an eye. Massive earthquakes traveled the planet and damaged Terran structures all over the
 planet. The explosion also ripped the planets crust and catapulted minerals from within the planet into
 space. This debris formed the asteroid belt around the planet.
 
-The _Terran Navy_ quickly abandoned the planet as the increase of surface temperature and radiation made it
+The _Human Navy_ quickly abandoned the planet as the increase of surface temperature and radiation made it
 a hostile environment for any biological life. Instead many opportunists came to the sector to make quick money
 by mining the readily accessible ores from the asteroids around Krepios. Many companies tried to dominate
 the sector, but at the end the newly formed _Saiku Mining Company_ (SMC) came out on top.
@@ -108,5 +108,5 @@ to his retirement.
 
 === John Doe
 
-_John Doe_ is your superior in the _Terran Navy_. He does not have any remarkable traits and you always seem
+_John Doe_ is your superior in the _Human Navy_. He does not have any remarkable traits and you always seem
 to forget what he looks like.

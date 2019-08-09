@@ -178,7 +178,7 @@ My.Translator:register("de", {
             f("Wir haben leider kein aktives Sprungloch, um euch Unterstützung zu schicken. Ich hoffe diese %0.2fRP können euch helfen.", amount),
         }) .. " " .. Util.random({
             "Setzt das Geld sinnvoll ein.",
-            "Zeigt denen, dass man sich nicht mit der Terranischen Navy anlegt.",
+            "Zeigt denen, dass man sich nicht mit der Human Navy anlegt.",
             "Schützt den Sektor vor dem Feind.",
             "Kauft euch ein sinnvolles Upgrade von dem Geld.",
         }) .. "\n\n- Colonel " .. colonelPerson:getFormalName()
@@ -344,7 +344,7 @@ My.Translator:register("de", {
         Weggetreten, " .. playerCallSign .. "."
     end,
     story_final_evacuation_debrief_lost = function(playerCallSign, commanderPerson)
-        return "Heute ist ein trauriger Tag für die Terranische Navy. Wir haben den Sektor Krepios an eine unbekannte Macht \z
+        return "Heute ist ein trauriger Tag für die Human Navy. Wir haben den Sektor Krepios an eine unbekannte Macht \z
         verloren. Viele Zivilisten und " .. commanderPerson:getFormalName() .. " haben ihr Leben in dem Sektor gelassen. \z
         Umso mehr stimmt es mich glücklich, dass wenigstens ihr es heil zurückgeschafft habt. Wir werden jede Crew brauchen, \z
         um uns dem unbekannten Feind zu stellen. Ihr habt gezeigt, dass er verwundbar ist. Und mit einer großen Flotte \z
