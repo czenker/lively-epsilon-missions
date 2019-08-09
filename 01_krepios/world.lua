@@ -10,6 +10,8 @@ My.World.abandonedStations = {}
 -- all nebulas in the world
 My.World.nebulas = {}
 
+My.World.planet = nil
+
 My.World.drops = {}
 My.World.getDrops = function(self)
     local drops = {}

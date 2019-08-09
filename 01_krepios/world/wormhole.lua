@@ -7,10 +7,11 @@ My.EventHandler:register("onWorldCreation", function()
     local distancePerGrad = 180000 / 360
 
     angle = avgAngle + math.random(240, 300)
+    local originX, originY = My.World.planet:getPosition()
     local holeX, holeY = vectorFromAngle(angle, distancePerGrad*120)
     local targetX, targetY = vectorFromAngle(angle, distancePerGrad*150)
 
-    My.Wormhole = WormHole():setPosition(holeX, holeY):setTargetPosition(targetX, targetY)
+    My.Wormhole = WormHole():setPosition(originX + holeX, originY + holeY):setTargetPosition(originX + targetX, originY + targetY)
 end)
 
 local openWormHole = function()

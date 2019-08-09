@@ -65,12 +65,14 @@ My.EventHandler:register("onWorldCreation", function()
     local divAngle = 360 * 60000 / 2 / math.pi / My.Config.avgDistance
 
     local minAngle = My.Config.avgAngle - divAngle
+    local originX, originY = My.World.planet:getPosition()
 
     local randomPosition = function()
         local angle = math.random() * 2 * divAngle + minAngle
         local distance = My.Config.avgDistance - My.Config.width * 0.75 + math.random() * My.Config.width * 1.5
 
-        return vectorFromAngle(angle, distance)
+        local x, y = vectorFromAngle(angle, distance)
+        return originX + x, originY + y
     end
 
     My.World.abandonedStations = {}

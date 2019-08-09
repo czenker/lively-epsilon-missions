@@ -12,6 +12,7 @@ My.EventHandler:register("onWorldCreation", function()
     )
 
     logInfo("Creating " .. numberOfAsteroids .. " Asteroids")
+    local originX, originY = My.World.planet:getPosition()
 
     local randomPosition = function(distance)
         return function()
@@ -23,7 +24,7 @@ My.EventHandler:register("onWorldCreation", function()
             local randDistance = math.random(0, My.Config.width)
             local dx, dy = vectorFromAngle(randAngle, randDistance)
 
-            return x + dx, y + dy
+            return originX + x + dx, originY + y + dy
         end
     end
 

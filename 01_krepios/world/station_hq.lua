@@ -17,6 +17,8 @@ My.EventHandler:register("onWorldCreation", function()
         My.Config.avgAngle,
         My.Config.avgDistance - math.random() * My.Config.width / 2
     )
+    local originX, originY = My.World.planet:getPosition()
+    hqX, hqY = hqX + originX, hqY + originY
     My.World.Helper.eraseAsteroidsAround(hqX, hqY, 5000)
     local hq = StationTemplate():setPosition(hqX, hqY):
     setCallSign("SMC HQ"):

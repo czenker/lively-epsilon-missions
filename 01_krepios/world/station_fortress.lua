@@ -149,11 +149,14 @@ end
 My.EventHandler:register("onWorldCreation", function()
     local divAngle = 360 * 60000 / 2 / math.pi / My.Config.avgDistance
 
+    local originX, originY = My.World.planet:getPosition()
+
     local randomPosition = function()
         local angle = My.Config.avgAngle - (1 + math.random()) * divAngle
         local distance = My.Config.avgDistance - My.Config.width * 0.6 + math.random() * My.Config.width * 1.2
 
-        return vectorFromAngle(angle, distance)
+        local x, y = vectorFromAngle(angle, distance)
+        return originX + x, originY + y
     end
 
     local x, y = My.World.Helper.tryMinDistance(randomPosition, function(thing)
