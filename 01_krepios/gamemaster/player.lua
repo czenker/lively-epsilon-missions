@@ -113,27 +113,37 @@ createUpgradeMenu = function()
     menu:addItem(Menu:newItem("< Upgrades", createMainMenu, 1))
     menu:addItem(Menu:newItem("Log info", function()
         local sortedUpgrades = getSortedUpgrades()
+        local text = ""
         if Player:hasUpgradeTracker(player) then
-            logInfo("Installed Upgrades:")
+            text = text .. "Installed Upgrades:\n"
             for _, upgrade in pairs(sortedUpgrades) do
                 if player:hasUpgrade(upgrade) then
-                    logInfo(f("  * %s", upgrade:getName()))
+                    text = text .. f("  * %s", upgrade:getName()) .. "\n"
                 end
             end
+            text = text .. "\n"
         end
 
-        logInfo("Installable Upgrades:")
+        text = text .. "Installable Upgrades:\n"
         for _, upgrade in pairs(sortedUpgrades) do
             if upgrade:canBeInstalled(player) then
-                logInfo(f("  * %s (%0.2fRP)", upgrade:getName(), upgrade:getPrice()))
+                text = text .. f("  * %s (%0.2fRP)", upgrade:getName(), upgrade:getPrice()) .. "\n"
             end
         end
+        text = text .. "\n"
 
-        logInfo("Other Upgrades:")
+        text = text .. "Other Upgrades:\n"
         for _, upgrade in pairs(sortedUpgrades) do
             if (not Player:hasUpgradeTracker(player) or not player:hasUpgrade(upgrade)) and not upgrade:canBeInstalled(player) then
-                logInfo(f("  * %s (%0.2fRP)", upgrade:getName(), upgrade:getPrice()))
+                text = text .. f("  * %s (%0.2fRP)", upgrade:getName(), upgrade:getPrice()) .. "\n"
             end
+        end
+        text = text .. "\n"
+
+        if isFunction(addGMMessage) then
+            addGMMessage(text)
+        else
+            logInfo(text)
         end
     end, 2))
 

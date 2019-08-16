@@ -57,25 +57,33 @@ createStationMenu = function(station)
     return function()
         local menu = Menu:new()
         menu:addItem(Menu:newItem("Log Info", function()
-            logInfo(f("%s (Sector: %s)", station:getCallSign(), station:getSectorName()))
-            logInfo(station:getDescription("simple"))
+            local text = ""
+            text = text .. f("%s (Sector: %s)", station:getCallSign(), station:getSectorName()) .. "\n\n"
+            text = text .. station:getDescription("simple") .. "\n\n"
             if Station:hasStorage(station) then
-                logInfo("Storage:")
+                text = text .. "Storage:\n"
                 for _, product in pairs(getSortedProducts()) do
                     if station:canStoreProduct(product) then
-                        logInfo(f("  * %d/%d %s", station:getProductStorage(product), station:getMaxProductStorage(product), product:getName()))
+                        text = text .. f("  * %d/%d %s", station:getProductStorage(product), station:getMaxProductStorage(product), product:getName()) .. "\n"
                     end
                 end
+                text = text .. "\n"
             end
             if Station:hasMissionBroker(station) then
-                logInfo("Missions:")
+                text = text .. "Missions:\n"
                 for _, mission in pairs(getSortedMissions(station)) do
-                    logInfo(f(
+                    text = text .. f(
                         "  * \"%s\" (%s)",
                         mission:getTitle(),
                         Util.mkString(mission:getTags(), ", ")
-                    ))
+                    ) .. "\n"
                 end
+                text = text .. "\n"
+            end
+            if isFunction(addGMMessage) then
+                addGMMessage(text)
+            else
+                logInfo(text)
             end
         end, 1))
 
@@ -177,8 +185,13 @@ createMissionDetailMenu = function(station, mission)
         menu:addItem(Menu:newItem(mission:getTitle(), function() end, 2))
 
         menu:addItem(Menu:newItem("Log Info", function()
-            logInfo(mission:getTitle())
-            logInfo(mission:getDescription())
+            local text = mission:getTitle() .. "\n\n" .. mission:getDescription()
+
+            if isFunction(addGMMessage) then
+                addGMMessage(text)
+            else
+                logInfo(text)
+            end
         end, 3))
 
         menu:addItem(Menu:newItem("replace", function()
