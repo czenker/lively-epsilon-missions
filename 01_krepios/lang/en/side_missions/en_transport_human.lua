@@ -109,6 +109,13 @@ My.Translator:register("en", {
             payment
         )
     end,
+
+    side_mission_transport_human_time_limit = function(timeLimit)
+        return Util.random({
+            f("I need to be there in %0.1f minutes.", timeLimit),
+            f("I have to be there within %0.1f minutes.", timeLimit),
+        }) .. " Please hurry!"
+    end,
     side_mission_transport_human_accept = "Thank you for taking me with you. I feared I had to stay here forever.",
     side_mission_transport_human_accept_hint = function(stationCallSign, clientPerson)
         return f("Dock to %s to pick %s up", stationCallSign, clientPerson:getFormalName())

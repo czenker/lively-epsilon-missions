@@ -71,6 +71,13 @@ My.Translator:register("en", {
         })
     end,
 
+    side_mission_transport_thing_time_limit = function(timeLimit)
+        return "You need to hurry! " .. Util.random({
+            f("We give you %0.1f minutes to finish the delivery.", timeLimit),
+            f("The delivery has to be finished in the next %0.1f minutes.", timeLimit),
+        })
+    end,
+
     side_mission_transport_thing_no_storage = "Your ship does not have a storage. I hope you can understand that we can not consider your application.",
     side_mission_transport_thing_small_storage = function(storageAmount)
         return f("We are very sorry, but the storage room of your ship is too small. for this contract. You need at least %d units of space", storageAmount)
@@ -94,4 +101,5 @@ My.Translator:register("en", {
     side_mission_transport_thing_success = function(payment)
         return f("Thank you for the delivery. As negotiated, we paid you %0.2fRP. Should you need a contract again contact us.", payment)
     end,
+    side_mission_transport_thing_time_out = "You did not deliver in time. We are very disappointed by your performance. We hope you do not expect any payment.",
 })

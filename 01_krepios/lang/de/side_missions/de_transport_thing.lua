@@ -76,6 +76,13 @@ My.Translator:register("de", {
         return f("Es tut uns sehr leid, aber der Laderaum ihres Schiffes ist leider zu klein, um diesen Auftrag anzunehmen. Sie benötigen mindestens einen Laderaum von %d.", storageAmount)
     end,
 
+    side_mission_transport_thing_time_limit = function(timeLimit)
+        return "Sie müssen sich beeilen! " .. Util.random({
+            f("Wir geben Ihnen %0.1f Minuten, um die Lieferung abzuschließen.", timeLimit),
+            f("Die Lieferung muss in den nächsten %0.1f Minuten abgeschlossen werden.", timeLimit),
+        })
+    end,
+
     side_mission_transport_thing_accept_hint = function(stationCallSign, productName)
         return f("Docken Sie an %s, um %s zu laden", stationCallSign, productName)
     end,
@@ -94,4 +101,5 @@ My.Translator:register("de", {
     side_mission_transport_thing_success = function(payment)
         return f("Vielen Dank für die Lieferung. Wir haben Ihnen die Bezahlung in Höhe von %0.2fRP überwiesen. Wenn Sie wieder einen Auftrag suchen, melden Sie sich bei uns.", payment)
     end,
+    side_mission_transport_thing_time_out = "Sie haben die Lieferung nicht rechtzeitig ausgeführt. Wir sind von ihrer Leistung sehr enttäuscht und gehen davon aus, dass sie Verständnis haben, dass wir keine Zahlung leisten werden.",
 })

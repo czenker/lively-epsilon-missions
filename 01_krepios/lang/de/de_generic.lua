@@ -8,6 +8,10 @@ My.Translator:register("de", {
     generic_comms_ship_static = "Das Schiff antwortet nicht.",
     generic_comms_station_static = "Die Station antwortet nicht.",
 
+    generic_mission_time_limit = function(timeLimit)
+        return string.format("noch %0.1f Minuten übrig", timeLimit)
+    end,
+
     generic_mission_failed = function(missionTitle)
         return string.format("Mission \"%s\" gescheitert", missionTitle)
     end,
