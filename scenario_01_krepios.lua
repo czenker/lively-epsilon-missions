@@ -31,6 +31,8 @@ My.Config = {
     width = 40000,
     avgAsteroidDistance = 1500,
 
+    maximumSideMissions = 3,
+
     -- the colonel that gave the crew the task to fly to the SMC main station
     colonel = Person:byName("John Doe"),
 

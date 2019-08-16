@@ -179,7 +179,7 @@ My.MissionGenerator = {
             if mission ~= nil then
                 numberOfCreatedTransportMissionsByIndex[missionFactory.idx] = (numberOfCreatedTransportMissionsByIndex[missionFactory.idx] or 0) + 1
 
-                Mission:withTags(mission, "transport")
+                Mission:withTags(mission, "transport", "side_mission")
                 return mission
             end
         end
@@ -247,7 +247,7 @@ My.MissionGenerator = {
             if mission ~= nil then
                 numberOfCreatedFightingMissionsByIndex[missionFactory.idx] = (numberOfCreatedFightingMissionsByIndex[missionFactory.idx] or 0) + 1
 
-                Mission:withTags(mission, "fighting")
+                Mission:withTags(mission, "fighting", "side_mission")
                 return mission
             end
         end

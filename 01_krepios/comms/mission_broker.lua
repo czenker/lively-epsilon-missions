@@ -3,6 +3,17 @@ local t = My.Translator.translate
 My = My or {}
 My.Comms = My.Comms or {}
 
+local countSideMissions = function(player)
+    local i = 0
+    if Player:hasMissionTracker(player) then
+        for _, mission in pairs(player:getStartedMissions()) do
+            if Generic:hasTags(mission) and mission:hasTag("side_mission") then i = i + 1 end
+        end
+    end
+
+    return i
+end
+
 My.Comms.MissionBroker = Comms:missionBrokerFactory({
     -- the label that leads to these commands
     label = t("comms_mission_broker_label"),
@@ -28,7 +39,10 @@ My.Comms.MissionBroker = Comms:missionBrokerFactory({
         if isString(description) and description ~= "" then
             screen:addText("\n\n" .. description .. "\n\n")
         end
-        if mission:canBeAccepted() then
+
+        if countSideMissions(comms_source) >= My.Config.maximumSideMissions then
+            screen:addText(t("comms_mission_broker_detail_too_many_missions"))
+        elseif mission:canBeAccepted() then
             screen:addText(t("comms_mission_broker_detail_acceptable"))
             screen:addReply(
                 Comms:newReply(t("comms_mission_broker_detail_accept_label"), config.linkAccept)

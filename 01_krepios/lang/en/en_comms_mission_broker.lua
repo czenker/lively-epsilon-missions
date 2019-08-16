@@ -5,6 +5,8 @@ My.Translator:register("en", {
     comms_mission_broker_main_no_missions = "We can't offer you any missions right now.",
     comms_mission_broker_main_missions = "We think the following missions are of interest to you:",
 
+    comms_mission_broker_detail_too_many_missions = "You should finish some of your current missions before taking on more.",
+
     comms_mission_broker_detail_acceptable = function()
         return Util.random({
             "What do you think of the offer?",
