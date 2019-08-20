@@ -140,8 +140,6 @@ My.SideMissions.Repair = function(station, from, player)
             if isString(commsId) then self:getNeedy():removeComms(commsId) end
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             if station:isValid() then self:getNeedy():orderDock(station) end
 
             -- despawn ship a certain time after it reached its destination
@@ -162,12 +160,6 @@ My.SideMissions.Repair = function(station, from, player)
                 text = t("side_mission_repair_failure_comms")
             end
             Tools:ensureComms(station, self:getPlayer(), text)
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
         onEnd = function(self)
             local needy = self:getNeedy()

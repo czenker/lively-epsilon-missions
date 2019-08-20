@@ -152,15 +152,7 @@ My.SideMissions.SecretCode = function(from, to)
             self:setHint(t("side_mission_secret_code_hint", fromPerson, toPerson, to:getCallSign()))
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             self:getPlayer():addReputationPoints(payment)
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
     })
 

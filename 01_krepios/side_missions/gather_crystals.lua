@@ -58,16 +58,8 @@ My.SideMissions.GatherCrystals = function(station)
             self:getPlayer():addToShipLog(t("side_mission_gather_crystals_hint_ok"), "255,127,0")
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             self:getPlayer():addReputationPoints(payment)
             station:sendCommsMessage(self:getPlayer(), t("side_mission_gather_crystals_success_comms", payment))
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
         onEnd = function(self)
             if isTable(self:getPickUps()) then

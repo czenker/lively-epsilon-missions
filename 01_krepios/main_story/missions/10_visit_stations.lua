@@ -11,15 +11,7 @@ My.EventHandler:register("onStart", function()
                 onSuccess = function(self)
                     My.World.player:addReputationPoints(10)
                     My.World.player:addQuickDial(station)
-                    logInfo("Mission " .. self:getTitle() .. " successful.")
-                    self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
-                end,
-                onFailure = function(self)
-                    logInfo("Mission " .. self:getTitle() .. " failed.")
-                    if self:getPlayer():isValid() then
-                        self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-                    end
-                end,
+                    end,
             })
             visitMission:setPlayer(My.World.player)
             Mission:withBroker(visitMission, t("story_mission_visit", station:getCallSign()), {missionBroker = My.World.hq})

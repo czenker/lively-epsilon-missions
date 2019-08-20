@@ -67,16 +67,8 @@ My.SideMissions.TransportProduct = function(from, to, player)
             self:getMissionBroker():sendCommsMessage(self:getPlayer(), t("side_mission_transport_product_product_lost", penalty))
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             self:getMissionBroker():sendCommsMessage(self:getPlayer(), t("side_mission_transport_product_success", payment))
             self:getPlayer():addReputationPoints(payment + penalty)
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
     })
     Mission:withBroker(mission, t("side_mission_transport_product", amount, product:getName(), to:getCallSign()), {

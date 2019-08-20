@@ -76,18 +76,12 @@ My.SideMissions.TransportThing = function(from, to, player)
             mission:getPlayer():addToShipLog(t("side_mission_transport_thing_insufficient_storage", product:getName(), amount * product:getSize()), "255,127,0")
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             to:sendCommsMessage(self:getPlayer(), t("side_mission_transport_thing_success", payment))
             self:getPlayer():addReputationPoints(payment)
         end,
         onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-                if to:isValid() then
-                    to:sendCommsMessage(self:getPlayer(), t("side_mission_transport_thing_time_out"))
-                end
+            if self:getPlayer():isValid() and to:isValid() then
+                to:sendCommsMessage(self:getPlayer(), t("side_mission_transport_thing_time_out"))
             end
         end,
         onEnd = function(self)

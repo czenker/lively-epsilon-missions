@@ -39,16 +39,8 @@ My.SideMissions.RagingMiner = function(station, x, y, player)
             station:sendCommsMessage(self:getPlayer(), t("side_mission_raging_miner_approach_comms"))
         end,
         onSuccess = function(self)
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             station:sendCommsMessage(self:getPlayer(), t("side_mission_raging_miner_success_comms", payment))
             self:getPlayer():addReputationPoints(payment)
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
         onEnd = function(self)
             for _, enemy in pairs(self:getEnemies() or {}) do

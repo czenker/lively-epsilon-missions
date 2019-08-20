@@ -120,19 +120,10 @@ My.SideMissions.DisableShip = function(station, x, y, player)
             local health = self:getTarget():getHull() / self:getTarget():getHullMax()
             local payment = minPayment + health * maxBonus
 
-            logInfo("Mission " .. self:getTitle() .. " successful.")
-            self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
-
             Tools:ensureComms(station, self:getPlayer(), t("side_mission_disable_ship_success_comms", shipCallSign, clientPerson, payment))
             self:getPlayer():addReputationPoints(payment)
 
             self:getTarget():setHailText(t("side_mission_disable_ship_taunt_hail1"))
-        end,
-        onFailure = function(self)
-            logInfo("Mission " .. self:getTitle() .. " failed.")
-            if self:getPlayer():isValid() then
-                self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
-            end
         end,
         onEnd = function(self)
             Cron.abort(cronId)

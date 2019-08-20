@@ -67,6 +67,7 @@ local myPackages = {
 
     "01_krepios/side_missions.lua",
     "01_krepios/mission_broker.lua",
+    "01_krepios/mission_logging.lua",
     "01_krepios/upgrades.lua",
     "01_krepios/flying_trader.lua",
     "01_krepios/chatter.lua",
