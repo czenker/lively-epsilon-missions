@@ -197,16 +197,14 @@ My.Translator:register("de", {
         })
 
         return Util.random({
-            Util.random({
-                "Müll im Weltall ist das größte Problem, dass unsere Generation zu lösen hat.",
-                "Überall nur Müll.",
-                "Wo man hinschaut, überall nur Schrott hier.",
-                "Dieser Müll überall ist ein riesiges Problem."
-            }) .. " " .. Util.random({
-                f("Nur ein kurzer Sekundenschlaf und schon kollidiert man mit %s.", thing),
-                f("Ich wäre fast mit %s zusammen gestoßen.", thing),
-                f("Wenn man nicht höllisch aufpasst, macht man viel zu schnell mit %s Bekanntschaft.", thing),
-            })
+            "Müll im Weltall ist das größte Problem, dass unsere Generation zu lösen hat.",
+            "Überall nur Müll.",
+            "Wo man hinschaut, überall nur Schrott hier.",
+            "Dieser Müll überall ist ein riesiges Problem."
+        }) .. " " .. Util.random({
+            f("Nur ein kurzer Sekundenschlaf und schon kollidiert man mit %s.", thing),
+            f("Ich wäre fast mit %s zusammen gestoßen.", thing),
+            f("Wenn man nicht höllisch aufpasst, macht man viel zu schnell mit %s Bekanntschaft.", thing),
         })
     end,
 

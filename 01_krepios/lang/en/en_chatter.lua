@@ -190,15 +190,13 @@ My.Translator:register("en", {
         })
 
         return Util.random({
-            Util.random({
-                "Garbage in space is the biggest problem our generation has to solve.",
-                "Waste everywhere.",
-                "Look at that! It's just junk all over the place.",
-                "This garbage everywhere is a huge problem."
-            }) .. " " .. Util.random({
-                f("Just a quick nap and you collide with %s.", thing),
-                f("I almost hit %s.", thing),
-            })
+            "Garbage in space is the biggest problem our generation has to solve.",
+            "Waste everywhere.",
+            "Look at that! It's just junk all over the place.",
+            "This garbage everywhere is a huge problem."
+        }) .. " " .. Util.random({
+            f("Just a quick nap and you collide with %s.", thing),
+            f("I almost hit %s.", thing),
         })
     end,
 

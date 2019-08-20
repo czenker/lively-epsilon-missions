@@ -20,6 +20,7 @@ My.World.getDrops = function(self)
             table.insert(drops, drop)
         end
     end
+    return drops
 end
 
 -- the player :)
