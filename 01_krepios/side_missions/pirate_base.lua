@@ -134,7 +134,14 @@ My.SideMissions.PirateBase = function(station, x, y, player)
             self:getPlayer():addToShipLog(t("generic_mission_successful", self:getTitle()), "255,127,0")
             station:sendCommsMessage(self:getPlayer(), t("side_mission_pirate_base_success_comms", payment))
             self:getPlayer():addReputationPoints(payment)
-        end
+        end,
+        onEnd = function(self)
+            for _, enemy in pairs(self:getEnemies() or {}) do
+                if isEeObject(enemy) and enemy:isValid() then
+                    enemy:destroy()
+                end
+            end
+        end,
     })
 
     Mission:withBroker(mission, t("side_mission_pirate_base_" .. version, sectorName), {

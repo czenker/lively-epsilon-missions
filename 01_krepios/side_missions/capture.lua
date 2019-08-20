@@ -125,6 +125,14 @@ My.SideMissions.Capture = function(station, x, y, player)
             if Player:hasStorage(self:getPlayer()) then
                 self:getPlayer():modifyProductStorage(product, -9999)
             end
+            if isEeObject(self:getBearer()) and self:getBearer():isValid() then
+                self:getBearer():destroy()
+            end
+            for _, ship in pairs(companions) do
+                if isEeObject(ship) and ship:isValid() then
+                    ship:destroy()
+                end
+            end
         end,
     })
 

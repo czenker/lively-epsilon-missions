@@ -1,6 +1,6 @@
 local f = string.format
 
-local createMainMenu, createReputationMenu, createCrewMenu, createUpgradeMenu, createStorageMenu, createStorageDetailMenu
+local createMainMenu, createReputationMenu, createCrewMenu, createUpgradeMenu, createStorageMenu, createStorageDetailMenu, createMissionMenu, createMissionDetailMenu
 
 local getSortedProducts = function()
     local prods = {}
@@ -20,6 +20,17 @@ local getSortedUpgrades = function()
     return upgrades
 end
 
+local getSortedMissions = function(player)
+    local missions = {}
+    for _, mission in pairs(player:getStartedMissions()) do
+        if Generic:hasTags(mission) and mission:hasTag("side_mission") then
+            table.insert(missions, mission)
+        end
+    end
+    table.sort(missions, function(a, b) return a:getTitle() < b:getTitle() end)
+    return missions
+end
+
 
 createMainMenu = function()
     local menu = Menu:new()
@@ -28,6 +39,7 @@ createMainMenu = function()
     menu:addItem(Menu:newItem("Crew", createCrewMenu, 2))
     menu:addItem(Menu:newItem("Upgrades", createUpgradeMenu, 3))
     menu:addItem(Menu:newItem("Storage", createStorageMenu, 4))
+    menu:addItem(Menu:newItem("Missions", createMissionMenu, 4))
     menu:addItem(Menu:newItem("Reset Menus", function()
         local player = My.World.player
         player:drawHelmsMenu()
@@ -217,6 +229,30 @@ createStorageDetailMenu = function(product)
     end
 end
 
+createMissionMenu = function()
+    local player = My.World.player
+    local menu = Menu:new()
+    menu:addItem(Menu:newItem("< Missions", createMainMenu, 0))
+    for i, mission in pairs(getSortedMissions(player)) do
+        menu:addItem(Menu:newItem(mission:getTitle(), createMissionDetailMenu(mission), i))
+    end
+    return menu
+end
+
+createMissionDetailMenu = function(mission)
+    return function()
+        local menu = Menu:new()
+        menu:addItem(Menu:newItem(f("< %s", mission:getTitle()), createMissionMenu, 0))
+        menu:addItem(Menu:newItem("Abort", function()
+            if mission:getState() == "started" then
+                logInfo(f("Mission \"%s\" aborted by GM", mission:getTitle()))
+                mission:fail()
+            end
+        end, 1))
+
+        return menu
+    end
+end
 
 My.EventHandler:register("onWorldCreation", function()
     Menu:addGmMenuItem(Menu:newItem("Player", createMainMenu))

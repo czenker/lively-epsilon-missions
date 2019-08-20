@@ -72,7 +72,9 @@ My.SideMissions.GatherCrystals = function(station)
         onEnd = function(self)
             if isTable(self:getPickUps()) then
                 for _,artifact in pairs(self:getPickUps()) do
-                    artifact:destroy()
+                    if isEeObject(artifact) and artifact:isValid() then
+                        artifact:destroy()
+                    end
                 end
             end
         end,

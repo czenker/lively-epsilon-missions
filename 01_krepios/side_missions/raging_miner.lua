@@ -50,6 +50,13 @@ My.SideMissions.RagingMiner = function(station, x, y, player)
                 self:getPlayer():addToShipLog(t("generic_mission_failed", self:getTitle()), "255,127,0")
             end
         end,
+        onEnd = function(self)
+            for _, enemy in pairs(self:getEnemies() or {}) do
+                if isEeObject(enemy) and enemy:isValid() then
+                    enemy:destroy()
+                end
+            end
+        end,
     })
 
     Mission:withBroker(mission, t("side_mission_raging_miner", sectorName), {

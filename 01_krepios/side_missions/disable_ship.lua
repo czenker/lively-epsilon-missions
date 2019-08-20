@@ -136,6 +136,9 @@ My.SideMissions.DisableShip = function(station, x, y, player)
         end,
         onEnd = function(self)
             Cron.abort(cronId)
+            if isEeObject(self:getTarget()) then
+                self:getTarget():destroy()
+            end
         end,
     })
 
