@@ -23,9 +23,14 @@ My.EventHandler:register("onFirstMoneyEarned", function()
         My.EventHandler:fire("onPowerPresetsReward")
     end, 60 * 40)
 
-    Cron.once(function()
-        My.EventHandler:fire("onAttackersSpawn")
-    end, 60 * 60)
+    if My.Config.sandbox then
+        logInfo("Enemies will not spawn, because sandbox mode was selected")
+    else
+        logInfo("Countdown for enemies spawning started")
+        Cron.once(function()
+            My.EventHandler:fire("onAttackersSpawn")
+        end, 60 * 60)
+    end
 end)
 
 

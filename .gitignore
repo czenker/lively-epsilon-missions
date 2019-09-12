@@ -23,4 +23,5 @@ docs/_build
 !factionInfo.lua
 !LICENSE
 !Readme.md
+!Changelog.md
 !create_release.sh

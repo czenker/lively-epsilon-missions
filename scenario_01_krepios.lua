@@ -4,6 +4,8 @@
 -- Type: Mission
 -- Variation[English]: english translation
 -- Variation[German]: Deutsche Uebersetzung
+-- Variation[English,Sandbox]: Sandbox Mode - the game has no defined end. English Translation
+-- Variation[German,Sandbox]: Sandkastenmodus - das Spiel hat kein definiertes Ende. Deutsche Uebersetzung
 
 -- ----------------------------
 --
@@ -42,6 +44,9 @@ My.Config = {
 
     -- there is this one metal band that everyone loves
     metalBandName = My.metalBandName(),
+
+    -- if this is a sandboxed game where there is no story twist
+    sandbox = false,
 }
 
 require "01_krepios/init.lua"
@@ -49,13 +54,15 @@ require "01_krepios/init.lua"
 function init()
     local t = My.Translator.translate
 
-    if getScenarioVariation() == "German" then
+    if getScenarioVariation():match('German') ~= nil then
         My.Translator:useLocale("de")
     else
         My.Translator:useLocale("en")
     end
 
-    Translator:printInspection(My.Translator)
+    if getScenarioVariation():match('Sandbox') ~= nil then
+        My.Config.sandbox = true
+    end
 
     My.EventHandler:fire("onWorldCreation")
     My.EventHandler:fire("onStart")
