@@ -97,7 +97,7 @@ My.SideMissions.Repair = function(station, from, player)
             return true
         end,
         onStart = function(self)
-            table.insert(self:getPlayer().quickDials, self:getNeedy())
+            self:getPlayer():addQuickDial(self:getNeedy())
             local hint = t("side_mission_repair_start_hint", self:getNeedy():getCallSign(), self:getNeedy():getSectorName())
             self:setHint(hint)
             self:getPlayer():addToShipLog(hint, "255,127,0")
@@ -164,12 +164,7 @@ My.SideMissions.Repair = function(station, from, player)
         onEnd = function(self)
             local needy = self:getNeedy()
             if needy ~= nil and needy:isValid() then
-                for i, target in pairs(self:getPlayer().quickDials) do
-                    if needy == target then
-                        table.remove(self:getPlayer().quickDials, i)
-                        return
-                    end
-                end
+                player:removeQuickDial(needy)
             end
         end,
     })
