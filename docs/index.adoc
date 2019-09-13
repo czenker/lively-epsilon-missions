@@ -39,6 +39,7 @@ Features::
 ** and lots more
 * lots of descriptions and texts. Relay will not get bored.
 * 4 slightly **different endings** – apart from you killing yourself
+* optional **sandbox mode** where the game does not end
 
 Details::
 * <<01_krepios_guide.adoc#,Players Guide>> – the spoiler free guide when you play without Game Master or want more information
