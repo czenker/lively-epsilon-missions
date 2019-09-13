@@ -273,7 +273,7 @@ end, {
 
 -- chatter_treasure
 My.ChatterNoise:addChatFactory(Chatter:newFactory(2, function(one, two)
-    local drop = My.World:getDrops()
+    local drop = Util.random(My.World:getDrops())
     return {
         {one, t("chatter_treasure_1", drop:getSectorName())},
         {two, t("chatter_treasure_2")},
