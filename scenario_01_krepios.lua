@@ -54,13 +54,14 @@ require "01_krepios/init.lua"
 function init()
     local t = My.Translator.translate
 
-    if getScenarioVariation():match('German') ~= nil then
+    local scenario = getScenarioVariation() or ""
+    if scenario:match('German') ~= nil then
         My.Translator:useLocale("de")
     else
         My.Translator:useLocale("en")
     end
 
-    if getScenarioVariation():match('Sandbox') ~= nil then
+    if scenario:match('Sandbox') ~= nil then
         My.Config.sandbox = true
     end
 
