@@ -226,6 +226,10 @@ My.Translator:register("de", {
     upgrade_beam_description = function(storageMalusSize)
         return f("Auf ihrem Schiff kann ein weiterer Laser installiert werden, der das Heck des Schiffs gegen Beschuss verteidigen kann. Um Platz für den Laser zu schaffen werden %d Einheiten des Lagerraums benötigt, aber gerade bei Händlern ist dieser zusätzliche Laser sehr beliebt, da er das Schiff verteidigen kann, während der Sprungantrieb lädt.", storageMalusSize)
     end,
+    upgrade_probe_name = "Sonden Lager",
+    upgrade_probe_description = function(storageMalusSize, amount)
+        return f("Den Laderaum für Sonden zu vergrößern ist ein sehr einfacher Prozess. Es muss lediglich der Lagerraum um %d Einheiten reduziert werden und als Lagerfläche für %d zusätzliche Sonden ausgewiesen werden.", storageMalusSize, amount)
+    end,
 
 
 })

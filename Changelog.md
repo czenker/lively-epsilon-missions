@@ -12,6 +12,7 @@
 * increase range of jump drive from `30u` to `45u`
 * the area of operations was moved to avoid sector names like `ZZ99` which is mostly confusing
 * LE fix: CrewForRent missions can be played with engineering+ and single pilot stations too
+* Scan Probe count has been reduced to `4` and added an upgrade to get it back to `8`
 
 #### v1.0
 

@@ -785,3 +785,24 @@ My.Upgrades.beam = (function()
     upgrade:addTag("freely-sold")
     return upgrade
 end)()
+
+My.Upgrades.probe = (function()
+    local amount = 4
+    local storageMalus = 6
+    local upgrade = BrokerUpgrade:new({
+        name = t("upgrade_probe_name"),
+        onInstall = function(upgrade, player)
+            player:setMaxScanProbeCount(player:getMaxScanProbeCount() + amount)
+        end,
+        id = "probe",
+        price = 80,
+        unique = true,
+        description = t("upgrade_probe_description", storageMalus, amount),
+        canBeInstalled = function(upgrade, player)
+            return player:getMaxScanProbeCount() > 0
+        end,
+    })
+    Generic:withTags(upgrade)
+    upgrade:addTag("freely-sold")
+    return upgrade
+end)()

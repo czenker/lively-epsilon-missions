@@ -227,5 +227,8 @@ My.Translator:register("en", {
         return f("An additional laser can be fitted on your ship that can defend the stern of your ship against laser fire. The general storage has to be reduced by %d units to make room for the firing bay. But especially traders love the additional laser as it allows them to defend their ship while charging the jump drive.", storageMalusSize)
     end,
 
-
+    upgrade_probe_name = "Probe Storage",
+    upgrade_probe_description = function(storageMalusSize, amount)
+        return f("Increasing the storage capacity for Scan Probe is a very simple process. The general storage area is reduced by %d units and used to store %d more probes.", storageMalusSize, amount)
+    end,
 })
