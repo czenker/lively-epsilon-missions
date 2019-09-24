@@ -222,6 +222,8 @@ My.EventHandler:register("onFortressManned", function()
     fortress:setRadarSignatureInfo(
         fortress:getRadarSignatureGravity(), 0.5, 0.5
     )
+
+    fortress:removeTag("mute")
 end, -90)
 
 My.EventHandler:register("onStart", function()

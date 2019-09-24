@@ -6,6 +6,7 @@
 * the crew can not have more than `3` side missions active at the same time
 * some transport missions have time limits now and fail if it is exceeded
 * GMs can abort side missions
+* Scan Probes have to be bought at stations (requires the latest version of EE)
 
 ##### changes + fixes
 * Use the name "Human Navy" consistently
