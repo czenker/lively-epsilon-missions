@@ -70,6 +70,23 @@ local improvements = {
             duration = 600,
         }
     end)(),
+    ScanProbe = (function()
+        local amount = 12
+        return {
+            name = t("fortress_improvement_scanProbe_name", amount),
+            canBeChosen = function(station)
+                if not isFunction(station.getRestocksScanProbes) or station:getRestocksScanProbes() then return false end
+
+                return Station:hasStorage(station) and station:canStoreProduct("scanProbe") and station:getEmptyProductStorage("scanProbe") > 0
+             end,
+            onCompletion = function(station)
+                station:modifyProductStorage("scanProbe", amount)
+            end,
+            confirmationMessage = t("fortress_improvement_scanProbe_confirmation"),
+            completionMessage = t("fortress_improvement_scanProbe_completion", amount),
+            duration = 300,
+        }
+    end)(),
     Repair = {
         name = t("fortress_improvement_repair_name"),
         canBeChosen = function(station) return isEeShipTemplateBased(station) and not station:getRepairDocked() end,
@@ -142,6 +159,8 @@ local StationTemplate = function()
         setShieldsMax(0):
         setRepairDocked(false):
         setSharesEnergyWithDocked(false)
+
+    if isFunction(s.setRestocksScanProbes) then s:setRestocksScanProbes(false) end
 
     return s
 end
@@ -278,9 +297,10 @@ My.EventHandler:register("onDefensePlanned", function()
         [products.mine] = 10,
         [products.emp] = 15,
         [products.nuke] = 5,
+        [products.scanProbe] = 20,
     }
     for id, product in pairs(products) do
-        if id == "homing" or id == "hvli" or id == "mine" or id == "emp" or id == "nuke" then
+        if id == "homing" or id == "hvli" or id == "mine" or id == "emp" or id == "nuke" or id == "scanProbe" then
             merchantConfig[product] = { sellingPrice = 0 }
         else
             merchantConfig[product] = { buyingPrice = product.basePrice }
@@ -293,10 +313,9 @@ My.EventHandler:register("onDefensePlanned", function()
     fortress:modifyProductStorage(products.mine, math.random(2, 4))
     fortress:modifyProductStorage(products.emp, math.random(0, 2))
     fortress:modifyProductStorage(products.nuke, math.random(1, 2))
+    fortress:modifyProductStorage(products.scanProbe, math.random(4, 6))
 
     Station:withMerchant(fortress, merchantConfig)
-
-    fortress:addComms(My.Comms.Merchant)
 end)
 
 My.EventHandler:register("onDefensePlanned", function()

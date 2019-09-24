@@ -24,6 +24,8 @@ My.EventHandler:register("onWorldCreation", function()
     setCallSign("SMC HQ"):
     setScannedDescription(t("station_hq_description"))
 
+    if isFunction(hq.setRestocksScanProbes) then hq:setRestocksScanProbes(false) end
+
     Station:withStorageRooms(hq, {
         [products.ore] = 400,
         [products.plutoniumOre] = 40,
@@ -33,6 +35,7 @@ My.EventHandler:register("onWorldCreation", function()
         [products.mine] = 10,
         [products.emp] = 10,
         [products.nuke] = 5,
+        [products.scanProbe] = 20,
     })
     hq:modifyProductStorage(products.miningMachinery, math.random(40, 80))
     hq:modifyProductStorage(products.ore, 400)
@@ -41,6 +44,7 @@ My.EventHandler:register("onWorldCreation", function()
     hq:modifyProductStorage(products.mine, math.random(0, 10))
     hq:modifyProductStorage(products.emp, math.random(0, 10))
     hq:modifyProductStorage(products.nuke, math.random(0, 1))
+    hq:modifyProductStorage(products.scanProbe, math.random(4, 8))
     Station:withMerchant(hq, {
         [products.ore] = { buyingPrice = My.buyingPrice(products.ore) },
         [products.plutoniumOre] = { buyingPrice = My.buyingPrice(products.plutoniumOre) },
@@ -50,6 +54,7 @@ My.EventHandler:register("onWorldCreation", function()
         [products.mine] = { sellingPrice = My.sellingPrice(products.mine) },
         [products.emp] = { sellingPrice = My.sellingPrice(products.emp) },
         [products.nuke] = { sellingPrice = My.sellingPrice(products.nuke) },
+        [products.scanProbe] = { sellingPrice = My.sellingPrice(products.scanProbe) },
     })
 
     My.World.hq = hq
@@ -114,7 +119,15 @@ My.EventHandler:register("onStart", function()
             produces = {
                 { product = products.miningMachinery, amount = 2 }
             }
-        },
+        },{
+              productionTime = math.random(108, 132),
+              consumes = {
+                  { product = products.ore, amount = 2 }
+              },
+              produces = {
+                  { product = products.scanProbe, amount = 1 }
+              }
+          },
     })
 
     local function spawnBuyer(product)

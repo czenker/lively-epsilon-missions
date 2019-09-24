@@ -75,6 +75,12 @@ My.Translator:register("en", {
     fortress_improvement_nuke_confirmation = "If we want to oppose the enemy, we cannot rely on conventional weapons. Our engineers do their best to produce a nuke.",
     fortress_improvement_nuke_completion = "Our engineers crafted a nuke.",
 
+    fortress_improvement_scanProbe_name = function(amount)
+        return f("Produce %d Scan Probes", amount)
+    end,
+    fortress_improvement_scanProbe_confirmation = "Knowledge is power on the battlefield. With scan probes we have an edge on intelligence and can monitor enemies from a distance.",
+    fortress_improvement_scanProbe_completion = "We have created the Scan Probes as requested.",
+
     fortress_improvement_repair_name = "get the repair dock going",
     fortress_improvement_repair_confirmation = "Our technicians will try to get the repair dock working again.",
     fortress_improvement_repair_completion = "The repair dock was set into operation. We are now able to repair the hull of your ship should the circumstances require.",

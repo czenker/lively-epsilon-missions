@@ -91,6 +91,8 @@ My.EventHandler:register("onWorldCreation", function()
         setShieldsMax(0):
         setRepairDocked(false):
         setSharesEnergyWithDocked(false)
+
+        if isFunction(station.setRestocksScanProbes) then station:setRestocksScanProbes(false) end
         
         station:setScannedDescription(t("station_abandoned_description"))
 

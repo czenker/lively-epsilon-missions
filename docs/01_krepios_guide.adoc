@@ -61,6 +61,7 @@ stations to allow you to store more missiles and turn your ship into a better fi
 * The _Missions_ button is your friend. Use it often. It will show you what missions you have accepted and your next step to complete them.
 * _Quick Dial_ opens communications to stations that you already discovered even if they are inside the Fog of War. More will be added as you dock to them for the first time.
 * The ship log might pick up interesting chit-chat from ships around you.
+* Scan Probes do _not_ automatically restock at stations, but you can buy them from a trader at most stations.
 
 === Engineering
 

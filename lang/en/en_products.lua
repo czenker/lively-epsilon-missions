@@ -10,4 +10,6 @@ My.Translator:register("en", {
     products_emp_description = "An electromagnetic pulse missile (EMP) causes an electrical disruption comparable to a nuclear warhead - only without the unpleasent kinetic and radioactive destructive force.",
     products_nuke_name = "Nuke missiles",
     products_nuke_description = "Just like homing missiles a nuke missile can lock on its target. However, it is somewhat slower, but its destructive force is significant and can damage additional ships in its vicinity.",
+    products_scanProbe_name = "Scan Probes",
+    products_scanProbe_description = "Scan Probes can be used by Relay Officers to bridge communications to stations and ships outside the ships radio range. They also hold a scanner for short distance that can be utilized by a Science Officer.",
 })

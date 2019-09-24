@@ -10,4 +10,6 @@ My.Translator:register("de", {
     products_emp_description = "Eine Elektromagnetische Pulsrakete (EMP) verursacht eine elektrische Disruption, die vergleichbar mit einem Nuklearsprengkopf ist. Allerdings ohne die unschöne kinetische und radioaktive Zerstörungskraft.",
     products_nuke_name = "Nuklear Raketen",
     products_nuke_description = "Eine Nuklearrakete kann, wie Homing Raketen, ihr Ziel verfolgen. Allerdings ist sie etwas langsamer, dafür ist ihre Zerstörungskraft beträchtlich und beschädigt auch Schiffe in der Umgebung.",
+    products_scanProbe_name = "Scanner Sonden",
+    products_scanProbe_description = "Scanner Sonden können von einem Relay Officer verwendet werden und als Kommunikationsbrücke zu Stationen und Schiffen außerhalb der Funkreichweite des Schiffes. Sie tragen auch einen Scanner für Kurzstrecke, der vom Science Officer im Umfeld verwendet werden kann.",
 })

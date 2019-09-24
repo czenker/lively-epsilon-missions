@@ -17,17 +17,23 @@ My.EventHandler:register("onWorldCreation", function()
     local station = StationTemplate():setPosition(x, y)
     station:setCallSign(My.scienceStationName())
     station:setScannedDescription(t("research_station_description", nebula:getName()))
+
+    if isFunction(station.setRestocksScanProbes) then station:setRestocksScanProbes(false) end
+
     Station:withCrew(station, {
         relay = Person:newHumanScientist(),
         crystallographer = Person.newHumanScientist(),
     })
     Station:withStorageRooms(station, {
         [products.ore] = 100,
+        [products.scanProbe] = 4,
     })
     Station:withMerchant(station, {
         [products.ore] = { buyingPrice = My.buyingPrice(products.ore) },
+        [products.scanProbe] = { sellingPrice = My.sellingPrice(products.scanProbe) },
     })
     station:modifyProductStorage(products.ore, math.random(10, 20))
+    station:modifyProductStorage(products.scanProbe, math.random(0, 1))
 
     Station:withProduction(station, {
         {
@@ -36,6 +42,14 @@ My.EventHandler:register("onWorldCreation", function()
                 { product = products.ore, amount = 1 }
             },
             produces = {}
+        },{
+            productionTime = math.random(216, 264),
+            consumes = {
+                { product = products.ore, amount = 2 }
+            },
+            produces = {
+                { product = products.scanProbe, amount = 1 }
+            }
         },
     })
 

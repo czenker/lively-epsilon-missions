@@ -38,6 +38,8 @@ local function makeItAMine(station)
     station:setCallSign(My.miningStationName())
     station:setScannedDescription(t("mines_miner_station_description"))
 
+    if isFunction(station.setRestocksScanProbes) then station:setRestocksScanProbes(false) end
+
     Station:withStorageRooms(station, {
         [products.ore] = 400,
         [products.plutoniumOre] = 40,
@@ -45,6 +47,7 @@ local function makeItAMine(station)
         [products.hvli] = 8,
         [products.homing] = 8,
         [products.mine] = 4,
+        [products.scanProbe] = 10,
     })
     Station:withMerchant(station, {
         [products.ore] = { sellingPrice = My.sellingPrice(products.ore), sellingLimit = 60 },
@@ -53,6 +56,7 @@ local function makeItAMine(station)
         [products.hvli] = { sellingPrice = My.sellingPrice(products.hvli)},
         [products.homing] = { sellingPrice = My.sellingPrice(products.homing) },
         [products.mine] = { sellingPrice = My.sellingPrice(products.mine) },
+        [products.scanProbe] = { sellingPrice = My.sellingPrice(products.scanProbe) },
     })
     Station:withCrew(station, {
         relay = Person:newHuman()
@@ -63,6 +67,7 @@ local function makeItAMine(station)
     station:modifyProductStorage(products.hvli, math.random(0, 4))
     station:modifyProductStorage(products.homing, math.random(0, 4))
     station:modifyProductStorage(products.mine, math.random(0, 2))
+    station:modifyProductStorage(products.scanProbe, math.random(2, 4))
 
     Station:withProduction(station, {
         {
@@ -88,6 +93,14 @@ local function makeItAMine(station)
             },
             produces = {
                 { product = products.mine, amount = 1 }
+            }
+        },{
+            productionTime = math.random(108, 132),
+            consumes = {
+                { product = products.ore, amount = 2 }
+            },
+            produces = {
+                { product = products.scanProbe, amount = 1 }
             }
         },{
             productionTime = math.random(81, 99),

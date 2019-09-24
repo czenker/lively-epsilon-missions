@@ -75,6 +75,12 @@ My.Translator:register("de", {
     fortress_improvement_nuke_confirmation = "Wenn wir dem Feind etwas entgegensetzen wollen, können wir uns nicht auf konventionelle Waffen verlassen. Unsere Ingeneure tun ihr Bestes, um eine Nuke herzustellen.",
     fortress_improvement_nuke_completion = "Wir haben eine Nuke gefertigt und zu unserem Lager hinzugefügt.",
 
+    fortress_improvement_scanProbe_name = function(amount)
+        return f("%d Scanner Sonden produzieren", amount)
+    end,
+    fortress_improvement_scanProbe_confirmation = "Wissen ist auf dem Schlachtfeld Macht. Mit Scanner Sonden können wir den Feind aus sicherer Entfernung aufspüren.",
+    fortress_improvement_scanProbe_completion = "Wir haben die neuen Scanner Sonden gebaut.",
+
     fortress_improvement_repair_name = "Reparaturdock in Gang setzen",
     fortress_improvement_repair_confirmation = "Unsere Techniker werden versuchen die Werkstatt zur Reparatur wieder funktionstüchtig zu bekommen.",
     fortress_improvement_repair_completion = "Die Werkstatt wurde repariert. Wir sind nun in der Lage die Hülle eures Schiffes zu reparieren, sollten es die Umstände erforderlich machen.",

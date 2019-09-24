@@ -64,6 +64,12 @@ products = {
         size = l,
         basePrice = 30,
     },
+    scanProbe = {
+        name = t("products_scanProbe_name"),
+        description = t("products_scanProbe_description"),
+        size = m,
+        basePrice = 2,
+    },
 }
 
 -- add id to object
