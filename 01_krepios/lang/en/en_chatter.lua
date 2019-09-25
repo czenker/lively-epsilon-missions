@@ -15,6 +15,29 @@ My.Translator:register("en", {
         })
     end,
 
+    chatter_leave_person = function(person)
+        local heShe, HeShe, himHer, hisHer
+        if Person:hasTags(person) and person:hasTag("male") then
+            hisHer = "his"
+            himHer = "him"
+            heShe = "he"
+            HeShe = "He"
+        else
+            hisHer = "her"
+            himHer = "her"
+            heShe = "she"
+            HeShe = "She"
+        end
+
+        return Util.random({
+            f("I wonder what %s is doing. %s left the sector recently and I have not heard of %s since.", person:getFormalName(), HeShe, himHer),
+            f("If only I was like %s and find the courage to leave this sector.", person:getFormalName()),
+            f("Does anyone know what happened to %s after %s left the sector?", person:getFormalName(), heShe),
+            f("%s is a true hero. %s left the sector to find a better life and did not come back yet.", person:getFormalName(), HeShe),
+            f("Did you hear the rumors that %s just quit %s job and left the sector? That's a really bold move.", person:getFormalName(), hisHer),
+        })
+    end,
+
     chatter_existentialism = function()
         return Util.random({
             "Sometimes I wonder if I even exist when there is no one to see me.",

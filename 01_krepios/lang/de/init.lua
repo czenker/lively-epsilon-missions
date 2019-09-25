@@ -17,6 +17,7 @@ local myPackages = {
     "01_krepios/lang/de/de_player.lua",
     "01_krepios/lang/de/de_player_science.lua",
     "lang/de/de_products.lua",
+    "01_krepios/lang/de/de_random_ships.lua",
     "01_krepios/lang/de/de_products.lua",
     "01_krepios/lang/de/de_station_abandoned.lua",
     "01_krepios/lang/de/de_station_hq.lua",

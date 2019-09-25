@@ -85,6 +85,7 @@ local myPackages = {
     "01_krepios/world/player.lua",
     "01_krepios/world/player_relay.lua",
     "01_krepios/world/player_science.lua",
+    "01_krepios/world/random_ships.lua",
     "01_krepios/world/station_abandoned.lua",
     "01_krepios/world/station_fortress.lua",
     "01_krepios/world/station_colonel.lua",

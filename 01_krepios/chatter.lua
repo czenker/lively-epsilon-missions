@@ -36,6 +36,18 @@ end, {
     }
 }), "leave")
 
+-- a ship talking about leaving this awful place
+My.ChatterNoise:addChatFactory(Chatter:newFactory(1, function(one)
+    local person = Util.random(My.World.personsWhoLeftTheSector)
+    return {
+        {one, t("chatter_leave_person", person)}
+    }
+end, {
+    filters = {
+        function(one) return Util.size(My.World.personsWhoLeftTheSector) > 0 and isEeShip(one) and not isMute(one) and isLocal(one) end
+    }
+}), "leave_person")
+
 -- a ship having deep thoughts
 My.ChatterNoise:addChatFactory(Chatter:newFactory(1, function(one)
     return {

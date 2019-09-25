@@ -45,6 +45,13 @@ My.Config = {
     -- there is this one metal band that everyone loves
     metalBandName = My.metalBandName(),
 
+    -- surrounding sectors
+    sectorNames = {
+        My.sectorName(),
+        My.sectorName(),
+        My.sectorName(),
+    },
+
     -- if this is a sandboxed game where there is no story twist
     sandbox = false,
 }

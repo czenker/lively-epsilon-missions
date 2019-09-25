@@ -44,3 +44,5 @@ My.World.allStationsDestroyed = function()
     end
     return true
 end
+
+My.World.personsWhoLeftTheSector = {}
