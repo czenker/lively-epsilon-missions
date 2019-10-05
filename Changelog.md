@@ -8,10 +8,11 @@
 * GMs can abort side missions
 * Scan Probes have to be bought at stations (requires the latest version of EE)
 * When the Jump Drive is selected, Science can calculate jump vectors to known stations and waypoints.
+* Added an upgrade to increase jump range from `30u` to `60u`.
+* Added an upgrade that allows a ship with warp drive to install an additional tactical jump drive with `10u` range.
 
 ##### changes + fixes
 * Use the name "Human Navy" consistently
-* increase range of jump drive from `30u` to `45u`
 * the area of operations was moved to avoid sector names like `ZZ99` which is mostly confusing
 * LE fix: CrewForRent missions can be played with engineering+ and single pilot stations too
 * Scan Probe count has been reduced to `4` and added an upgrade to get it back to `8`

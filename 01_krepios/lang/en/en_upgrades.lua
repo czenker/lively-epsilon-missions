@@ -63,7 +63,12 @@ My.Translator:register("en", {
     upgrade_jumpDrive_description = function(range)
         return f("Jump Drives are usually employed by military and paramilitary groups to stage surprise attacks. But they are also regularly used for long distance travel. This drive is capable of jumps for up to %dU.\n\nA ship can either be fitted with a Jump Drive or Warp Drive.", range)
     end,
-
+    upgrade_jumpDrive2_description = function(range)
+        return f("Jump Drives are usually employed by military and paramilitary groups to stage surprise attacks. But they are also regularly used for long distance travel. This drive is capable of jumps for up to %dU and is a significant improvement over the normal Jump Drive.", range)
+    end,
+    upgrade_tacticalJumpDrive_description = function(range)
+        return f("Jump Drives are usually employed by military and paramilitary groups to stage surprise attacks. But they are also regularly used for long distance travel. This drive is capable of jumps for up to %dU and is best used in tactical situations to evade fights or engage the enemy from surprising angles.", range)
+    end,
     upgrade_hvli1_name = "HVLI Storage S",
     upgrade_hvli1_description = function(storageSize)
         return f("%d HVLI missiles can be stored in even the smallest ships. Same here: A small storage close to the torpedo bays is sufficient.", storageSize)

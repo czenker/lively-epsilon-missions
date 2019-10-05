@@ -214,6 +214,7 @@ My.Upgrades.warpDrive = (function()
         onInstall = function(upgrade, player)
             player:setWarpDrive(true)
         end,
+        id = "warpDrive",
         price = 0,
         unique = true,
         canBeInstalled = function(upgrade, player)
@@ -225,8 +226,28 @@ My.Upgrades.warpDrive = (function()
     return upgrade
 end)()
 
+My.Upgrades.tacticalJumpDrive = (function()
+    local rangeInU = 10
+    local upgrade = BrokerUpgrade:new({
+
+        name = t("upgrade_jumpDrive_name", rangeInU),
+        onInstall = function(upgrade, player)
+            player:setJumpDrive(true)
+            player:setJumpDriveRange(0, rangeInU * 1000)
+        end,
+        id = "tacticalJumpDrive",
+        price = 120,
+        unique = true,
+        requiredUpgrade = "warpDrive",
+        description = t("upgrade_tacticalJumpDrive_description", rangeInU),
+    })
+    Generic:withTags(upgrade)
+    upgrade:addTag("freely-sold")
+    return upgrade
+end)()
+
 My.Upgrades.jumpDrive = (function()
-    local rangeInU = 45
+    local rangeInU = 30
     local upgrade = BrokerUpgrade:new({
 
         name = t("upgrade_jumpDrive_name", rangeInU),
@@ -235,6 +256,7 @@ My.Upgrades.jumpDrive = (function()
             player:setJumpDriveRange(0, rangeInU * 1000)
             My.installJumpCalculator()
         end,
+        id = "jumpDrive",
         price = 0,
         unique = true,
         canBeInstalled = function(upgrade, player)
@@ -243,6 +265,25 @@ My.Upgrades.jumpDrive = (function()
         description = t("upgrade_jumpDrive_description", rangeInU),
     })
     Generic:withTags(upgrade)
+    return upgrade
+end)()
+My.Upgrades.jumpDrive2 = (function()
+    local rangeInU = 60
+    local upgrade = BrokerUpgrade:new({
+
+        name = t("upgrade_jumpDrive_name", rangeInU),
+        onInstall = function(upgrade, player)
+            player:setJumpDrive(true)
+            player:setJumpDriveRange(0, rangeInU * 1000)
+        end,
+        id = "jumpDrive2",
+        price = 120,
+        unique = true,
+        requiredUpgrade = "jumpDrive",
+        description = t("upgrade_jumpDrive2_description", rangeInU),
+    })
+    Generic:withTags(upgrade)
+    upgrade:addTag("freely-sold")
     return upgrade
 end)()
 
