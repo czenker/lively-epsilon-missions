@@ -231,4 +231,14 @@ My.Translator:register("en", {
     upgrade_probe_description = function(storageMalusSize, amount)
         return f("Increasing the storage capacity for Scan Probe is a very simple process. The general storage area is reduced by %d units and used to store %d more probes.", storageMalusSize, amount)
     end,
+
+    upgrade_jumpCalculator_label_info_button = "Information",
+    upgrade_jumpCalculator_label_info = "The Jump Calculator helps to calculate correct jump vectors in difficult surroundings. It can target known stations in the sector and waypoints set by the Relay Officer and outputs the direction and distance from the ships current position.",
+    upgrade_jumpCalculator_label = "Jump Calculator",
+    upgrade_jumpCalculator_waypoint_label = function(number)
+        return f("Waypoint %d", number)
+    end,
+    upgrade_jumpCalculator_result = function(label, heading, distance)
+        return f("Vector to %s\n\nDistance: %0.1fu\nHeading: %d", label, distance, heading)
+    end,
 })

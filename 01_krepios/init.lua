@@ -72,6 +72,7 @@ local myPackages = {
     "01_krepios/flying_trader.lua",
     "01_krepios/chatter.lua",
 
+    "01_krepios/upgrades/jump_calculator.lua",
     "01_krepios/upgrades/laser_refit.lua",
 
     "01_krepios/world/helper.lua",

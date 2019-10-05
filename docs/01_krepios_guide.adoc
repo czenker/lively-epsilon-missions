@@ -53,6 +53,7 @@ stations to allow you to store more missiles and turn your ship into a better fi
 ** You have a mission for a station or nebula your crew has not discovered yet? Look up its sector in the _Stations_ or _Nebulae_ menu.
 ** To find rewarding trading routes check the _Products_ menu for buyers, sellers and average prices.
 ** To get an overview at what _Upgrades_ are known in the Sector check the according menu.
+** If your captain decides to buy a _Jump Drive_, you can calculate vectors to known stations and waypoints set by relay.
 
 === Relay
 

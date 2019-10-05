@@ -233,6 +233,7 @@ My.Upgrades.jumpDrive = (function()
         onInstall = function(upgrade, player)
             player:setJumpDrive(true)
             player:setJumpDriveRange(0, rangeInU * 1000)
+            My.installJumpCalculator()
         end,
         price = 0,
         unique = true,

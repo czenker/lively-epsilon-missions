@@ -7,6 +7,7 @@
 * some transport missions have time limits now and fail if it is exceeded
 * GMs can abort side missions
 * Scan Probes have to be bought at stations (requires the latest version of EE)
+* When the Jump Drive is selected, Science can calculate jump vectors to known stations and waypoints.
 
 ##### changes + fixes
 * Use the name "Human Navy" consistently
