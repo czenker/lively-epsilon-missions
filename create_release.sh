@@ -21,6 +21,7 @@ cp lively_epsilon/Readme.md lively_epsilon/LICENSE lively_epsilon/init.lua "_bui
 
 cp -r 01_krepios/ _build/01_krepios/
 cp -r names/ _build/names/
+cp -r lang/ _build/lang/
 mkdir _build/docs
 cp docs/*.adoc _build/docs
 cp -r docs/_build _build/docs/html
