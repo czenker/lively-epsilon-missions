@@ -73,7 +73,7 @@ My.Translator:register("en", {
             "Executive Officer",
             Util.random({
                 "estimate the profitability of the station",
-                "improve the workflow",
+                "improve their workflow",
                 "negotiate over investments",
             }),
             clientPerson,
