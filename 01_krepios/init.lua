@@ -26,8 +26,17 @@ My.EventHandler = EventHandler:new({allowedEvents = {
     "onEnemiesDestroyed", --
 }, unique = true})
 
-My.Translator = Translator:new("de")
+My.Translator = Translator:new("en")
 My.Translator:useLocale("en")
+
+if isFunction(getScenarioVariation) then
+    local scenario = getScenarioVariation() or ""
+    if scenario:match('German') ~= nil then
+        My.Translator:useLocale("de")
+    else
+        My.Translator:useLocale("en")
+    end
+end
 
 local myPackages = {
     "01_krepios/lang/de/init.lua",
