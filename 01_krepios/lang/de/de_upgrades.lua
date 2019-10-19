@@ -64,6 +64,13 @@ My.Translator:register("de", {
         return f("Der Sprungantrieb wird häufig von militärischen und paramilitärischen Gruppierungen verwendet, um Überraschungsangriffe durchzuführen. Doch auch für längere Reisen ist der Sprungantrieb durchaus geeignet. Dieser Antrieb erlaubt Sprünge bis zu %dU.\n\nAuf einem Schiff können nur entweder ein Warpantrieb oder ein Sprungantrieb installiert werden.", range)
     end,
 
+    upgrade_jumpDrive2_description = function(range)
+        return f("Der Sprungantrieb wird häufig von militärischen und paramilitärischen Gruppierungen verwendet, um Überraschungsangriffe durchzuführen. Doch auch für längere Reisen ist der Sprungantrieb durchaus geeignet. Dieser Antrieb erlaubt Sprünge bis zu %dU und ist eine signifikante Verbesserung gegenüber herkömmlichen Sprungantrieben.", range)
+    end,
+    upgrade_tacticalJumpDrive_description = function(range)
+        return f("Der Sprungantrieb wird häufig von militärischen und paramilitärischen Gruppierungen verwendet, um Überraschungsangriffe durchzuführen. Doch auch für längere Reisen ist der Sprungantrieb durchaus geeignet. Dieser Antrieb erlaubt Sprünge bis zu %dU und kommt am Besten in taktischen Manövern, wie dem Ausweichen von Feinden oder zum Ändern der Angriffsrichtung, zum Einsatz.", range)
+    end,
+
     upgrade_hvli1_name = "HVLI Lager S",
     upgrade_hvli1_description = function(storageSize)
         return f("Platz für %d HVLI Raketen ist selbst in den kleinsten Schiffen vorhanden. So auch hier: eine kleine Ecke in der Nähe der Torpedorohre reicht vollkommen aus.", storageSize)
@@ -231,5 +238,32 @@ My.Translator:register("de", {
         return f("Den Laderaum für Sonden zu vergrößern ist ein sehr einfacher Prozess. Es muss lediglich der Lagerraum um %d Einheiten reduziert werden und als Lagerfläche für %d zusätzliche Sonden ausgewiesen werden.", storageMalusSize, amount)
     end,
 
+    upgrade_jumpCalculator_label_info_button = "Informationen",
+    upgrade_jumpCalculator_label_info = "Der Sprungrechner hilft dabei korrekte Sprungvektoren selbst in den schwierigsten Situationen zu berechnen. Er kann als Ziel bekannte Stationen oder Wegpunkte des Kommunikationsoffiziers nutzen. Als Ergebnis wird die Richtung und Entfernung des Ziels ausgegeben.",
+    upgrade_jumpCalculator_label = "Sprungrechner",
+    upgrade_jumpCalculator_waypoint_label = function(number)
+        return f("Wegpunkt %d", number)
+    end,
+    upgrade_jumpCalculator_result = function(label, heading, distance)
+        return f("Vektor nach %s\n\nEntfernung: %0.1fu\nRichtung: %d", label, distance, heading)
+    end,
 
+    upgrade_nanobots_name = "Nanobot System",
+    upgrade_nanobots_description = function(hullMalusPercent)
+        return f("Durch Hinzufügen eines Tunnelsystems in die Schiffshülle können Nanobots zur Reparatur der Schiffshülle ausgesendet werden. Dieser Umbau schwächt zwar die Hülle um %0.1f%%, aber erlaubt es die Hülle auch während Missionen zu reparieren, vorausgesetzt die Schilde sind deaktiviert. Nach Verwendung müssen Nanobots an Stationen nachgekauft werden.", hullMalusPercent)
+    end,
+    upgrade_nanobots_label = "Nanobots",
+    upgrade_nanobots_info_label = "Informationen",
+    upgrade_nanobots_info = function(repairPercent, repairTime)
+        return f(
+                "Nanobots reparieren %0.1f%% Hüllenschaden innerhalb von %d Sekunden.\n\nSie können nicht freigesetzt werden, solange die Schilde aktiviert sind und werden sofort zerstört, sobald die Schilde aktiviert werden.",
+                repairPercent,
+                repairTime
+        )
+    end,
+    upgrade_nanobots_go_label = "Aktivieren",
+    upgrade_nanobots_no_charges = "Keine Nanobots",
+    upgrade_nanobots_currently_active = "Aktiv",
+    upgrade_nanobots_no_shields = "Nanobots können nur eingesetzt werden, wenn die Schilde deaktiviert sind.",
+    upgrade_nanobots_no_shields_alert = "Durch das Aktivieren der Schilde wurden die Nanobots, die die Hülle reparierten, zerstört.",
 })

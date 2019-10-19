@@ -11,7 +11,7 @@ My.Comms.FortressImprovement = (function()
 
         local improvements = {}
         for _,improvement in pairs(My.World.fortress:getImprovements()) do
-            if not isFunction(improvement.canBeChosen) or improvement.canBeChosen(comms_target) == true then
+            if not isFunction(improvement.canBeChosen) or improvement.canBeChosen(comms_target, comms_source) == true then
                 table.insert(improvements, improvement)
             end
         end

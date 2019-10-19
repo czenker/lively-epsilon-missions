@@ -81,6 +81,12 @@ My.Translator:register("en", {
     fortress_improvement_scanProbe_confirmation = "Knowledge is power on the battlefield. With scan probes we have an edge on intelligence and can monitor enemies from a distance.",
     fortress_improvement_scanProbe_completion = "We have created the Scan Probes as requested.",
 
+    fortress_improvement_nanobot_name = function(amount)
+        return f("Produce %d Nanobots", amount)
+    end,
+    fortress_improvement_nanobot_confirmation = "Nanobots could prolong your survival against our foes. And survival is all we are hoping for.",
+    fortress_improvement_nanobot_completion = "We have created a batch of nanobots for your ship.",
+
     fortress_improvement_repair_name = "get the repair dock going",
     fortress_improvement_repair_confirmation = "Our technicians will try to get the repair dock working again.",
     fortress_improvement_repair_completion = "The repair dock was set into operation. We are now able to repair the hull of your ship should the circumstances require.",

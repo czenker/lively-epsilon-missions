@@ -7,4 +7,6 @@ My.Translator:register("de", {
     products_miningMachinery_description = "Bohrköpfe, Aufbereitungsanlagen und Transportsysteme werden im weiteren Sinne als Bergbaumaschinen bezeichnet. Sie werden hauptsächlich auf Schürfstationen eingesetzt.",
     products_power_name = "Energiezellen",
     products_power_description = "Diese hochenergetischen Speicher können Elektrizität lange aufbewahren und können somit als Energiequelle auf Stationen weitab von Sternen verwendet werden.",
+    products_nanobot_name = "Nanobots",
+    products_nanobot_description = "Nanobots werden auf größeren Schiffen eingesetzt um zwischen Kämpfen Hüllenschaden zu reparieren. Als Handelsware haben sie keinen hohen Wert.",
 })

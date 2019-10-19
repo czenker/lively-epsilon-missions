@@ -27,22 +27,19 @@ My.EventHandler:register("onWorldCreation", function()
     Station:withStorageRooms(station, {
         [products.ore] = 100,
         [products.scanProbe] = 4,
+        [products.nanobot] = 4,
     })
     Station:withMerchant(station, {
         [products.ore] = { buyingPrice = My.buyingPrice(products.ore) },
         [products.scanProbe] = { sellingPrice = My.sellingPrice(products.scanProbe) },
+        [products.nanobot] = { sellingPrice = My.sellingPrice(products.nanobot) },
     })
     station:modifyProductStorage(products.ore, math.random(10, 20))
     station:modifyProductStorage(products.scanProbe, math.random(0, 1))
+    station:modifyProductStorage(products.nanobot, math.random(0, 1))
 
     Station:withProduction(station, {
         {
-            productionTime = math.random(81, 99),
-            consumes = {
-                { product = products.ore, amount = 1 }
-            },
-            produces = {}
-        },{
             productionTime = math.random(216, 264),
             consumes = {
                 { product = products.ore, amount = 2 }
@@ -50,8 +47,18 @@ My.EventHandler:register("onWorldCreation", function()
             produces = {
                 { product = products.scanProbe, amount = 1 }
             }
+        },{
+            productionTime = math.random(420, 540),
+            consumes = {
+                { product = products.ore, amount = 8 }
+            },
+            produces = {
+                { product = products.nanobot, amount = 1 }
+            }
         },
     })
+
+    station:addUpgrade(My.Upgrades.nanobot)
 
     station:addTag("science")
 

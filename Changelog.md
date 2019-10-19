@@ -10,6 +10,7 @@
 * When the Jump Drive is selected, Science can calculate jump vectors to known stations and waypoints.
 * Added an upgrade to increase jump range from `30u` to `60u`.
 * Added an upgrade that allows a ship with warp drive to install an additional tactical jump drive with `10u` range.
+* Added the Nanobot upgrade that allows patching up the hull while flying through space
 
 ##### changes + fixes
 * Use the name "Human Navy" consistently

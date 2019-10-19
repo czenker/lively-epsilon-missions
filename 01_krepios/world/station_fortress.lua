@@ -87,6 +87,21 @@ local improvements = {
             duration = 300,
         }
     end)(),
+    Nanobot = (function()
+        local amount = 4
+        return {
+            name = t("fortress_improvement_nanobot_name", amount),
+            canBeChosen = function(station, player)
+                return Station:hasStorage(station) and station:canStoreProduct("nanobot") and station:getEmptyProductStorage("nanobot") > 0 and player:hasUpgrade("nanobot")
+             end,
+            onCompletion = function(station)
+                station:modifyProductStorage("nanobot", amount)
+            end,
+            confirmationMessage = t("fortress_improvement_nanobot_confirmation"),
+            completionMessage = t("fortress_improvement_nanobot_completion", amount),
+            duration = 300,
+        }
+    end)(),
     Repair = {
         name = t("fortress_improvement_repair_name"),
         canBeChosen = function(station) return isEeShipTemplateBased(station) and not station:getRepairDocked() end,
@@ -300,9 +315,10 @@ My.EventHandler:register("onDefensePlanned", function()
         [products.emp] = 15,
         [products.nuke] = 5,
         [products.scanProbe] = 20,
+        [products.nanobot] = 20,
     }
     for id, product in pairs(products) do
-        if id == "homing" or id == "hvli" or id == "mine" or id == "emp" or id == "nuke" or id == "scanProbe" then
+        if id == "homing" or id == "hvli" or id == "mine" or id == "emp" or id == "nuke" or id == "scanProbe" or id == "nanobot" then
             merchantConfig[product] = { sellingPrice = 0 }
         else
             merchantConfig[product] = { buyingPrice = product.basePrice }
@@ -316,6 +332,7 @@ My.EventHandler:register("onDefensePlanned", function()
     fortress:modifyProductStorage(products.emp, math.random(0, 2))
     fortress:modifyProductStorage(products.nuke, math.random(1, 2))
     fortress:modifyProductStorage(products.scanProbe, math.random(4, 6))
+    fortress:modifyProductStorage(products.nanobot, math.random(2, 4))
 
     Station:withMerchant(fortress, merchantConfig)
 end)

@@ -848,3 +848,29 @@ My.Upgrades.probe = (function()
     upgrade:addTag("freely-sold")
     return upgrade
 end)()
+
+My.Upgrades.nanobot = (function()
+    local hullMalus = 10
+    local repairAmount = 25
+    local repairTime = 90 -- seconds
+
+    local upgrade = BrokerUpgrade:new({
+        name = t("upgrade_nanobots_name"),
+        onInstall = function(_, player)
+            player:setHullMax(player:getHullMax() - hullMalus)
+            player:setHull(math.min(player:getHull(), player:getHullMax()))
+            My.installNanobots(player, repairAmount, repairTime)
+        end,
+        id = "nanobot",
+        price = 120,
+        unique = true,
+        description = function(_, player)
+            t("upgrade_nanobots_description", hullMalus / player:getHullMax() * 100)
+        end,
+        canBeInstalled = function(_, player)
+            return player:getHullMax() > hullMalus
+        end,
+    })
+    Generic:withTags(upgrade)
+    return upgrade
+end)()

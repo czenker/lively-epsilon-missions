@@ -246,4 +246,23 @@ My.Translator:register("en", {
     upgrade_jumpCalculator_result = function(label, heading, distance)
         return f("Vector to %s\n\nDistance: %0.1fu\nHeading: %d", label, distance, heading)
     end,
+
+    upgrade_nanobots_name = "Nanobot System",
+    upgrade_nanobots_description = function(hullMalusPercent)
+        return f("By adding a tunnel system within the ships hull, nanobots can be dispersed to repair the hull. This weakens the hull by %0.1f%%, but allows to repair the hull during missions while the shields are down. Nanobots have to be re-bought at stations after use.", hullMalusPercent)
+    end,
+    upgrade_nanobots_label = "Nanobots",
+    upgrade_nanobots_info_label = "Information",
+    upgrade_nanobots_info = function(repairPercent, repairTime)
+        return f(
+            "Nanobots repair a total of %0.1f%% hull damage within %d seconds.\n\nThey can not be deployed while the shields are up and will be destroyed instantly if the shields are turned on.",
+                repairPercent,
+            repairTime
+        )
+    end,
+    upgrade_nanobots_go_label = "Use",
+    upgrade_nanobots_no_charges = "No nanobots",
+    upgrade_nanobots_currently_active = "Active",
+    upgrade_nanobots_no_shields = "Nanobots can only be used when shields are down.",
+    upgrade_nanobots_no_shields_alert = "Turning on the shields destroyed all the nanobots that were repairing our hull.",
 })

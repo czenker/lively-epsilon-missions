@@ -70,6 +70,12 @@ products = {
         size = m,
         basePrice = 2,
     },
+    nanobot = {
+        name = t("products_nanobot_name"),
+        description = t("products_nanobot_description"),
+        size = xl,
+        basePrice = 12,
+    },
 }
 
 -- add id to object

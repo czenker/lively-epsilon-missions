@@ -7,4 +7,6 @@ My.Translator:register("en", {
     products_miningMachinery_description = "Drilling heads, processing plants and transport systems are referred to as mining machinery in a broader sense. They are mainly used on mining stations.",
     products_power_name = "power cells",
     products_power_description = "These high-energy storage units can be used as an energy source on stations far away from stars and other natural power sources.",
+    products_nanobot_name = "Nanobots",
+    products_nanobot_description = "Nanobots are used on bigger ships to repair hull damage out of battle. It does not have much of value as commodity.",
 })

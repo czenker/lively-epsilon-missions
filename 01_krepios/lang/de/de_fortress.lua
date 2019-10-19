@@ -81,6 +81,12 @@ My.Translator:register("de", {
     fortress_improvement_scanProbe_confirmation = "Wissen ist auf dem Schlachtfeld Macht. Mit Scanner Sonden können wir den Feind aus sicherer Entfernung aufspüren.",
     fortress_improvement_scanProbe_completion = "Wir haben die neuen Scanner Sonden gebaut.",
 
+    fortress_improvement_nanobot_name = function(amount)
+        return f("%d Nanobots produzieren", amount)
+    end,
+    fortress_improvement_nanobot_confirmation = "Nanobots können eure Überlebenszeit im Kampf gegen unsere Feinde verlängern. Und unsere ganze Hoffnung dreht sich ums Überleben.",
+    fortress_improvement_nanobot_completion = "Wir haben eine Ladung Nanobots für euer Schiff produziert.",
+
     fortress_improvement_repair_name = "Reparaturdock in Gang setzen",
     fortress_improvement_repair_confirmation = "Unsere Techniker werden versuchen die Werkstatt zur Reparatur wieder funktionstüchtig zu bekommen.",
     fortress_improvement_repair_completion = "Die Werkstatt wurde repariert. Wir sind nun in der Lage die Hülle eures Schiffes zu reparieren, sollten es die Umstände erforderlich machen.",
