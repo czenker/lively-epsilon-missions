@@ -45,6 +45,7 @@ Here are few things the stations should know that are scenario specific:
 * You might already have noticed that you are not on a frigate. Your Relay Officer can buy Upgrades from
 stations to allow you to store more missiles and turn your ship into a better fighter.
 * Missiles have to be bought at stations by your Relay Officer. Let them know if you need a refill.
+* You can mine asteroids in the range of the ships beam weapons by using the according button. Don't overdo it as it uses an insane amount of energy and generates a lot of heat.
 
 === Science
 
@@ -54,6 +55,7 @@ stations to allow you to store more missiles and turn your ship into a better fi
 ** To find rewarding trading routes check the _Products_ menu for buyers, sellers and average prices.
 ** To get an overview at what _Upgrades_ are known in the Sector check the according menu.
 ** If your captain decides to buy a _Jump Drive_, you can calculate vectors to known stations and waypoints set by relay.
+* Scanning asteroids might reveal a (figurative) gold mine. Asteroids with higher mineral content increase the chances to mine ore from it.
 
 === Relay
 
@@ -72,7 +74,7 @@ products.
 
 === Captain
 
-* Your task is to make yourself useful in the sector. Try to ask the stations around you for missions or trade.
+* Your task is to make yourself useful in the sector. Try to ask the stations around you for missions, go mining or trade.
 * Your Relay Officer can tell you all current missions that you have. Ask them regularly if you do not know what to do next.
 * Use your earned RP to buy Upgrades from stations to improve your ship. But always keep some spare – missiles have a price.
 * The game has a defined timer-based end. Try to have as much fun as possible until then. :)

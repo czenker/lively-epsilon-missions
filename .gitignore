@@ -21,6 +21,7 @@ docs/_build
 !scenario_01_krepios.lua
 !shipTemplates.lua
 !factionInfo.lua
+!model_data.lua
 !LICENSE
 !Readme.md
 !Changelog.md

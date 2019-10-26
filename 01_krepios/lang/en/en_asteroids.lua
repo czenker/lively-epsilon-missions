@@ -1,4 +1,5 @@
 local f = string.format
+local t = My.Translator.translate
 
 My.Translator:register("en", {
     asteroids_description = function(callSign)
@@ -64,4 +65,23 @@ My.Translator:register("en", {
             f("It was given the name %s so as not to confuse it.", callSign),
         })
     end,
+
+    asteroids_composition_empty = function()
+        return Util.random({
+            "It has been mined completely.",
+            "There are no valuable minerals left here.",
+            "No minerals remain on it.",
+        })
+    end,
+    asteroids_composition = function()
+        return Util.random({
+            "It is composed of",
+            "It's composition is"
+        })
+    end,
+
+    asteroids_chunk_description = "A chunk of minerals. It contains",
+    asteroids_chunk_empty_description = "An asteroids chunk that does not contain any valuable minerals.",
+
+
 })

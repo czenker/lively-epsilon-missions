@@ -1,5 +1,9 @@
 #### next version
 
+#### to be released
+
+* added the option to **mine asteroids** for the player
+
 #### v1.1
 
 * added **sandbox mode** where you have to decide yourself when the game should end. Can be activated through Scenario Variations on the scenario selection screen.

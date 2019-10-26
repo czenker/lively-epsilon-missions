@@ -94,6 +94,7 @@ local myPackages = {
     "01_krepios/world/nebulas.lua",
     "01_krepios/world/planet.lua",
     "01_krepios/world/player.lua",
+    "01_krepios/world/player_mining.lua",
     "01_krepios/world/player_relay.lua",
     "01_krepios/world/player_science.lua",
     --"01_krepios/world/random_ships.lua",

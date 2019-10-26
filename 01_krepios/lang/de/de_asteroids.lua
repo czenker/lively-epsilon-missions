@@ -66,4 +66,20 @@ My.Translator:register("de", {
             f("Man hat ihm den Namen %s gegeben, um ihn nicht zu verwechseln.", callSign),
         })
     end,
+
+
+    asteroids_composition_empty = function()
+        return Util.random({
+            "Alles Erz wurde vollständig abgebaut.",
+            "Es gibt hier keine wertvollen Mineralien mehr.",
+        })
+    end,
+    asteroids_composition = function()
+        return Util.random({
+            "Er setzt sich zusammen aus",
+            "Die Zusammensetzung ist"
+        })
+    end,
+
+    asteroids_chunk_description = "Ein Stück mit Mineralien. Es besteht aus",
 })
