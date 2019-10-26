@@ -162,6 +162,9 @@ My.MissionGenerator = {
             function()
                 return My.SideMissions.GatherCrystals(from)
             end,
+            function()
+                return My.SideMissions.ScanAsteroids(from)
+            end,
         }
 
         for i, missionFactory in ipairs(missionFactories) do

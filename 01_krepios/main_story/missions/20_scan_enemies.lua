@@ -10,6 +10,7 @@ My.EventHandler:register("onAttackersDetection", function()
     end
 
     local mission = Missions:scan(ships, {
+        scan = "full",
         onStart = function(self) self:setHint(t("story_mission_scan_enemies", self:countUnscannedTargets())) end,
         onDestruction = function(self) self:setHint(t("story_mission_scan_enemies", self:countUnscannedTargets())) end,
         onScan = function(self, ship)
