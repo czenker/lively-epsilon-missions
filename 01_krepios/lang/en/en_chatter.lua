@@ -342,4 +342,24 @@ My.Translator:register("en", {
         })
     end,
 
+    chatter_minerals_1 = function()
+        return Util.random({
+            "I'm behind my mining quota for this month.",
+            "Finding mineable asteroids is getting harder day by day.",
+            "",
+        }) .. " " .. Util.random({
+            "Do you know where to find mineral rich asteroids around here?",
+            "Do you have any hints where to find minerals around here?",
+            "Did you have any success mining recently?"
+        })
+    end,
+
+    chatter_minerals_2 = function(asteroidName, sectorName)
+        return Util.random({
+            f("%s in sector %s is my goto asteroid for mining.", asteroidName, sectorName),
+            f("Sector %s has the asteroid %s. It is not well known, but it still has lots of minerals.", sectorName, asteroidName),
+            f("I have heard %s in sector %s is still a good address.", asteroidName, sectorName),
+        })
+    end,
+
 })

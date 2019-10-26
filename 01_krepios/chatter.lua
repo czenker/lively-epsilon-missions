@@ -301,6 +301,49 @@ end, {
     }
 }), "treasure")
 
+local hasAsteroidInRange = function(ship)
+    for _, thing in pairs(ship:getObjectsInRange(getLongRangeRadarRange())) do
+        if isEeAsteroid(thing) and isFunction(thing.getOreContent) and isFunction(thing.getPlutoniumContent) then
+            return true
+        end
+    end
+    return nil
+end
+
+local getRichAsteroidInRange = function(ship)
+    local richestAsteroid
+    local maxMinerals = -1
+
+    for _, thing in pairs(ship:getObjectsInRange(getLongRangeRadarRange())) do
+        if isEeAsteroid(thing) and isFunction(thing.getOreContent) and isFunction(thing.getPlutoniumContent) then
+            local minerals = thing.getOreContent() + thing.getPlutoniumContent()
+            if minerals > maxMinerals then
+                maxMinerals = minerals
+                richestAsteroid = thing
+            end
+        end
+    end
+    return richestAsteroid
+end
+
+-- chatter_minerals
+My.ChatterNoise:addChatFactory(Chatter:newFactory(2, function(one, two)
+    local asteroid = getRichAsteroidInRange(one)
+    return {
+        {two, t("chatter_minerals_1")},
+        {one, t("chatter_minerals_2", asteroid:getName(), asteroid:getSectorName())},
+    }
+end, {
+    filters = {
+        function(one)
+            return isMinerShip(one) and isLocal(one) and not isMute(one) and hasAsteroidInRange(one)
+        end,
+        function(two, one)
+            return isMinerShip(two) and isLocal(two) and not isMute(two) and not two:isEnemy(one)
+        end,
+    }
+}), "minerals")
+
 My.EventHandler:register("onAttackersDetection", function()
     for id, _ in pairs(My.ChatterNoise:getChatFactories()) do
         My.ChatterNoise:removeChatFactory(id)

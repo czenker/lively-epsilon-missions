@@ -70,6 +70,10 @@ My.Asteroid = function()
         return resources
     end
 
+    asteroid.getName = function() return name end
+    asteroid.getOreContent = function() return contentOre end
+    asteroid.getPlutoniumContent = function() return contentPlutonium end
+
     asteroid.mine = function(_, miner)
         local resources = mineResources()
         local totalAmount = 0
