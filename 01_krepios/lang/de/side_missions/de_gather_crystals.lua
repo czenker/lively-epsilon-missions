@@ -85,7 +85,7 @@ My.Translator:register("de", {
         }) .. " " .. Util.random({
             f("Was interessieren mich ihre menschlichen Bedürfnisse! Hier nehmen Sie schon die %0.2fRP.", payment),
             f("Wenn ihnen der wissenschaftliche Fortschritt gar nichts bedeutet, dann nehmen sie doch diese %0.2fRP aus meinem Forschungsetat.", payment),
-            f("Kein Geld der Welt kann die Freude bezahlen, die einem die Kristallographie bringt. Insofern bedauere ich sehr, dass sie sich mit diesen %0.2fRP zufrieden müssen.", payment),
+            f("Kein Geld der Welt kann die Freude bezahlen, die einem die Kristallographie bringt. Insofern bedauere ich sehr, dass sie sich mit diesen %0.2fRP zufrieden geben müssen.", payment),
         }) .. "\n\n" .. Util.random({
             "Und jetzt raus hier. Ich habe zu arbeiten.",
             "Sie sind ja immer noch hier? Wie oft muss ich noch sagen: Ich brauche Ruhe zum Arbeiten. Verschwinden Sie jetzt!",

@@ -76,7 +76,7 @@ My.Translator:register("de", {
         für seine Freundlichkeit bekannt und ist Neuen gegenüber immer kritisch. Aber macht euch einfach nützlich \z
         und er könnte anfangen euch zu vertrauen.\n\n\z
         Um euch den Einstieg zu erleichtern habe ich mit dem lokalen Upgrade Händler auf " .. hqCallSign .. " gebeten \z
-        euch einen Sprungantrieb oder Warpantrieb zu installieren. Die Kosten rechnet er mit mir ab. Ich müsst euch aber \z
+        euch einen Sprungantrieb oder Warpantrieb zu installieren. Die Kosten rechnet er mit mir ab. Ihr müsst euch aber \z
         entscheiden, welchen der beiden Antriebe ihr wollt. Euer Schiff sieht nicht vor, dass ihr beide installiert.\n\n\z
         - Colonel " .. colonelPerson:getFormalName()
     end,

@@ -13,9 +13,9 @@ My.Translator:register("de", {
             "Was denkt ihr?",
             "Klingt das attraktiv?",
             "Was haltet ihr davon?",
-            "Denken ihr, ihr könnt mir den Gefallen tun?",
+            "Denkt ihr, ihr könnt mir den Gefallen tun?",
             "Könnt ihr mir den Gefallen tun?",
-            "Denken ihr, ihr könnt mir helfen?",
+            "Denkt ihr, ihr könnt mir helfen?",
             "Könnt ihr mir helfen?",
             "Kommen wir ins Geschäft?",
         })
