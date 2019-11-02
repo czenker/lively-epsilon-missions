@@ -49,9 +49,19 @@ local function makeItAMine(station)
         [products.mine] = 4,
         [products.scanProbe] = 10,
     })
+
     Station:withMerchant(station, {
-        [products.ore] = { sellingPrice = My.sellingPrice(products.ore), sellingLimit = 60 },
-        [products.plutoniumOre] = { sellingPrice = My.sellingPrice(products.plutoniumOre) },
+        [products.ore] = {
+            sellingPrice = My.sellingPrice(products.ore),
+            sellingLimit = station:getMaxProductStorage(products.ore) * 0.2,
+            buyingPrice = My.rebuyingPrice(products.ore),
+            buyingLimit = station:getMaxProductStorage(products.ore) * 0.8,
+        },
+        [products.plutoniumOre] = {
+            sellingPrice = My.sellingPrice(products.plutoniumOre),
+            buyingPrice = My.rebuyingPrice(products.plutoniumOre),
+            buyingLimit = station:getMaxProductStorage(products.plutoniumOre) * 0.8,
+        },
         [products.miningMachinery] = { buyingPrice = My.buyingPrice(products.miningMachinery) },
         [products.hvli] = { sellingPrice = My.sellingPrice(products.hvli)},
         [products.homing] = { sellingPrice = My.sellingPrice(products.homing) },

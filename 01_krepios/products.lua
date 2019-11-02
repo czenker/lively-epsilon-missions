@@ -124,3 +124,18 @@ My.sellingPrice = function(product)
         return price * factor
     end
 end
+
+My.rebuyingPrice = function(product)
+    local price = product.basePrice * (math.random() * 0.1 + 0.65)
+    return function(station, buyer)
+        local factor = 1
+        if isEeShipTemplateBased(station) and isEeShipTemplateBased(buyer) then
+            if station:isFriendly(buyer) then
+                factor = 0.9
+            else
+                factor = 1
+            end
+        end
+        return price * factor
+    end
+end
