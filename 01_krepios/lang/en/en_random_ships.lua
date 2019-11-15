@@ -73,4 +73,12 @@ My.Translator:register("en", {
             f("We had a great time at %s, isn't that right guys? ... [You here a yelling from the seating area] ... Now we are heading back to %s.", nebulaName, stationCallSign),
         })
     end,
+
+    random_ships_prospector_who_are_you = function(captainPerson, stationCallSign)
+        return t("comms_generic_introduction", captainPerson) .. " " ..  Util.random({
+            f("I am scanning asteroids around %s for minerals.", stationCallSign),
+            "My task is to update measures of the mineral concentration on nearby asteroids for the SMC.",
+            f("My job is to find the mineral richest asteroids around %s for the Saiku Mining Company.", stationCallSign),
+        })
+    end
 })

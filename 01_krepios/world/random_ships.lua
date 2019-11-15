@@ -30,29 +30,37 @@ local civilianShips = {
     "Adder MK6",
 }
 
+local MinerTemplate = function()
+    local ship = My.CpuShip("MT52 Hornet")
+    ship:addTag("miner")
+    ship:addTag("local")
+
+    return ship
+end
+
 
 local narratives = {
-    generic = function()
-        local from = getFrom()
-        local to = getTo(from)
-
-        if not from or not to then return end
-
-        local ship = My.CpuShip(Util.random(civilianShips), "Independent")
-
-        ship:addTag("local")
-        Ship:withOrderQueue(ship)
-
-        Util.spawnAtStation(from, ship)
-
-        ship:addOrder(Order:dock(to, {
-            onCompletion = function()
-                Cron.once(function() ship:destroy() end, 10)
-            end,
-        }))
-
-        return ship
-    end,
+    --generic = function()
+    --    local from = getFrom()
+    --    local to = getTo(from)
+    --
+    --    if not from or not to then return end
+    --
+    --    local ship = My.CpuShip(Util.random(civilianShips), "Independent")
+    --
+    --    ship:addTag("local")
+    --    Ship:withOrderQueue(ship)
+    --
+    --    Util.spawnAtStation(from, ship)
+    --
+    --    ship:addOrder(Order:dock(to, {
+    --        onCompletion = function()
+    --            Cron.once(function() ship:destroy() end, 10)
+    --        end,
+    --    }))
+    --
+    --    return ship
+    --end,
 
     mine_workers = function()
         local from = getFrom(function(thing) return Generic:hasTags(thing) and thing:hasTag("residual") end)
@@ -203,6 +211,60 @@ local narratives = {
 
         return ship
     end,
+    prospector = function()
+        local station = getFrom(function(thing) return Generic:hasTags(thing) and thing:hasTag("mining") end)
+
+        if not station then return end
+
+        local asteroids = {}
+        local findAsteroid = function(lastObject, radius)
+            local x, y = lastObject:getPosition()
+            return Util.random(getObjectsInRadius(x, y, radius), function(_, obj)
+                if not isEeAsteroid(obj) then return false end
+                for _, other in pairs(asteroids) do
+                    if other == obj then return false end
+                end
+                return true
+            end)
+        end
+
+        table.insert(asteroids, findAsteroid(station, getLongRangeRadarRange()))
+
+        if Util.size(asteroids) < 1 then return end
+
+        for _=1, math.random(2, 5) do
+            local asteroid = findAsteroid(asteroids[#asteroids], 7000)
+            if asteroid == nil then break end
+            table.insert(asteroids, asteroid)
+        end
+
+        if Util.size(asteroids) < 2 then return end
+
+        local ship = MinerTemplate():setFaction(station:getFaction()):setCallSign(My.minerName())
+        ship:setAI("default")
+        ship:setScannedDescription(t("mines_miner_description", ship:getCallSign(), ship:getCaptain()))
+
+        ship.whoAreYouResponse = t("random_ships_prospector_who_are_you", ship:getCaptain(), station:getCallSign())
+
+        Ship:withOrderQueue(ship)
+
+        Util.spawnAtStation(station, ship)
+        for _, asteroid in pairs(asteroids) do
+            local x, y = asteroid:getPosition()
+            x, y = Util.addVector(x, y, math.random(0, 359), 500)
+            ship:addOrder(Order:flyTo(x, y, {
+                minDistance = 1500,
+                delayAfter = 15,
+            }))
+        end
+        ship:addOrder(Order:dock(station, {
+            onCompletion = function()
+                Cron.once(function() ship:destroy() end, 10)
+            end,
+        }))
+
+        return ship
+    end,
 }
 
 My.EventHandler:register("onStart", function()
@@ -213,7 +275,7 @@ My.EventHandler:register("onStart", function()
 
             if isEeShip(ship) then
                 -- success
-                logDebug("Spawned a ship for narrative " .. key)    
+                logDebug("Spawned a ship for narrative " .. key)
                 return
             end
         end
