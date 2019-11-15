@@ -79,6 +79,22 @@ products.
 * Use your earned RP to buy Upgrades from stations to improve your ship. But always keep some spare – missiles have a price.
 * The game has a defined timer-based end. Try to have as much fun as possible until then. :)
 
+== How Mining works
+
+Mining engages most stations and is a viable source to get ore and plutonium. Basically, the _Helms Officer_ needs to
+navigate the ship in a way that an asteroid is in reach of one of the Beam Weapons. The _Weapons Officer_ can then start
+the mining process that takes a few seconds to charge the lasers. During that time the _Engineering Officer_ will see an
+immense power drop that is needed to charge the lasers followed by a spectacular discharge on the closest asteroid.
+
+This will knock a junk of minerals off the asteroid that can be collected like any supply drop. If you are lucky
+it contains value ores – if not it was just a waste of your time. To prevent this, your _Science Officer_ can scan asteroids
+for their minerals – a concentration of 20% or more marks a promising target. The higher the concentration, the higher
+the probability to find valuable minerals. Still, you can be out of luck even on the richest of asteroids, but you can
+always try mining again. Just have an eye out on the dropping mineral concentration after mining.
+
+During the collection of minerals the _engineer_ should have an eye on the storage. Once it is full no further minerals
+can be picked up and they are automatically destroyed.
+
 == The Fluff
 
 === Krepios

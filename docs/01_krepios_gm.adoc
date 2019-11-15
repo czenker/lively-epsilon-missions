@@ -199,6 +199,32 @@ The four endings are:
 
 Each of those has a different text at the end.
 
+== Side Missions
+
+There are a bunch of side missions for Phase 1. This table shows how engaged each station can be in such an encounter.
+It could help you recommend missions in case anyone gets bored.
+
+[cols="5,1,1,1,1,1", options="header"]
+.Side Missions Engagement Table
+|===
+|Mission |Helms |Weapons |Engi |Science |Relay
+
+|Buy goods ^| ● ^| ^| ● ^| ^| ●●
+|Capture someone ^| ●●● ^| ●●● ^| ●●● ^| ● ^| ●
+|Disable ship ^| ● ^| ●● ^| ●● ^| ^| ●●footnote:[can hack the drive]
+|Find and gather crystals ^| ● ^| ^| ^| ●● ^|●
+|Destroy pirate base ^| ●● ^| ●●● ^| ●● ^| ●● ^| ●
+|Raging Miner ^| ●●●footnote:[Outmaneuver the laser] ^| ●●● ^| ●●● ^| ●●footnote:[EMP burst occurs when one of the shields is repaired (0%). Getting the shields down only when those bursts occur gives a big advantage.] ^| ●●footnote:[can hack the laser or maneuverability]
+|Repair ^| ● ^| ^| ●●footnote:[has to deal with smaller crew] ^| ^| ●●
+|Scan asteroids ^| ● ^| ^| ^| ●●● ^| ●●footnote:[could use scan probes]
+|Secret Code ^|● ^| ^| ^| ^| ●●●footnote:[Everyone could help remember the phrase though]
+|Transport human ^|●● ^| ^| ^| ^| ●
+|Transport product ^|●● ^| ^|● ^| ^| ●
+|Transport thing ^|●● ^| ^|● ^| ^| ●
+|Other |Helms |Weapons |Engi |Science |Relay
+|Mining asteroids ^|● ^|● ^|●●● ^|●● ^|
+|Trading ^|●● ^| ^|● ^|● ^|●●|===
+
 == GM Hints
 
 This chapter should help you understand the game better
