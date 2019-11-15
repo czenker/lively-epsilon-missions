@@ -150,4 +150,70 @@ My.Translator:register("en", {
         })
     end,
 
+    side_mission_secret_code_part1 = function()
+        return Util.random({
+            "A blackbird",
+            "A blue tit",
+            "A chimney swift",
+            "A dove",
+            "A duck",
+            "An eagle",
+            "A falcon",
+            "A godwit",
+            "A golden-plover",
+            "A hawk",
+            "A hummingbird",
+            "A killdeer",
+            "A mangrove cuckoo",
+            "A nighthawk",
+            "An owl",
+            "A parrot",
+            "A sandpiper",
+            "A sparrow",
+            "A willet",
+            "A woodcock",
+            "A woodpecker",
+            "A yellow rail",
+        })
+    end,
+    side_mission_secret_code_part2 = function()
+        return Util.random({
+            "breeds",
+            "builds",
+            "calls",
+            "cleans itself",
+            "drinks",
+            "eats",
+            "hides",
+            "hunts",
+            "is on the lookout",
+            "mates",
+            "nests",
+            "poops",
+            "rests",
+            "roosts",
+            "sits",
+            "sleeps",
+            "waits",
+            "watches",
+        })
+    end,
+    side_mission_secret_code_part3 = function()
+        return Util.random({
+            "next to a stump",
+            "on the mountaintop",
+            "between the branches",
+            "on the gable",
+            "on a power line",
+            "on the roof of a church",
+            "in a crevice",
+            "at the rectory",
+            "on a rock",
+            "on top of a street light",
+            "on a fir",
+            "under an awning",
+            "at the forest lake",
+        })
+    end,
+
 })

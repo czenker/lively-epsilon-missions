@@ -2,83 +2,19 @@ local t = My.Translator.translate
 
 -- two people want to communicate in secrecy with a code phrase. The players have to relay the phrase.
 
--- The phrase does not need to be translated, because it is a secret phrase anyway.
--- But if you are curious what it says:
--- The phrase is german and is a variation of the form "A blackbird sits on a tree in the woods". So it does not make any more sense in german. ;)
-local secretPart1 = {
-    "Der Adler",
-    "Die Amsel",
-    "Die Bachstelze",
-    "Die Blaumeise",
-    "Der Buchfink",
-    "Der Buntspecht",
-    "Der Bussard",
-    "Die Dohle",
-    "Der Dompfaff",
-    "Die Drossel",
-    "Das Eichelhäher",
-    "Die Elster",
-    "Der Gartenrotschwanz",
-    "Der Grauschnäpper",
-    "Der Grünfink",
-    "Der Habicht",
-    "Der Hausrotschwanz",
-    "Die Heckenbraunelle",
-    "Der Kleiber",
-    "Die Kohlmeise",
-    "Der Kolkrabe",
-    "Der Kuckuck",
-    "Der Mauersegler",
-    "Die Nachtigal",
-    "Die Nebelkrähe",
-    "Der Papagei",
-    "Das Rotkehlchen",
-    "Die Schwalbe",
-    "Der Sperling",
-    "Der Star",
-    "Die Taube",
-    "Der Zaunkönig",
-}
-
-local secretPart2 = {
-    "balzt",
-    "baut",
-    "beobachtet",
-    "brütet",
-    "frisst",
-    "hält Ausschau",
-    "kackt",
-    "jagt",
-    "nistet",
-    "putzt sich",
-    "rastet",
-    "ruft",
-    "ruht",
-    "schläft",
-    "sitzt",
-    "trinkt",
-    "versteckt sich",
-    "wartet",
-}
-
-local secretPart3 = {
-    "neben einem Baumstumpf",
-    "auf dem Berggipfel",
-    "im Geäst",
-    "auf dem Giebel",
-    "auf dem Hochspannungsmast",
-    "auf dem Kirchendach",
-    "in der Mauerspalte",
-    "im Pfarrhaus",
-    "auf einem Stein",
-    "auf der Straßenlaterne",
-    "auf der Tanne",
-    "unter dem Vordach",
-    "am Waldsee",
-}
+local createSecrets = function(translationKey)
+    local first = t(translationKey)
+    for _=1,10 do
+        local second = t(translationKey)
+        if first ~= second then
+            return {first, second}
+        end
+    end
+    error(string.format("Could not find two distinct translations for \"%s\" after multiple tries.", translationKey))
+end
 
 local createPhrases = function()
-    local one, two, three = Util.randomSort(secretPart1), Util.randomSort(secretPart2), Util.randomSort(secretPart3)
+    local one, two, three = createSecrets("side_mission_secret_code_part1"), createSecrets("side_mission_secret_code_part2"), createSecrets("side_mission_secret_code_part3")
 
     local answers = {}
     for i=1,2 do
