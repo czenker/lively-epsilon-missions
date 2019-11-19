@@ -108,6 +108,32 @@ function My.CpuShip(templateName, factionName)
     return ship
 end
 
+-- a ship that has been abandoned and serves as decoration
+function My.WreckedCpuShip(templateName)
+    local ship = SpaceStation() -- space stations are immovable
+    ship:setTemplate(templateName)
+    ship:setFaction("Abandoned")
+    Ship:withComms(ship)
+
+    ship:setShieldsMax() -- remove all shields
+    ship:setHullMax(ship:getHullMax() * 0.1)
+    ship:setHull(ship:getHullMax())
+    ship:setHeading(math.random(0, 359))
+
+    -- TODO: would be nice if player where not able to dock in the first place
+    ship:setSharesEnergyWithDocked(false)
+    ship:setRestocksScanProbes(false)
+    ship:setRepairDocked(false)
+
+    Ship:withTags(ship)
+    ship:addTag("mute")
+
+    ship:setDescription(t("generic_unknown_ship"))
+    ship.setScannedDescription = setScannedDescription
+
+    return ship
+end
+
 My.fleeToFortress = function(ship)
     ship:setHailText(t("comms_generic_flight_hail"))
     ship.whoAreYouResponse = t("comms_generic_flight_who_are_you")

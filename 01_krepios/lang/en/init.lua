@@ -12,6 +12,7 @@ local myPackages = {
     "01_krepios/lang/en/en_flying_trader.lua",
     "01_krepios/lang/en/en_fortress.lua",
     "01_krepios/lang/en/en_generic.lua",
+    "01_krepios/lang/en/en_graveyard.lua",
     "01_krepios/lang/en/en_nebulas.lua",
     "lang/en/en_player.lua",
     "01_krepios/lang/en/en_player.lua",

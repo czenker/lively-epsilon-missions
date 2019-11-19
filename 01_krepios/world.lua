@@ -23,6 +23,8 @@ My.World.getDrops = function(self)
     return drops
 end
 
+My.World.shipGraveyards = {}
+
 -- the player :)
 My.World.player = nil
 

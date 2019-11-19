@@ -30,4 +30,16 @@ My.Translator:register("de", {
         return f("Sie haben %0.2fRP und %d Energie aufgesammelt.", value, energy)
     end,
 
+    drops_ship_description = function(shipCallSign)
+        return Util.random({
+            f("Das Wrack des Schiffs %s.", shipCallSign),
+            f("Die Überreste eines Schiffs mit Namen \"%s\".", shipCallSign),
+            f("Das sind die Überreste des Schiffs %s.", shipCallSign),
+        }) .. " " .. Util.random({
+            "Eine Kolission mit einer Mine hat es zerstört.",
+            "Die Crew hatte Probleme mit der Navigation, was zur Zerstörung des Schiffs in einem Minenfeld führte.",
+            "Wie es in einem Minenfeld endete bleibt ungeklärt.",
+        })
+    end,
+
 })

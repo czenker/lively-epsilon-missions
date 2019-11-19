@@ -1,5 +1,9 @@
 local t = My.Translator.translate
 
+local isValidPositionForMine = function(thing)
+    return isEeMine(thing) or isEeShipTemplateBased(thing) or isEeSupplyDrop(thing)
+end
+
 -- distribute some mine fields with treasures inside
 My.EventHandler:register("onWorldCreation", function()
     local divAngle = 360 * 60000 / math.pi / My.Config.avgDistance
@@ -18,17 +22,22 @@ My.EventHandler:register("onWorldCreation", function()
     for i=1,5 do
         local x, y = My.World.Helper.tryMinDistance(randomPosition, function(thing)
             return isEeStation(thing) or isEeArtifact(thing) or isEeSupplyDrop(thing)
-        end, 15000)
+        end, 10000)
+
+        My.World.Helper.eraseAsteroidsAround(x, y, 2000)
 
         local shipCallSign = My.civilianShipName()
         local danger = math.random(0, 4)
         local value = 80 + (danger + 1) * (math.random() * 10)
         local energy = Util.round(100 + (danger + 1) * (math.random() * 100), 10)
 
+        local dropX, dropY = Util.addVector(x, y, math.random(0, 359), math.random(100, 750))
+        local shipX, shipY = Util.addVector(dropX, dropY, math.random(0, 359), math.random(500, 1750))
+
         local drop
         drop = SupplyDrop():
         setFaction("Player"):
-        setPosition(x, y):
+        setPosition(dropX, dropY):
         setCallSign(t("drops_name")):
         onPickUp(function(_, player)
             logInfo("SupplyDrop at " .. drop:getSectorName() .. " was picked up.")
@@ -45,6 +54,13 @@ My.EventHandler:register("onWorldCreation", function()
         ):
         setScanningParameters(1, 1)
 
+        local ship
+        ship = My.WreckedCpuShip("Goods Freighter " .. math.random(1,5)):
+        setCallSign(shipCallSign):
+        setPosition(shipX, shipY):
+        setScanningParameters(1, 1):
+        setScannedDescription(t("drops_ship_description", shipCallSign))
+
         table.insert(My.World.drops, drop)
 
         local randomMinePosition = function()
@@ -56,9 +72,9 @@ My.EventHandler:register("onWorldCreation", function()
         end
 
         for j=1,math.random(16,16 + danger * 4) do
-            local x,y = My.World.Helper.tryMinDistance(randomMinePosition, isEeMine, 1500)
-            My.World.Helper.eraseAsteroidsAround(x, y, 2000)
-            local mine = Mine():setPosition(x, y)
+            local x,y = My.World.Helper.tryMinDistance(randomMinePosition, isValidPositionForMine, 1500)
+            My.World.Helper.eraseAsteroidsAround(x, y, 600)
+            Mine():setPosition(x, y)
         end
     end
 

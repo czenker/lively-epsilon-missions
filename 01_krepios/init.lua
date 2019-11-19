@@ -92,6 +92,7 @@ local myPackages = {
     "01_krepios/world/defense_squadron.lua",
     "01_krepios/world/enemy_fleet.lua",
     "01_krepios/world/drops.lua",
+    "01_krepios/world/graveyard.lua",
     "01_krepios/world/nebulas.lua",
     "01_krepios/world/planet.lua",
     "01_krepios/world/player.lua",
