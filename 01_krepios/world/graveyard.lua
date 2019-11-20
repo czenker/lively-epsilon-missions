@@ -31,13 +31,13 @@ My.EventHandler:register("onWorldCreation", function()
             return x + dx, y + dy
         end
 
-        for j=1,math.random(7,10) do
+        local spawnShip = function()
             local x,y = My.World.Helper.tryMinDistance(randomShipPosition, isValidPositionForShip, 200)
             My.World.Helper.eraseAsteroidsAround(x, y, 200)
 
             local shipCallSign = My.civilianShipName()
 
-            My.WreckedCpuShip(Util.random({
+            local ship = My.WreckedCpuShip(Util.random({
                 "MU52 Hornet",
                 "MT52 Hornet",
                 "Adder MK4",
@@ -49,11 +49,20 @@ My.EventHandler:register("onWorldCreation", function()
             setCallSign(shipCallSign):
             setPosition(x, y):
             setScanningParameters(1, 1):
-            setScannedDescription(t("graveyard_ship_description", shipCallSign))
+            setScannedDescription(t("graveyard_ship_description", shipCallSign)):
+            setCanBeDestroyed(false)
+
+            return ship
+        end
+
+        for j=1,math.random(7,10) do
+            spawnShip()
         end
 
         local shipGraveyard = {
             getPosition = function() return x,y end,
+            getName = function() return "Graveyard " .. i end,
+            spawnShip = spawnShip,
         }
 
         table.insert(My.World.shipGraveyards, shipGraveyard)

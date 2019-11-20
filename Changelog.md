@@ -4,6 +4,7 @@
 
 * added the option to **mine asteroids** for the player
 * mining stations buy ore and plutonium ore (for a very low price)
+* new mission to destroy space junk
 
 #### v1.1
 

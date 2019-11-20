@@ -211,6 +211,7 @@ It could help you recommend missions in case anyone gets bored.
 
 |Buy goods ^| ● ^| ^| ● ^| ^| ●●
 |Capture someone ^| ●●● ^| ●●● ^| ●●● ^| ● ^| ●
+|Destroy space junk ^| ● ^| ●● ^| ● ^| ● ^| ●
 |Disable ship ^| ● ^| ●● ^| ●● ^| ^| ●●footnote:[can hack the drive]
 |Find and gather crystals ^| ● ^| ^| ^| ●● ^|●
 |Destroy pirate base ^| ●● ^| ●●● ^| ●● ^| ●● ^| ●

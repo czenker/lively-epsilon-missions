@@ -28,10 +28,11 @@ My.EventHandler:register("onWorldCreation", function()
         end
     end
     for _, station in pairs(My.World.abandonedStations) do table.insert(battlefields, station) end
+    for _, graveyard in pairs(My.World.shipGraveyards) do table.insert(battlefields, graveyard) end
 
     battlefields = Util.randomSort(battlefields)
 
-    local max = math.min(Util.size(battlefields), Util.size(stations) * 2)
+    local max = Util.size(battlefields)
     for i=1, max, 1 do
         local station = stations[i%Util.size(stations) + 1]
 
@@ -107,6 +108,29 @@ local getBattlefieldNebulaFor = function(station, player)
 
     for i,bf in pairs(station.battlefields) do
         if isFunction(bf.getRandomPosition) then
+            bfs[bf] = bf
+        end
+    end
+
+    for _,mission in pairs(station:getMissions()) do
+        if mission.battlefield ~= nil then
+            bfs[mission.battlefield] = nil
+        end
+    end
+    for _,mission in pairs(player:getStartedMissions()) do
+        if mission.battlefield ~= nil then
+            bfs[mission.battlefield] = nil
+        end
+    end
+
+    return Util.random(bfs)
+end
+
+local getBattlefieldGraveyardFor = function(station, player)
+    local bfs = {}
+
+    for i,bf in pairs(station.battlefields) do
+        if isFunction(bf.spawnShip) then
             bfs[bf] = bf
         end
     end
@@ -231,6 +255,14 @@ My.MissionGenerator = {
                 if nebula ~= nil then
                     mission.battlefield = nebula
                 end
+                return mission
+            end,
+            function()
+                local graveyard = getBattlefieldGraveyardFor(from, My.World.player)
+                if graveyard == nil then return nil end
+
+                local mission = My.SideMissions.DestroyGraveyard(from, graveyard, My.World.player)
+                mission.battlefield = graveyard
                 return mission
             end,
         }

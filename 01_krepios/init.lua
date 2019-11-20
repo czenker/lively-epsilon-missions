@@ -64,6 +64,7 @@ local myPackages = {
 
     "01_krepios/side_missions/buyer.lua",
     "01_krepios/side_missions/capture.lua",
+    "01_krepios/side_missions/destroy_graveyard.lua",
     "01_krepios/side_missions/disable_ship.lua",
     "01_krepios/side_missions/gather_crystals.lua",
     "01_krepios/side_missions/pirate_base.lua",
