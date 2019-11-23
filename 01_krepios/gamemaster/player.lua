@@ -47,7 +47,12 @@ createMainMenu = function()
         player:drawScienceMenu()
         player:drawWeaponsMenu()
         player:drawEngineeringMenu()
-    end, 5))
+    end, 6))
+
+    menu:addItem(Menu:newItem("Raid Player", function()
+        local player = My.World.player
+        My.pirateRaid(player)
+    end, 10))
 
     return menu
 end

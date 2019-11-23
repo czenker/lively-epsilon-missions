@@ -1,4 +1,5 @@
 local t = My.Translator.translate
+local f = string.format
 
 local shipHail = function(ship, player)
     if ship:hasTag("mute") then
@@ -132,6 +133,60 @@ function My.WreckedCpuShip(templateName)
     ship.setScannedDescription = setScannedDescription
 
     return ship
+end
+
+--- @param contents table
+---   @field energy number (optional)
+---   @field reputation number (optional)
+function My.SupplyDrop(x, y, contents)
+
+    local contentText = ""
+    for content, amount in pairs(contents) do
+        if amount > 0 then
+            if Product:isProduct(content) then
+                contentText = contentText .. f("\n  * %d x %s", amount, content:getName())
+            elseif content == "energy" then
+                contentText = contentText .. f("\n  * %0.0f %s", amount, t("drops_content_energy"))
+            elseif content == "reputation" then
+                contentText = contentText .. f("\n  * %0.2f %s", amount, t("drops_content_reputation"))
+            end
+        end
+    end
+
+    local drop
+    drop = SupplyDrop():
+    setFaction("Player"):
+    setPosition(x, y):
+    setCallSign(t("drops_name")):
+    onPickUp(function(_, player)
+        logInfo("SupplyDrop at " .. drop:getSectorName() .. " was picked up.")
+        -- this line is unfortunately necessary to avoid the "[convert<ScriptSimpleCallback>::param] Upvalue 1 of function is not a table" error
+        local msg = t("drops_pickup") .. contentText
+
+        player:addCustomMessage("helms", Util.randomUuid(), msg)
+        player:addToShipLog(msg, "255,127,0")
+
+        for content, amount in pairs(contents) do
+            if amount > 0 then
+                if Product:isProduct(content) then
+                    player:modifyProductStorage(content, amount)
+                elseif content == "energy" then
+                    player:setEnergy(player:getEnergy() + amount)
+                elseif content == "reputation" then
+                    player:addReputationPoints(amount)
+                end
+            end
+        end
+    end):
+    setScanningParameters(1, 1)
+
+    drop:setDescription(t("generic_unknown_object"))
+    drop.setScannedDescription = setScannedDescription
+    drop.getContentText = function() return contentText end
+
+    drop:setScannedDescription(t("drops_generic_description_full") .. contentText)
+
+    return drop
 end
 
 My.fleeToFortress = function(ship)

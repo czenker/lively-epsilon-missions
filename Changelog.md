@@ -5,6 +5,8 @@
 * added the option to **mine asteroids** for the player
 * mining stations buy ore and plutonium ore (for a very low price)
 * new mission to destroy space junk
+  * sometimes a destroyed ship drops a container and the players are raided by pirates
+* GM can send a small Outlaw raid party to the player
 
 #### v1.1
 

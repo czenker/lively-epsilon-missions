@@ -58,15 +58,6 @@ My.Translator:register("en", {
     side_mission_pirate_base_comms_too_close = "You are too close to the target region. We do not want to expose you to too many risks. Please keep your distance in order to accept the mission.",
     side_mission_pirate_base_station_description = "A construction site of the pirates. The station is not yet operational and little more than a shell construction.",
     side_mission_pirate_base_jammer_description = "A Warp Jammer that is used by pirates to disturb close trading routes.",
-    side_mission_pirate_base_ship_description = function()
-        return Util.random({
-            "A darkly painted ship with a big white skull painted on its hull.",
-            "A tally is kept on the hull of the ship. It obviously keeps track of the kills of this pilot.",
-            "Telling by the energy signature this ship has multiple illegal upgrades installed.",
-            "From a distance it looks as if this ship is armed to the teeth. But the scans show that half of the weapons are mockups. The ship is dangerous nevertheless.",
-            "The hull bears the name of the ship framed by a tasteless composition of laser beams and rose spines.",
-        })
-    end,
 
     side_mission_pirate_base_station_start_hint = function(sectorName)
         return f("Locate the station in sector %s", sectorName)

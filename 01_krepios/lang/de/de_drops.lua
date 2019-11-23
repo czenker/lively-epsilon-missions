@@ -12,23 +12,21 @@ My.Translator:register("de", {
         })
     end,
 
-    drops_description_unknown = "unbekanntes Objekt",
+    drops_generic_description_full = "Inhalt:",
 
-    drops_description_full = function(shipCallSign, value, energy)
+    drops_description_full = function(shipCallSign)
         return Util.random({
             f("Dieser Schiffscontainer stammt vom Schiff %s, das in diesem Minenfeld verunglückte.", shipCallSign),
             f("Der Container scheint vom Schiff %s hier verloren worden zu sein.", shipCallSign),
             f("Der Container stammt vom havarierten Schiff %s.", shipCallSign),
         }) .. " " .. Util.random({
-            f("Er enthält %0.2fRP und %d Energie.", value, energy),
-            f("In ihm befinden sich %0.2fRP und %d Energie.", value, energy),
-            f("Die Scans zeigen, dass der Inhalt %0.2fRP und %d Energie sind.", value, energy),
+            "Er enthält:",
+            "In ihm befindet sich:",
+            "Die Scans zeigen als Inhalt:",
         })
     end,
 
-    drops_pickup = function(value, energy)
-        return f("Sie haben %0.2fRP und %d Energie aufgesammelt.", value, energy)
-    end,
+    drops_pickup = "Sie haben folgendes aufgenommen:",
 
     drops_ship_description = function(shipCallSign)
         return Util.random({
@@ -41,5 +39,8 @@ My.Translator:register("de", {
             "Wie es in einem Minenfeld endete bleibt ungeklärt.",
         })
     end,
+
+    drops_content_energy = "Energie",
+    drops_content_reputation = "RP",
 
 })

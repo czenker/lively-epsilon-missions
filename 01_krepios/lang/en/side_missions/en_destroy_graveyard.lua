@@ -43,4 +43,11 @@ My.Translator:register("en", {
             "If you invest the money well, you might buy a dollhouse in a few years.",
         })
     end,
+
+    side_mission_destroy_graveyard_raid_comms = function(captainPerson)
+        return Util.random({
+            f("Get off this container. It is official property of me, Captain %s now.", captainPerson:getFormalName()),
+            "Get away from the ship container or will have to deal with me.",
+        })
+    end
 })

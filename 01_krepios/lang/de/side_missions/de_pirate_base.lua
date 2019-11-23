@@ -61,15 +61,6 @@ My.Translator:register("de", {
     side_mission_pirate_base_comms_too_close = "Sie halten sich zu nah am Zielgebiet auf. Wir wollen Sie nicht unnötig gefährden. Bitte halten Sie mehr Abstand, um den Auftrag anzunehmen.",
     side_mission_pirate_base_station_description = "Eine Baustelle der Piraten. Die Station ist noch nicht funktionsfähig und kaum über den Rohbau hinaus.",
     side_mission_pirate_base_jammer_description = "Ein Warp Jammer der Piraten, der die nahe gelegenen Handelsrouten stört.",
-    side_mission_pirate_base_ship_description = function()
-        return Util.random({
-            "Ein dunkel lackiertes Schiff auf dessen Hülle ein riesiger Totenkopf gezeichnet wurde.",
-            "Auf der Hülle dieses Schiffs wird eine Strichliste geführt, die offenbar die Abschussliste des Piloten repräsentiert.",
-            "Den Energiesignaturen nach zu urteilen hat das Schiff offenbar einige illegale Verbesserungen installiert.",
-            "Aus der Entfernung sieht es aus, als sei das Schiff bis an die Zähne bewaffnet. Ein Scan zeigt allerdings, dass die Hälfte der Waffen nur Attrappen sind. Gefährlich ist das Schiff aber dennoch.",
-            "Der Name des Schiffes auf der Hülle wird eingerahmt von einer Komposition von Laserstrahlen und Rosendornen.",
-        })
-    end,
 
     side_mission_pirate_base_station_start_hint = function(sectorName)
         return f("Finden Sie die Station im Sektor %s", sectorName)

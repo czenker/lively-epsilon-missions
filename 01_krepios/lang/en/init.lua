@@ -15,6 +15,7 @@ local myPackages = {
     "01_krepios/lang/en/en_graveyard.lua",
     "01_krepios/lang/en/en_nebulas.lua",
     "lang/en/en_player.lua",
+    "01_krepios/lang/en/en_pirates.lua",
     "01_krepios/lang/en/en_player.lua",
     "01_krepios/lang/en/en_player_science.lua",
     "lang/en/en_products.lua",

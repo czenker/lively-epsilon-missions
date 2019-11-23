@@ -76,6 +76,10 @@ In theory there should _always_ be a back button `<=` visible to the stations to
 To my knowledge it has never happened that this button was not there or inaccessible, but should it ever happen
 you can force _all stations_ to the main menu with a click on the _Reset Menu_ button.
 
+Player > Raid Player::
+Sends a small group of Outlaws to raid the player. It is composed mostly of interceptors and small ships, so your players should
+not struggle too much.
+
 Stations > Storage::
 Same as with the players storage you can manipulate the storage on the station effectively also influencing how much
 the station buys or sells.
@@ -211,7 +215,7 @@ It could help you recommend missions in case anyone gets bored.
 
 |Buy goods ^| ● ^| ^| ● ^| ^| ●●
 |Capture someone ^| ●●● ^| ●●● ^| ●●● ^| ● ^| ●
-|Destroy space junk ^| ● ^| ●● ^| ● ^| ● ^| ●
+|Destroy space junk footnote:[Players are sometimes raided] ^| ●● ^| ●● ^| ● ^| ●● ^| ●
 |Disable ship ^| ● ^| ●● ^| ●● ^| ^| ●●footnote:[can hack the drive]
 |Find and gather crystals ^| ● ^| ^| ^| ●● ^|●
 |Destroy pirate base ^| ●● ^| ●●● ^| ●● ^| ●● ^| ●
@@ -225,6 +229,7 @@ It could help you recommend missions in case anyone gets bored.
 |Other |Helms |Weapons |Engi |Science |Relay
 |Mining asteroids ^|● ^|● ^|●●● ^|●● ^|
 |Trading ^|●● ^| ^|● ^|● ^|●●|===
+|===
 
 == GM Hints
 

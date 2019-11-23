@@ -9,8 +9,52 @@ local updateHint = function(mission)
     mission:getPlayer():addToShipLog(hint, "255,127,0")
 end
 
+local startRaid = function(destroyedShip)
+    local x, y = destroyedShip.originalX, destroyedShip.originalY
+    local drop = My.SupplyDrop(x, y, {
+        energy = math.random(50, 150),
+        reputation = math.random(10, 35),
+    })
+
+    local fleet = My.pirateRaid(drop, 2)
+    local leader = fleet:getLeader()
+    Tools:ensureComms(leader, My.World.player, t("side_mission_destroy_graveyard_raid_comms", leader:getCaptain()))
+
+    fleet:orderDefendLocation(x, y)
+
+    Cron.regular(function(self)
+        if not fleet:isValid() then
+            Cron.abort(self)
+        else
+            local isEscaped = true
+            for _, ship in pairs(fleet:getShips()) do
+                if distance(ship, My.World.player) <= getLongRangeRadarRange() * 1.1 then
+                    isEscaped = false
+                end
+            end
+
+            if isEscaped then
+                for _, ship in pairs(fleet:getShips()) do
+                    if ship:isValid() then ship:destroy() end
+                end
+                if drop:isValid() then drop:destroy() end
+                Cron.abort(self)
+            elseif drop:isValid() then
+                fleet:orderDefendLocation(x, y)
+            else
+                fleet:orderAttack(My.World.player)
+            end
+        end
+    end)
+end
+
+
 My.SideMissions.DestroyGraveyard = function(from, graveyard, player)
     local number = math.random(3, 5)
+    local raidOnNumber
+    if math.random(0, 1) == 0 then
+        raidOnNumber = math.random(1, number - 1)
+    end
 
     local payment = My.SideMissions.paymentPerDistance(distance(from, graveyard)) * 2 * (math.random() * 0.4 + 0.8)
 
@@ -29,6 +73,7 @@ My.SideMissions.DestroyGraveyard = function(from, graveyard, player)
             ship:setCanBeDestroyed(true)
             ship:setHullMax(ship:getHullMax() * 2)
             ship:setHull(ship:getHullMax())
+            ship.originalX, ship.originalY = ship:getPosition()
 
             table.insert(ships, ship)
         end
@@ -44,8 +89,11 @@ My.SideMissions.DestroyGraveyard = function(from, graveyard, player)
         onStart = function(self)
             updateHint(self)
         end,
-        onDestruction = function(self)
+        onDestruction = function(self, enemy)
             updateHint(self)
+            if raidOnNumber ~= nil and self:countInvalidEnemies() == raidOnNumber then
+                startRaid(enemy)
+            end
         end,
         onSuccess = function(self)
             from:sendCommsMessage(self:getPlayer(), t("side_mission_destroy_graveyard_success_comms", payment))
@@ -67,3 +115,5 @@ My.SideMissions.DestroyGraveyard = function(from, graveyard, player)
 
     return mission
 end
+
+local startRaid

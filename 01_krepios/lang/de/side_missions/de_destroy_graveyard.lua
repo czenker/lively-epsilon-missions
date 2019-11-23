@@ -43,4 +43,11 @@ My.Translator:register("de", {
             "Wenn Sie das Geld gut anlegen, können sie sich in einigen Jahren bestimmt ein Puppenhaus kaufen.",
         })
     end,
+
+    side_mission_destroy_graveyard_raid_comms = function(captainPerson)
+        return Util.random({
+            f("Halten Sie sich von diesem Schiffscontainer fern. Er ist jetzt offiziell Eigentum von Captain %s.", captainPerson:getFormalName()),
+            "Finger weg von dem Schiffscontainer, oder sie werden es mit mir zu tun bekommen.",
+        })
+    end
 })

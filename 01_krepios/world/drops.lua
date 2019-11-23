@@ -35,24 +35,13 @@ My.EventHandler:register("onWorldCreation", function()
         local shipX, shipY = Util.addVector(dropX, dropY, math.random(0, 359), math.random(500, 1750))
 
         local drop
-        drop = SupplyDrop():
-        setFaction("Player"):
-        setPosition(dropX, dropY):
-        setCallSign(t("drops_name")):
-        onPickUp(function(_, player)
-            logInfo("SupplyDrop at " .. drop:getSectorName() .. " was picked up.")
-            -- this line is unfortunately necessary to avoid the "[convert<ScriptSimpleCallback>::param] Upvalue 1 of function is not a table" error
-            local msg = t("drops_pickup", value, energy)
-            player:addCustomMessage("helms", Util.randomUuid(), msg)
-            player:addToShipLog(msg, "255,127,0")
-            player:addReputationPoints(value)
-            player:setEnergy(player:getEnergy() + energy)
-        end):
-        setDescriptions(
-            t("drops_description_unknown"),
-            t("drops_description_full", shipCallSign, value, energy)
-        ):
-        setScanningParameters(1, 1)
+        drop = My.SupplyDrop(dropX, dropY, {
+            energy = energy,
+            reputation = value,
+        })
+        drop:setScannedDescription(
+            t("drops_description_full", shipCallSign) .. drop:getContentText()
+        )
 
         local ship
         ship = My.WreckedCpuShip("Goods Freighter " .. math.random(1,5)):

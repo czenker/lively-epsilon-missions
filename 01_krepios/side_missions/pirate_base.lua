@@ -81,7 +81,7 @@ My.SideMissions.PirateBase = function(station, x, y, player)
         for _, template in pairs(versions[difficulty]) do
             local ship = DefenderTemplate(template):
             setCallSign(My.pirateShipName())
-            ship:setScannedDescription(t("side_mission_pirate_base_ship_description"))
+            ship:setScannedDescription(t("pirate_ship_description"))
 
             table.insert(ships, ship)
 
