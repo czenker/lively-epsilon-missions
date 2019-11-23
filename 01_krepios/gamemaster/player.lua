@@ -39,7 +39,7 @@ createMainMenu = function()
     menu:addItem(Menu:newItem("Crew", createCrewMenu, 2))
     menu:addItem(Menu:newItem("Upgrades", createUpgradeMenu, 3))
     menu:addItem(Menu:newItem("Storage", createStorageMenu, 4))
-    menu:addItem(Menu:newItem("Missions", createMissionMenu, 4))
+    menu:addItem(Menu:newItem("Missions", createMissionMenu, 5))
     menu:addItem(Menu:newItem("Reset Menus", function()
         local player = My.World.player
         player:drawHelmsMenu()
