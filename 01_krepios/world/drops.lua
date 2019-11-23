@@ -4,6 +4,34 @@ local isValidPositionForMine = function(thing)
     return isEeMine(thing) or isEeShipTemplateBased(thing) or isEeSupplyDrop(thing)
 end
 
+local randomDropContent = function(danger)
+    local rnd = math.random(1,4)
+    if rnd == 1 then
+        return {
+            energy = Util.round(100 + (danger + 1) * (math.random() * 100), 10),
+            reputation = 80 + (danger + 1) * (math.random() * 10),
+        }
+    elseif rnd == 2 then
+        -- weapon drop
+        return {
+            [products.homing] = math.random(1, 1 + danger),
+            [products.hvli] = math.random(1, 1 + danger),
+        }
+    elseif rnd == 3 then
+        -- machinery drop
+        return {
+            [products.miningMachinery] = math.random(1, 1 + danger),
+            energy = Util.round(100 + (danger + 1) * (math.random() * 100), 10),
+        }
+    else
+        -- ore drop
+        return {
+            [products.ore] = math.random(4, 4 + danger*3),
+            [products.plutoniumOre] = math.random(0, danger * 2),
+        }
+    end
+end
+
 -- distribute some mine fields with treasures inside
 My.EventHandler:register("onWorldCreation", function()
     local divAngle = 360 * 60000 / math.pi / My.Config.avgDistance
@@ -28,17 +56,12 @@ My.EventHandler:register("onWorldCreation", function()
 
         local shipCallSign = My.civilianShipName()
         local danger = math.random(0, 4)
-        local value = 80 + (danger + 1) * (math.random() * 10)
-        local energy = Util.round(100 + (danger + 1) * (math.random() * 100), 10)
 
         local dropX, dropY = Util.addVector(x, y, math.random(0, 359), math.random(100, 750))
         local shipX, shipY = Util.addVector(dropX, dropY, math.random(0, 359), math.random(500, 1750))
 
         local drop
-        drop = My.SupplyDrop(dropX, dropY, {
-            energy = energy,
-            reputation = value,
-        })
+        drop = My.SupplyDrop(dropX, dropY, randomDropContent(danger))
         drop:setScannedDescription(
             t("drops_description_full", shipCallSign) .. drop:getContentText()
         )

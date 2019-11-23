@@ -7,6 +7,7 @@
 * new mission to destroy space junk
   * sometimes a destroyed ship drops a container and the players are raided by pirates
 * GM can send a small Outlaw raid party to the player
+* ship containers have more diverse content
 
 #### v1.1
 

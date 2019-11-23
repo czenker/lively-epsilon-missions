@@ -9,12 +9,37 @@ local updateHint = function(mission)
     mission:getPlayer():addToShipLog(hint, "255,127,0")
 end
 
+local randomDropContent = function()
+    local rnd = math.random(1,4)
+    if rnd == 1 then
+        return {
+            energy = Util.round(50 + 30 * math.random(), 10),
+            reputation = 10 + math.random() * 30,
+        }
+    elseif rnd == 2 then
+        -- weapon drop
+        return {
+            [products.homing] = math.random(1, 3),
+            [products.hvli] = math.random(1, 3),
+        }
+    elseif rnd == 3 then
+        -- machinery drop
+        return {
+            [products.miningMachinery] = math.random(1, 3),
+            energy = Util.round(50 + 30 * math.random(), 10),
+        }
+    else
+        -- ore drop
+        return {
+            [products.ore] = math.random(4, 10),
+            [products.plutoniumOre] = math.random(1, 4),
+        }
+    end
+end
+
 local startRaid = function(destroyedShip)
     local x, y = destroyedShip.originalX, destroyedShip.originalY
-    local drop = My.SupplyDrop(x, y, {
-        energy = math.random(50, 150),
-        reputation = math.random(10, 35),
-    })
+    local drop = My.SupplyDrop(x, y, randomDropContent())
 
     local fleet = My.pirateRaid(drop, 2)
     local leader = fleet:getLeader()
