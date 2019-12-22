@@ -196,7 +196,7 @@ My.Translator:register("en", {
     chatter_upgrade_2 = function(stationCallSign)
         return Util.random({
             f("Why don't you check at %s?", stationCallSign),
-            f("I think %s does.", stationCallSign),
+            f("I think %s does sell it.", stationCallSign),
             f("I have seen it on %s once.", stationCallSign),
             f("Have you tried on %s?", stationCallSign),
             f("Maybe check on %s.", stationCallSign),
@@ -249,7 +249,7 @@ My.Translator:register("en", {
             "Unfortunately, the story is true.",
             "But it won't stay that way for long.",
             "Who did you hear the story from?",
-            "Who's gonna tell the story? Sure some chatterbox.",
+            "Who told that story? Sure some chatterbox.",
         }) .. " " .. Util.random({
             "I already have a plan how to get the money back.",
             "Tonight's a rematch.",
@@ -285,7 +285,7 @@ My.Translator:register("en", {
         })
 
         local insult = {
-            "amoebic brain",
+            "amoeba brain",
             "scumbag",
             "dullard",
             "simpleton",
