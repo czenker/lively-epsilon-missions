@@ -265,4 +265,7 @@ My.Translator:register("en", {
     upgrade_nanobots_currently_active = "Active",
     upgrade_nanobots_no_shields = "Nanobots can only be used when shields are down.",
     upgrade_nanobots_no_shields_alert = "Turning on the shields destroyed all the nanobots that were repairing our hull.",
+
+    upgrade_autofof_name = "Auto FoF Identification",
+    upgrade_autofof_description = "Having the Auto FoF Identification installed on your ship will automatically identify close ships and match them with your database. They will be marked as friend or foe on your stations accordingly.",
 })

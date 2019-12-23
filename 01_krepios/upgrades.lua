@@ -3,6 +3,9 @@ local t = My.Translator.translate
 My = My or {}
 My.Upgrades = My.Upgrades or {}
 
+-- possible tags:
+--  * freely-sold: will be randomly available at basic stations from the beginning of the game
+
 My.Upgrades.speed1 = (function()
     local speed = 60
 
@@ -825,6 +828,24 @@ My.Upgrades.beam = (function()
     })
     Generic:withTags(upgrade)
     upgrade:addTag("freely-sold")
+    return upgrade
+end)()
+
+My.Upgrades.autoFoF = (function()
+    local upgrade = BrokerUpgrade:new({
+        name = t("upgrade_autofof_name"),
+        onInstall = function(_, player)
+            My.installAutoFriendOrFoe(player)
+        end,
+        id = "autofof",
+        price = 80,
+        unique = true,
+        description = t("upgrade_autofof_description"),
+        canBeInstalled = function()
+            return isFunction(My.installAutoFriendOrFoe)
+        end,
+    })
+    Generic:withTags(upgrade)
     return upgrade
 end)()
 

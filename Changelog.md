@@ -1,5 +1,9 @@
 # Changelog
 
+#### next release (Science Update)
+
+* new upgrade that does simple scans of close ships
+
 #### v1.2 (Miners Update)
 
 * added the option to **mine asteroids** for the player
