@@ -82,4 +82,5 @@ My.Translator:register("de", {
     end,
 
     asteroids_chunk_description = "Ein Stück mit Mineralien. Es besteht aus",
+    asteroids_chunk_empty_description = "Ein Stück aus einem Asteroid. Es enthält keinerlei wertvoller Mineralien.",
 })

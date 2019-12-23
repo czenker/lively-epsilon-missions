@@ -51,7 +51,20 @@ insulate("01 Krepios Translations", function()
         debug.sethook()
     end)
 
-    for locale, dictionary in pairs(My.Translator:getDictionaries()) do
+    local dictionaries = My.Translator:getDictionaries()
+    local locales = {}
+    for locale, _ in pairs(dictionaries) do
+        table.insert(locales, locale)
+    end
+    local defaultLocale = My.Translator:getDefaultLocale()
+
+    for _, locale in pairs({"de", "en"}) do
+        it("should support locale " .. locale, function()
+            assert.contains_value(locale, locales)
+        end)
+    end
+
+    for locale, dictionary in pairs(dictionaries) do
         describe("translation " .. locale, function()
             for key, value in pairs(dictionary) do
                 describe(key, function()
@@ -72,5 +85,30 @@ insulate("01 Krepios Translations", function()
                 end)
             end
         end)
+    end
+    for locale, dictionary in pairs(dictionaries) do
+        for key, _ in pairs(dictionary) do
+            if locale == defaultLocale then
+                for _, locale in pairs(locales) do
+                    if locale ~= defaultLocale then
+                        local label = key .. " should have a translation in " .. locale
+                        it(label, function()
+                            -- test should not fail, but make it transparent something should be fixed. so no assert here
+                            if dictionaries[locale][key] == nil then
+                                pending(label)
+                            end
+                        end)
+                    end
+                end
+            else
+                local label = key .. " used in " .. locale .. " should have a base translation"
+                it(label, function()
+                    -- test should not fail, but make it transparent something should be fixed. so no assert here
+                    if dictionaries[defaultLocale][key] == nil then
+                        pending(label)
+                    end
+                end)
+            end
+        end
     end
 end)
