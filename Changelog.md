@@ -1,13 +1,15 @@
 # Changelog
 
-#### next version
+#### v1.2 (Miners Update)
 
 * added the option to **mine asteroids** for the player
 * mining stations buy ore and plutonium ore (for a very low price)
-* new mission to destroy space junk
+* new **side mission to scan asteroids**
+* new **side mission to destroy space junk**
   * sometimes a destroyed ship drops a container and the players are raided by pirates
+* the "Secret Code" side mission got an english translation
+* drops of destroyed ships got more randomized. They can now also contain weapons or trading resources
 * GM can send a small Outlaw raid party to the player
-* ship containers have more diverse content
 
 #### v1.1
 
