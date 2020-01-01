@@ -47,7 +47,7 @@ pirates:setEnemy(smc)
 legion = FactionInfo():setName("Legion")
 legion:setGMColor(255, 0, 0)
 legion:setEnemy(neutral)
-legion:setEnemy(abandoned)
+--legion:setFriendly(abandoned) -- neutral
 legion:setEnemy(traders)
 legion:setEnemy(player)
 legion:setEnemy(humanNavy)
