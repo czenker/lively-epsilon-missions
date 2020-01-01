@@ -123,7 +123,7 @@ function My.WreckedCpuShip(templateName)
 
     -- TODO: would be nice if player where not able to dock in the first place
     ship:setSharesEnergyWithDocked(false)
-    ship:setRestocksScanProbes(false)
+    if isFunction(ship.setRestocksScanProbes) then ship:setRestocksScanProbes(false) end
     ship:setRepairDocked(false)
 
     Ship:withTags(ship)
