@@ -10,7 +10,7 @@ My.Translator:register("en", {
     story_welcome_1_response_bad = "Hey, we ain't greenhorns!",
 
     story_welcome_2_good = "Hah. The way you talk, I guess you passed the nerd course at the academy with flying colors. \z
-        Bet you better give it up soon. Nobody is interested in your blathering here.",
+        You better give it up soon. Nobody is interested in your blathering here.",
     story_welcome_2_bad = function(colonelPerson)
         return "For goodness' sake. Of course, you are no greenhorns but crybabies. Better run back to Colonel " ..
         colonelPerson:getFormalName() .. " if got problems with the tone here."
@@ -118,7 +118,7 @@ My.Translator:register("en", {
     end,
     story_attack_detected_1_response = "Unidentified squadrons?",
     story_attack_detected_2 = "Don't ask me. I got no idea where these frigging things come from and I don't want \z
-        to know. All I want is to save my own ass and with it as many as possible. The more souls we get out \z
+        to know. All I want is to save my own ass and with it as many souls as possible. The more souls we get out \z
         of this sector alive the better chances we have to form a passable defense against this fleet.",
     story_attack_detected_2_response = "What is our role in this?",
     story_attack_detected_3 = function(distance)
