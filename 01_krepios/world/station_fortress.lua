@@ -238,6 +238,8 @@ My.EventHandler:register("onFortressManned", function()
         fortress:getRadarSignatureGravity(), 0.5, 0.5
     )
 
+    fortress:setSharesEnergyWithDocked(true)
+
     fortress:removeTag("mute")
 end, -90)
 
