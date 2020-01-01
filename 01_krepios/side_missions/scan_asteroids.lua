@@ -37,7 +37,8 @@ My.SideMissions.ScanAsteroids = function(station)
     if not asteroids then return nil end
     local numberOfAsteroids = Util.size(asteroids)
 
-    local basePayment = My.SideMissions.paymentPerDistance(distance(station, asteroids[1]))
+    local distance = math.max(distance(station, asteroids[1]) - getLongRangeRadarRange() * 0.8, 0)
+    local basePayment = My.SideMissions.paymentPerDistance(distance)
     local paymentPerAsteroid = (math.random() * 4 + 3)
 
     local payment = basePayment + numberOfAsteroids * paymentPerAsteroid
