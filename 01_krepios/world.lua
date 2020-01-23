@@ -34,6 +34,9 @@ My.World.fortress = nil
 -- the headquarter of the sector
 My.World.hq = nil
 
+-- the shipyard in this sector
+My.World.shipyard = nil
+
 -- TODO
 My.Wormhole = nil
 

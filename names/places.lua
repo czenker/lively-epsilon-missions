@@ -58,6 +58,20 @@ local englishAlphabet = {
     "Zulu",
 }
 
+local colors = {
+    "Red",
+    "Blue",
+    "Green",
+    "White",
+    "Yellow",
+    "Teal",
+    "Purple",
+    "Pink",
+    "Black",
+    "Cyan",
+    "Brown",
+}
+
 local cantoneseNumerals = {
     "ling",
     "jat",

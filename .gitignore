@@ -8,5 +8,6 @@ lively_epsilon
 
 scenario_*.lua
 !scenario_01_krepios.lua
+utils.lua
 02_*
 docs/02_*

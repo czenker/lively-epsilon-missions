@@ -6,6 +6,9 @@ local newNebula = function(artifact, clouds)
     return {
         getArtifact = function() return artifact end,
         getName = function() return artifact:getCallSign() or "unknown" end,
+        getRandomCloud = function()
+            return Util.random(clouds)
+        end,
         getRandomPosition = function()
             local cloud = Util.random(clouds)
             local x, y = cloud:getPosition()

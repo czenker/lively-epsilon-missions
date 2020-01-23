@@ -53,6 +53,7 @@ local myPackages = {
     "01_krepios/comms/merchant.lua",
     "01_krepios/comms/mission_broker.lua",
     "01_krepios/comms/ship_report.lua",
+    "01_krepios/comms/shipyard_tinkerer.lua",
     "01_krepios/comms/upgrade_broker.lua",
     "01_krepios/comms/who_are_you.lua",
 
@@ -108,6 +109,8 @@ local myPackages = {
     "01_krepios/world/station_hq.lua",
     "01_krepios/world/station_mines.lua",
     "01_krepios/world/station_research.lua",
+    "01_krepios/world/station_shipyard.lua",
+    "01_krepios/world/station_shipyard_tinkerer.lua",
     "01_krepios/world/wormhole.lua",
 
     "01_krepios/main_story/missions/10_install_drive.lua",

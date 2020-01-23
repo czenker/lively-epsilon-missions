@@ -25,6 +25,7 @@ local myPackages = {
     "01_krepios/lang/en/en_station_hq.lua",
     "01_krepios/lang/en/en_station_mines.lua",
     "01_krepios/lang/en/en_station_research.lua",
+    "01_krepios/lang/en/en_station_shipyard.lua",
     "01_krepios/lang/en/en_story_mission.lua",
     "01_krepios/lang/en/en_upgrades.lua",
 
