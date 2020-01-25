@@ -201,7 +201,7 @@ My.Upgrades.combatManeuver = (function()
         onInstall = function(upgrade, player)
             player:setCombatManeuver(250, 150)
         end,
-        id = "combat_maneuver",
+        id = "combatManeuver",
         price = 250,
         unique = true,
         description = t("upgrade_combatManeuver_description"),
@@ -837,7 +837,7 @@ My.Upgrades.autoFoF = (function()
         onInstall = function(_, player)
             My.installAutoFriendOrFoe(player)
         end,
-        id = "autofof",
+        id = "autoFoF",
         price = 80,
         unique = true,
         description = t("upgrade_autofof_description"),
@@ -855,7 +855,7 @@ My.Upgrades.shieldEmp = (function()
         onInstall = function(_, player)
             My.installShieldEmp(player, range)
         end,
-        id = "shieldemp",
+        id = "shieldEmp",
         price = 80,
         unique = true,
         description = t("upgrade_shieldemp_description", range / 1000),
@@ -908,5 +908,12 @@ My.Upgrades.nanobot = (function()
         end,
     })
     Generic:withTags(upgrade)
+    upgrade:addTag("researchable")
     return upgrade
 end)()
+
+for id, upgrade in pairs(My.Upgrades) do
+    if id ~= upgrade:getId() then
+        error(string.format("Expected key to be the same as upgrade id, but got \"%s\" as key and \"%s\" as id.", id, upgrade:getId()))
+    end
+end
