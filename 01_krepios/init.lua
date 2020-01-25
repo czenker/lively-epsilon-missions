@@ -88,6 +88,7 @@ local myPackages = {
     "01_krepios/upgrades/jump_calculator.lua",
     "01_krepios/upgrades/laser_refit.lua",
     "01_krepios/upgrades/nanobots.lua",
+    "01_krepios/upgrades/shield_emp.lua",
 
     "01_krepios/world/helper.lua",
     "01_krepios/world/asteroids.lua",

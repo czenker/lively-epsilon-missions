@@ -848,6 +848,21 @@ My.Upgrades.autoFoF = (function()
     Generic:withTags(upgrade)
     return upgrade
 end)()
+My.Upgrades.shieldEmp = (function()
+    local range = 2000
+    local upgrade = BrokerUpgrade:new({
+        name = t("upgrade_shieldemp_name"),
+        onInstall = function(_, player)
+            My.installShieldEmp(player, range)
+        end,
+        id = "shieldemp",
+        price = 80,
+        unique = true,
+        description = t("upgrade_shieldemp_description", range / 1000),
+    })
+    Generic:withTags(upgrade)
+    return upgrade
+end)()
 
 My.Upgrades.probe = (function()
     local amount = 4
