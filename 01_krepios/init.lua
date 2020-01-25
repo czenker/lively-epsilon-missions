@@ -10,8 +10,6 @@ My.EventHandler = EventHandler:new({allowedEvents = {
     "onFirstMoneyEarned", --
     "onDrivesAvailable", --
     --"onSimulationsAvailable", --
-    "onLaserRefitReward",
-    "onPowerPresetsReward",
 
     "onAttackersSpawn", -- when the attackers spawn
     "onAttackersDetection", -- when the attackers are discovered
@@ -123,8 +121,6 @@ local myPackages = {
     "01_krepios/main_story/01_welcome.lua",
     "01_krepios/main_story/02_after_first_mission.lua",
     "01_krepios/main_story/03_drives_available.lua",
-    "01_krepios/main_story/04_laser_refit_reward.lua",
-    "01_krepios/main_story/05_power_presets_reward.lua",
     "01_krepios/main_story/19_attack_warning.lua",
     "01_krepios/main_story/20_attack_detected.lua",
     "01_krepios/main_story/19_attack_warning.lua",

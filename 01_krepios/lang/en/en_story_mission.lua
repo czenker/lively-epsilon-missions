@@ -77,31 +77,6 @@ My.Translator:register("en", {
 
 
 
-    story_laser_refit_award_comms = function(commanderPerson)
-        return "It seems you are starting to get along in the sector. \z
-        It is common in this sector that miners modify their laser with a software that - lets put it this way - \z
-        can not be bought on the free market. \z
-        An unknown coder, who calls himself \"H4><><0R\", wrote a script that can be used to have lasers operate outside \z
-        their specification to make them more powerful.\n\n\z
-        I have sent you the script. Your weapons officer can make use of it and recalibrate your lasers according \z
-        to the situation. Maybe it will save your asses in one of the fighting missions sometime.\n\n\z
-        And just in case anyone asks: You do not have it from me. Understood?\n\n\z
-        - Commander " .. commanderPerson:getFormalName()
-    end,
-
-
-
-    story_power_presets_award_comms = function(commanderPerson)
-        return "Hey greenhorns. \z
-        I got something new for you. One of our technicians \"found\" a software upgrade on one of the outer world freighters \z
-        and asked me to send it to you. Seems there is at least one person on this station who is not indifferent to you. \n\n\z
-        The upgrade should somehow help your engineering officer. I did not listen to her technical gibberish, but she \z
-        said it has a manual attached.\n\n\z
-        - Commander " .. commanderPerson:getFormalName()
-    end,
-
-
-
     story_attack_warning = function(colonelPerson)
         return "Our secret service warned us of mysterious signatures in your sector. Unfortunately we have no idea \z
         what causes them at the moment. Better keep your eyes and sensors open - something is going on here.\n\n\z

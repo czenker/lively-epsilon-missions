@@ -31,8 +31,6 @@ insulate("01 Krepios Scenario", function()
             -- the main story can be run
             Tools:endStoryComms()
             My.EventHandler:fire("onFirstMoneyEarned")
-            My.EventHandler:fire("onLaserRefitReward")
-            My.EventHandler:fire("onPowerPresetsReward")
             My.EventHandler:fire("onAttackersSpawn")
             My.EventHandler:fire("onAttackersDetection")
             Tools:endStoryComms()

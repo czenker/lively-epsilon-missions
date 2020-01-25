@@ -1,20 +1,12 @@
 local f = string.format
 
 local showOnFirstMoneyEarned = true
-local showOnLaserRefitReward = true
-local showOnPowerPresetsReward = true
 local showOnAttackersSpawn = true
 local showOnAttackersDetection = false
 local showOnClosingInToFortress = false
 
 My.EventHandler:register("onFirstMoneyEarned", function()
     showOnFirstMoneyEarned = false
-end)
-My.EventHandler:register("onLaserRefitReward", function()
-    showOnLaserRefitReward = false
-end)
-My.EventHandler:register("onPowerPresetsReward", function()
-    showOnPowerPresetsReward = false
 end)
 My.EventHandler:register("onAttackersSpawn", function()
     showOnAttackersSpawn = false
@@ -37,18 +29,6 @@ mainMenu = function()
             My.EventHandler:fire("onFirstMoneyEarned")
             return mainMenu()
         end, 0))
-    end
-    if showOnLaserRefitReward then
-        menu:addItem(Menu:newItem("onLaserRefitReward", function()
-            My.EventHandler:fire("onLaserRefitReward")
-            return mainMenu()
-        end, 1))
-    end
-    if showOnPowerPresetsReward then
-        menu:addItem(Menu:newItem("onPowerPresetsReward", function()
-            My.EventHandler:fire("onPowerPresetsReward")
-            return mainMenu()
-        end, 2))
     end
     if showOnAttackersSpawn then
         menu:addItem(Menu:newItem("onAttackersSpawn", function()

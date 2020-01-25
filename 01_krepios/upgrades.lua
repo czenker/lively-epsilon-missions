@@ -692,7 +692,7 @@ My.Upgrades.powerPresets = (function()
             })
         end,
         id = "powerPresets",
-        price = 0,
+        price = 150,
         unique = true,
         description = t("upgrade_powerPresets_description", slots),
         canBeInstalled = function(upgrade, player)
@@ -711,7 +711,7 @@ My.Upgrades.laserRefit = (function()
             My.installLaserRefit()
         end,
         id = "laserRefit",
-        price = 0,
+        price = 100,
         unique = true,
         description = t("upgrade_laserRefit_description", slots),
         canBeInstalled = function(upgrade, player)

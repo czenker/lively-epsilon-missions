@@ -83,32 +83,6 @@ My.Translator:register("de", {
 
 
 
-    story_laser_refit_award_comms = function(commanderPerson)
-        return "Ihr scheint ja doch langsam im Sektor zurechtzukommen. \z
-        Hier im Sektor ist es üblich, dass die Schürfer ihre Laser mit - nun sagen wir mal - Software, die man auf \z
-        dem freien Markt nicht kaufen kann, ihre Laser modifizieren, um ihre Schadensleistung zu erhöhen. Ein \z
-        Programmierer, der sich selbst \"H4><><0R\" nennt, hat eine Software geschrieben, mit der man Laser \z
-        jenseits der vom Hersteller vorgegebenen Spezifikation betreiben kann.\n\n\z
-        Ich habe euch die Software geschickt. Euer Waffenoffizier kann die Laser der Situation entsprechend neu \z
-        kalibrieren. Vielleicht rettet euch das Upgrade bei Kampfmissionen den Arsch.\n\n\z
-        Und nur für den Fall, dass jemand fragt: Das Programm habt ihr nicht von mir. Verstanden?\n\n\z
-        - Kommandant " .. commanderPerson:getFormalName()
-    end,
-
-
-
-    story_power_presets_award_comms = function(commanderPerson)
-        return "Hey ihr Grünschnäbel. \z
-        Ich hab da was Neues für euch. Einer unserer Technikerinnen hat ein Software Update auf einem \z
-        Außenwelt-Frachter \"gefunden\" und wollte das ich es euch schicke. Scheint so, als ob es hier auf \z
-        der Station doch eine Person gibt, der ihr nicht vollkommen egal seid.\n\n\z
-        Das Upgrade soll wohl eurem Technikoffizier irgendwie helfen. So ganz hab ich ihr Geplapper nicht verstanden, aber \z
-        sie sagt, es liegt eine Anleitung dabei.\n\n\z
-        - Kommandant " .. commanderPerson:getFormalName()
-    end,
-
-
-
     story_attack_warning = function(colonelPerson)
         return "Unser Geheimdienst hat mir mitgeteilt, dass in ihrem Sektor merkwürdige Signale entdeckt worden. Leider \z
         wissen wir im Augenblick nicht, worum es sich dabei handelt. Aber halten Sie besser die Augen und Sensoren \z

@@ -14,15 +14,6 @@ My.EventHandler:register("onStart", function()
 end)
 
 My.EventHandler:register("onFirstMoneyEarned", function()
-
-    Cron.once(function()
-        My.EventHandler:fire("onLaserRefitReward")
-    end, 60 * 25)
-
-    Cron.once(function()
-        My.EventHandler:fire("onPowerPresetsReward")
-    end, 60 * 40)
-
     if My.Config.sandbox then
         logInfo("Enemies will not spawn, because sandbox mode was selected")
     else
