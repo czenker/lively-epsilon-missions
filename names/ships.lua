@@ -1517,6 +1517,15 @@ local strongStructures = {
     "Watch",
 }
 
+local shipDockNames = {
+    "Berth",
+    "Dock",
+    "Pier",
+    "Port ",
+    "Quay",
+    "Wharf",
+}
+
 My.civilianShipName = (function()
     local suffix = Util.appendTables(neutralSuffix, mobileSuffix)
 
@@ -1573,5 +1582,25 @@ My.pirateShipName = (function()
 end)()
 
 My.militaryStationName = My.deduplicateName(function()
-    return Util.random(strongAdjectives) .. " " .. Util.random(strongStructures)
+    local v = math.random(1, 3)
+    if v == 1 then
+        return Util.random(strongAdjectives) .. " " .. Util.random(strongStructures)
+    else
+        return Util.random(Names.humanLastNamesMilitary) .. " " .. Util.random(strongStructures)
+    end
 end)
+
+My.wharfStationName = (function()
+    local names = Util.appendTables(Names.humanLastNamesMilitary, Names.humanLastNamesScientific)
+
+    return My.deduplicateName(function()
+        local prefix = Util.random(names)
+        local suffix = Util.random(shipDockNames)
+
+        if suffix:sub(-1) == " " then
+            return suffix .. prefix
+        else
+            return prefix .. " " .. suffix
+        end
+    end)
+end)()

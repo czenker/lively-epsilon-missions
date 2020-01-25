@@ -17,6 +17,8 @@ insulate("Names", function()
         ["Nebula Names"] = My.nebulaName,
         ["Pirate Station Names"] = My.pirateStationName,
         ["Pirate Ship Names"] = My.pirateShipName,
+        ["Military Station Names"] = My.militaryStationName,
+        ["Wharf Station Names"] = My.wharfStationName,
         ["Sector Names"] = My.sectorName,
     }) do
         it("does not generate duplicate " .. thing, function()
