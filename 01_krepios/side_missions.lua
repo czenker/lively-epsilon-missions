@@ -177,8 +177,12 @@ My.MissionGenerator = {
                 return My.SideMissions.Repair(from, to, My.World.player)
             end,
             function()
-                local product = Util.random(from:getProductsBought())
-                return My.SideMissions.Buyer(from, product)
+                if Station:hasMerchant(from) then
+                    local product = Util.random(from:getProductsBought())
+                    return My.SideMissions.Buyer(from, product)
+                else
+                    return nil
+                end
             end,
             function()
                 return My.SideMissions.SecretCode(from, to)
