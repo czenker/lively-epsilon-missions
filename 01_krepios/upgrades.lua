@@ -5,6 +5,7 @@ My.Upgrades = My.Upgrades or {}
 
 -- possible tags:
 --  * freely-sold: will be randomly available at basic stations from the beginning of the game
+--  * researchable: can be researched at the shipyard
 
 My.Upgrades.speed1 = (function()
     local speed = 60
@@ -700,6 +701,7 @@ My.Upgrades.powerPresets = (function()
         end,
     })
     Generic:withTags(upgrade)
+    upgrade:addTag("researchable")
     return upgrade
 end)()
 My.Upgrades.laserRefit = (function()
@@ -719,6 +721,7 @@ My.Upgrades.laserRefit = (function()
         end,
     })
     Generic:withTags(upgrade)
+    upgrade:addTag("researchable")
     return upgrade
 end)()
 
@@ -846,6 +849,7 @@ My.Upgrades.autoFoF = (function()
         end,
     })
     Generic:withTags(upgrade)
+    upgrade:addTag("researchable")
     return upgrade
 end)()
 My.Upgrades.shieldEmp = (function()
@@ -861,6 +865,7 @@ My.Upgrades.shieldEmp = (function()
         description = t("upgrade_shieldemp_description", range / 1000),
     })
     Generic:withTags(upgrade)
+    upgrade:addTag("researchable")
     return upgrade
 end)()
 
