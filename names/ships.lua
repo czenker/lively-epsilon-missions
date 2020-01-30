@@ -1604,3 +1604,16 @@ My.wharfStationName = (function()
         end
     end)
 end)()
+
+My.droidName = (function()
+    local letters = {"B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Z"}
+    local names = Util.appendTables(Names.humanFemaleFirstNames, Names.humanMaleFirstNames, neutralPrefix, Names.greekTitans, Names.greekNereids, Names.greekPotamoi)
+    return My.deduplicateName(function()
+        local v = math.random(1, 2)
+        if v == 1 then
+            return Util.random(letters) .. Util.random(letters) .. "-" .. math.random(1, 150)
+        else
+            return Names.leetify(Util.random(names))
+        end
+    end)
+end)()
