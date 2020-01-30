@@ -17,8 +17,8 @@ My.World.Helper = {
             local newX, newY = generatorFunc()
             local closestDistance = 999999999
             for _, thing in pairs(getObjectsInRadius(newX, newY, minDistance)) do
-                if checkFunc(thing) then
-                    local d = distance(newX, newY, thing:getPosition())
+                local d = distance(newX, newY, thing:getPosition())
+                if checkFunc(thing, d) then
                     if closestDistance == nil or d < closestDistance then
                         closestDistance = d
                     end
