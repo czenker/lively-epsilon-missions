@@ -182,6 +182,7 @@ My.EventHandler:register("onStart", function()
     end, math.random(55, 64) + math.random())
 
     My.EventHandler:register("onAttackersDetection", function()
+        My.World.hq:addTag("mute")
         Cron.abort(cronId)
         if buyerOre and buyerOre:isValid() then
             My.fleeToFortress(buyerOre)

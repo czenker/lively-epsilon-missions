@@ -210,6 +210,8 @@ local function makeItAMine(station)
     end, math.random(55, 64) + math.random(), 0)
 
     My.EventHandler:register("onAttackersDetection", function()
+
+        station:addTag("mute")
         -- @TODO: stop production
         Cron.abort(cronId)
 
