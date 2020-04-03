@@ -4,9 +4,10 @@ local function StationTemplate()
     return My.SpaceStation("Large Station", "SMC")
 end
 
+local arenaRadius = 5000
+local arenaPoints = 40
+
 local createArena = function(nebula)
-    local arenaRadius = 5000
-    local arenaPoints = 40
     local arenaX, arenaY = nebula:getRandomCloud():getPosition()
 
     local points = {}
@@ -17,7 +18,11 @@ local createArena = function(nebula)
         table.insert(points, y)
     end
 
-    Zone():setFaction("Player"):setPoints(table.unpack(points)):setColor(255, 0, 0):setLabel("Arena")
+    local zone = Zone():setFaction("Player"):setPoints(table.unpack(points)):setColor(255, 0, 0):setLabel("Arena")
+
+    My.World.Helper.eraseAsteroidsAround(arenaX, arenaY, 5500)
+
+    return arenaX, arenaY, zone
 end
 
 My.EventHandler:register("onWorldCreation", function()
@@ -44,7 +49,23 @@ My.EventHandler:register("onWorldCreation", function()
     station:setCallSign(My.wharfStationName())
     station:setScannedDescription(t("shipyard_station_description", nebula:getName()))
 
-    createArena(nebula)
+    local arenaX, arenaY, arenaZone = createArena(nebula)
+
+    station.isInArena = function(thing)
+        return distance(thing, arenaX, arenaY) < arenaRadius
+    end
+
+    station.getArenaLocation = function()
+        return arenaX, arenaY
+    end
+
+    station.getArenaSectorName = function()
+        return Util.sectorName(arenaX, arenaY)
+    end
+
+    station.getArenaZone = function()
+        return arenaZone
+    end
 
     Station:withCrew(station, {
         relay = Person:newHumanScientist(),
