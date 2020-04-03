@@ -302,7 +302,7 @@ end, {
 }), "treasure")
 
 local hasAsteroidInRange = function(ship)
-    for _, thing in pairs(ship:getObjectsInRange(getLongRangeRadarRange())) do
+    for _, thing in pairs(ship:getObjectsInRange(30000)) do
         if isEeAsteroid(thing) and isFunction(thing.getOreContent) and isFunction(thing.getPlutoniumContent) then
             return true
         end
@@ -314,7 +314,7 @@ local getRichAsteroidInRange = function(ship)
     local richestAsteroid
     local maxMinerals = -1
 
-    for _, thing in pairs(ship:getObjectsInRange(getLongRangeRadarRange())) do
+    for _, thing in pairs(ship:getObjectsInRange(30000)) do
         if isEeAsteroid(thing) and isFunction(thing.getOreContent) and isFunction(thing.getPlutoniumContent) then
             local minerals = thing.getOreContent() + thing.getPlutoniumContent()
             if minerals > maxMinerals then

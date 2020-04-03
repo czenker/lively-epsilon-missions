@@ -20,7 +20,7 @@ My.EventHandler:register("onStart", function()
                 return
             end
 
-            local things = player:getObjectsInRange(getLongRangeRadarRange())
+            local things = player:getObjectsInRange(player:getLongRangeRadarRange())
             local closestUnscannedThing, closestDistance = nil, 999999
 
             for _, thing in pairs(things) do

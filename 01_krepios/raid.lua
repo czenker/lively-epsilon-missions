@@ -83,12 +83,12 @@ local findSpawnPosition = function(centerX, centerY)
         for _, player in pairs(closePlayers) do
             -- try to spawn far from the player
             local d = distance(player, x, y)
-            if d < 5000 then
+            if d <= player:getShortRangeRadarRange() then
                 rating = rating + ratingVeryBad
             elseif not isInNebula then
-                if d < getLongRangeRadarRange() / 2 then
+                if d <= player:getLongRangeRadarRange() then
                     rating = rating - ratingBad
-                elseif d < getLongRangeRadarRange() then
+                elseif d <= player:getLongRangeRadarRange() then
                     rating = rating - ratingNotGood
                 end
             end

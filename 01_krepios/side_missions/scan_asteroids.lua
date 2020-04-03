@@ -4,7 +4,7 @@ My = My or {}
 My.SideMissions = My.SideMissions or {}
 
 local findAsteroid = function(station)
-    return Util.random(station:getObjectsInRange(getLongRangeRadarRange()), function(_, thing)
+    return Util.random(station:getObjectsInRange(20000), function(_, thing)
         return isEeAsteroid(thing) and isFunction(thing.getName)
     end)
 end
@@ -37,7 +37,7 @@ My.SideMissions.ScanAsteroids = function(station)
     if not asteroids then return nil end
     local numberOfAsteroids = Util.size(asteroids)
 
-    local distance = math.max(distance(station, asteroids[1]) - getLongRangeRadarRange() * 0.8, 0)
+    local distance = math.max(distance(station, asteroids[1]) - 20000 * 0.8, 0)
     local basePayment = My.SideMissions.paymentPerDistance(distance)
     local paymentPerAsteroid = (math.random() * 4 + 3)
 

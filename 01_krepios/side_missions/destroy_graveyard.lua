@@ -53,7 +53,7 @@ local startRaid = function(destroyedShip)
         else
             local isEscaped = true
             for _, ship in pairs(fleet:getShips()) do
-                if distance(ship, My.World.player) <= getLongRangeRadarRange() * 1.1 then
+                if distance(ship, My.World.player) <= My.World.player:getLongRangeRadarRange() * 1.1 then
                     isEscaped = false
                 end
             end

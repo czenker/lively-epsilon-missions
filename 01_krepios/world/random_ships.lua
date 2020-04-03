@@ -228,7 +228,7 @@ local narratives = {
             end)
         end
 
-        table.insert(asteroids, findAsteroid(station, getLongRangeRadarRange()))
+        table.insert(asteroids, findAsteroid(station, 20000))
 
         if Util.size(asteroids) < 1 then return end
 

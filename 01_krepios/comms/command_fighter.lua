@@ -28,7 +28,7 @@ My.Comms.commandFighter = (function()
     attackMenu = function(comms_target, comms_source)
         local screen = Comms:newScreen(t("defense_squadron_command_attack_hail"))
 
-        for _, thing in pairs(comms_target:getObjectsInRange(getLongRangeRadarRange())) do
+        for _, thing in pairs(comms_target:getObjectsInRange(20000)) do
             if isEeShipTemplateBased(thing) and thing:isValid() and comms_target:isEnemy(thing) then
                 screen:addReply(Comms:newReply(thing:getCallSign(), attackShip(thing)))
             end

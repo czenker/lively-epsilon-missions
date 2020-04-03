@@ -28,7 +28,7 @@ My.Comms.FortressHail = {
         else
             if self:areEnemiesInRange(5000) then
                 msg = t("fortress_hail_defense_attacked", distance(self, player) < 10000)
-            elseif self:areEnemiesInRange(getLongRangeRadarRange()) then
+            elseif self:areEnemiesInRange(20000) then
                 msg = t("fortress_hail_defense_enemies_close")
             elseif player:isDocked(self) then
                 msg = t("fortress_hail_defense_docked", self:getCallSign(), self:getRepairDocked())
