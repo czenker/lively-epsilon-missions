@@ -19,17 +19,7 @@ local researchRatio = 1
 
 My.EventHandler:register("onStart", function()
     local station = My.World.shipyard
-
-    local onUpgradeAvailable = function()
-        local upgrade = table.remove(upgrades, 1)
-        if upgrade then
-            station:addUpgrade(upgrade)
-            logInfo(f("Station \"%s\" researched \"%s\" and sells it now.", station:getCallSign(), upgrade:getName()))
-
-            -- @TODO: notify player
-        end
-    end
-
+    local isCurrentUpgradeDiscounted = false
     local tinkererPerson = Person:newHumanScientist()
     local tinkererNick = tinkererPerson.getNickName()
     tinkererPerson.getNickName = function() return "Crazy " .. tinkererNick end
@@ -37,6 +27,20 @@ My.EventHandler:register("onStart", function()
     Station:withCrew(station, {
         tinkerer = tinkererPerson,
     })
+
+    local onUpgradeAvailable = function()
+        local upgrade = table.remove(upgrades, 1)
+        if upgrade then
+            station:addUpgrade(upgrade)
+            logInfo(f("Station \"%s\" researched \"%s\" and sells it now.", station:getCallSign(), upgrade:getName()))
+
+            if isCurrentUpgradeDiscounted then
+                station:sendCommsMessage(My.World.player, t("shipyard_workshop_comms_upgrade_available", tinkererPerson, upgrade:getName(), station:getCallSign(), upgrade:getPrice()))
+            end
+
+            isCurrentUpgradeDiscounted = false
+        end
+    end
 
     local workshopName = t("shipyard_workshop_name", tinkererPerson)
     station.getWorkshopName = function(self) return workshopName end
@@ -62,7 +66,7 @@ My.EventHandler:register("onStart", function()
         end
         upgrades[idx] = upgrades[1]
         upgrades[1] = upgrade
-        logInfo(f("Changed research of %s to %s.", station:getCallSign(), upgrade:getId()))
+        logInfo(f("Changed research from %s to %s.", station:getCallSign(), upgrade:getId()))
     end
     station.getCurrentUpgradeProgress = function(self)
         local upgrade = station:getCurrentUpgrade()
@@ -109,6 +113,7 @@ My.EventHandler:register("onStart", function()
                 remainingUpgradeProgress[upgrade:getId()] = remainingUpgradeProgress[upgrade:getId()] - factor * researchPoints
                 funding = math.max(funding - factor * researchPoints / researchRatio, 0)
                 local discount = factor * researchPoints / researchRatio * discountRatio
+                if discount > 0 then isCurrentUpgradeDiscounted = true end
                 upgradePrice[upgrade:getId()] = math.max(upgradePrice[upgrade:getId()] - discount, 0)
             end
 

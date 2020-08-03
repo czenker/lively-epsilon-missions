@@ -906,7 +906,7 @@ My.Upgrades.nanobot = (function()
         price = 120,
         unique = true,
         description = function(_, player)
-            t("upgrade_nanobots_description", hullMalus / player:getHullMax() * 100)
+            return t("upgrade_nanobots_description", hullMalus / player:getHullMax() * 100)
         end,
         canBeInstalled = function(_, player)
             return player:getHullMax() > hullMalus

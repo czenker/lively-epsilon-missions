@@ -61,6 +61,7 @@ local myPackages = {
     "01_krepios/gamemaster/stations.lua",
     "01_krepios/gamemaster/story.lua",
 
+    "01_krepios/side_missions/arena_fight.lua",
     "01_krepios/side_missions/buyer.lua",
     "01_krepios/side_missions/capture.lua",
     "01_krepios/side_missions/destroy_graveyard.lua",

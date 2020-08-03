@@ -269,6 +269,11 @@ My.MissionGenerator = {
                 mission.battlefield = graveyard
                 return mission
             end,
+            function()
+                if not from:hasTag("shipyard") then return nil end
+
+                return My.SideMissions.ArenaFight(from)
+            end,
         }
 
         for i, missionFactory in ipairs(missionFactories) do

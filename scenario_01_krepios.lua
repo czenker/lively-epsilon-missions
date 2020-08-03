@@ -15,7 +15,8 @@
 
 _G.LivelyEpsilonConfig = {
     useAnsi = true,
-    logLevel = "DEBUG",
+    logLevel = "INFO",
+    logDeprecation = true,
     logTime = true,
 }
 

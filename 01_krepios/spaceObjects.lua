@@ -218,3 +218,72 @@ My.asteroidRadar = function(ship, radius)
         end
     end, 1, math.random())
 end
+
+local shipDifficulties = {
+    ["MT52 Hornet"] = 5,
+    ["MU52 Hornet"] = 5,
+    ["Fighter"] = 6,
+    ["Adder MK4"] = 6,
+    ["Adder MK5"] = 7,
+    ["Adder MK6"] = 8,
+    ["WX-Lindworm"] = 7,
+    ["Missile Cruiser"] = 15,
+    ["Phobos T3"] = 15,
+    ["Piranha F8"] = 15,
+    ["Piranha F12"] = 15,
+    ["Phobos M3"] = 16,
+    ["Cruiser"] = 18,
+    ["Nirvana R5A"] = 20,
+    ["Storm"] = 22,
+    ["Ranus U"] = 25,
+    ["Stalker Q7"] = 25,
+    ["Stalker R7"] = 25,
+    ["Adv. Striker"] = 27,
+    ["Strikeship"] = 30,
+    ["Atlantis X23"] = 50,
+    ["Blockade Runner"] = 70,
+    ["Starhammer II"] = 70,
+    ["Dreadnought"] = 80,
+    ["Battlestation"] = 100,
+    ["Odin"] = 250,
+}
+
+local findShip = function(maxDifficulty)
+    local options = {}
+    for name, diff in pairs(shipDifficulties) do
+        if diff <= maxDifficulty then table.insert(options, name) end
+    end
+
+    local name = Util.random(options)
+    if not name then
+        return nil, nil
+    else
+        return name, shipDifficulties[name]
+    end
+end
+
+-- for an unupgraded player ship 20 should be easy to manage and 100 should be very challenging
+My.generateEncounter = function(difficulty)
+    local remainingDifficulty = difficulty
+    local shipTemplateNames = {}
+    local templateName, diff = findShip(remainingDifficulty / 2)
+    while not isNil(templateName) and not isNil(diff) do
+        table.insert(shipTemplateNames, templateName)
+        remainingDifficulty = remainingDifficulty - diff
+        templateName, diff = findShip(remainingDifficulty)
+    end
+
+    if remainingDifficulty > 0 then
+        -- well that means, that even the weakest ship does not fit in the fleet.
+        -- but let's see, if maybe one is found with double of the remaining difficulty
+        templateName, diff = findShip(remainingDifficulty * 2)
+        if not isNil(templateName) and not isNil(diff) then
+            table.insert(shipTemplateNames, templateName)
+            remainingDifficulty = remainingDifficulty - diff
+        end
+    end
+
+    logDebug("Generated an encounter with %s for a difficulty of %d.", Util.mkString(shipTemplateNames, ", "), difficulty - remainingDifficulty)
+
+    return shipTemplateNames
+end

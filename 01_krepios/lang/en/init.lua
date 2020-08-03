@@ -29,6 +29,7 @@ local myPackages = {
     "01_krepios/lang/en/en_story_mission.lua",
     "01_krepios/lang/en/en_upgrades.lua",
 
+    "01_krepios/lang/en/side_missions/en_arena_fight.lua",
     "01_krepios/lang/en/side_missions/en_buyer.lua",
     "01_krepios/lang/en/side_missions/en_capture.lua",
     "01_krepios/lang/en/side_missions/en_destroy_graveyard.lua",

@@ -1,6 +1,6 @@
 local f = string.format
 
-local createMainMenu, createStationMenu, createStorageMenu, createStorageDetailMenu, createMissionMenu, createMissionDetailMenu
+local createMainMenu, createStationMenu, createStorageMenu, createStorageDetailMenu, createMissionMenu, createMissionDetailMenu, createTinkererMenu
 
 local getSortedStations = function()
     local stations = {}
@@ -40,6 +40,8 @@ local getSortedMissions = function(station)
 
     return missions
 end
+
+local function isShipyard(station) return Station:hasCrew(station) and station:hasCrewAtPosition("tinkerer") end
 
 createMainMenu = function()
     return function()
@@ -93,6 +95,10 @@ createStationMenu = function(station)
 
         if Station:hasMissionBroker(station) then
             menu:addItem(Menu:newItem("Missions", createMissionMenu(station), 3))
+        end
+
+        if isShipyard(station) then
+            menu:addItem(Menu:newItem("Tinkerer", createTinkererMenu(station), 4))
         end
 
         menu:addItem(Menu:newItem("Back", createMainMenu(), 999))
@@ -208,7 +214,17 @@ createMissionDetailMenu = function(station, mission)
 
         return menu
     end
+end
 
+createTinkererMenu = function(station)
+    if not isShipyard(station) then return createStationMenu(station) end
+
+    return function()
+        local menu = Menu:new()
+        menu:addItem(Menu:newItem("< " .. station:getCallSign(), createStationMenu(station), 0))
+
+        return menu
+    end
 end
 
 My.EventHandler:register("onWorldCreation", function()
