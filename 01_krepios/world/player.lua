@@ -45,6 +45,8 @@ My.EventHandler:register("onWorldCreation", function()
     player:setWeaponStorageMax("nuke", 0)
     player:setWeaponStorageMax("emp", 0)
     player:setMaxScanProbeCount(4)
+    player:setShortRangeRadarRange(5000)
+    player:setLongRangeRadarRange(20000)
 
     My.Upgrades.speed1:install(player)
     My.Upgrades.rotation1:install(player)
