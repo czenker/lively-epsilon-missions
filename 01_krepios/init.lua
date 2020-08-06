@@ -30,9 +30,9 @@ My.Translator:useLocale("en")
 if isFunction(getScenarioVariation) then
     local scenario = getScenarioVariation() or ""
     if scenario:match('German') ~= nil then
-        My.Translator:useLocale("en", "de")
-    else
         My.Translator:useLocale("de", "en")
+    else
+        My.Translator:useLocale("en", "de")
     end
 end
 
