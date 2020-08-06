@@ -213,6 +213,7 @@ It could help you recommend missions in case anyone gets bored.
 |===
 |Mission |Helms |Weapons |Engi |Science |Relay
 
+|Arena fight ^|●● ^|●●● ^|●● ^|● ^| ●
 |Buy goods ^| ● ^| ^| ● ^| ^| ●●
 |Capture someone ^| ●●● ^| ●●● ^| ●●● ^| ● ^| ●
 |Destroy space junk footnote:[Players are sometimes raided] ^| ●● ^| ●● ^| ● ^| ●● ^| ●
