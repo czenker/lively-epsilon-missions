@@ -28,10 +28,7 @@ local findAsteroidCluster = function(station)
 end
 
 My.SideMissions.ScanAsteroids = function(station)
-    if not station:hasTag("mining") then
-        logDebug(station:getCallSign() .. " is not a mining station")
-        return
-    end
+    if not station:hasTag("mining") then return end
 
     local asteroids = findAsteroidCluster(station)
     if not asteroids then return nil end

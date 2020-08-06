@@ -39,6 +39,7 @@ local myPackages = {
     "01_krepios/lang/en/side_missions/en_raging_miner.lua",
     "01_krepios/lang/en/side_missions/en_repair.lua",
     "01_krepios/lang/en/side_missions/en_scan_asteroids.lua",
+    "01_krepios/lang/en/side_missions/en_scan_crystal.lua",
     "01_krepios/lang/en/side_missions/en_secret_code.lua",
     "01_krepios/lang/en/side_missions/en_transport_human.lua",
     "01_krepios/lang/en/side_missions/en_transport_product.lua",

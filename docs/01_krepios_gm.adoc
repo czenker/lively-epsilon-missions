@@ -223,6 +223,7 @@ It could help you recommend missions in case anyone gets bored.
 |Raging Miner ^| ●●●footnote:[Outmaneuver the laser] ^| ●●● ^| ●●● ^| ●●footnote:[EMP burst occurs when one of the shields is repaired (0%). Getting the shields down only when those bursts occur gives a big advantage.] ^| ●●footnote:[can hack the laser or maneuverability]
 |Repair ^| ● ^| ^| ●●footnote:[has to deal with smaller crew] ^| ^| ●●
 |Scan asteroids ^| ● ^| ^| ^| ●●● ^| ●●footnote:[could use scan probes]
+|Scan crystal footnote:[one very complex scan] ^| ● ^| ^| ^| ●●● ^| ●●footnote:[could use scan probes]
 |Secret Code ^|● ^| ^| ^| ^| ●●●footnote:[Everyone could help remember the phrase though]
 |Transport human ^|●● ^| ^| ^| ^| ●
 |Transport product ^|●● ^| ^|● ^| ^| ●
