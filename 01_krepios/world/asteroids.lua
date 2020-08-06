@@ -6,6 +6,7 @@ local dropDespawnTime = 300
 
 My.Asteroid = function()
     local asteroid = Asteroid()
+    asteroid:setSize(math.random(80, 160))
     local name = My.asteroidName()
     local description = t("asteroids_description", name)
 
