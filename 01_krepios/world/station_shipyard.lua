@@ -79,5 +79,6 @@ My.EventHandler:register("onWorldCreation", function()
 
     nebula:setUse("arena", station)
     My.World.shipyard = station
+    station.inNebula = nebula
     table.insert(My.World.stations, station)
 end, 50)
