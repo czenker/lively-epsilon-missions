@@ -60,6 +60,10 @@ My.Translator:register("en", {
             "At least the crowd was entertained.",
             "Better luck next time.",
             "Make your repairs and maybe try again.",
+        }) .. " " .. Util.random({
+            "Let's hope " .. tinkererPerson:getNickName() .. " does not use the price money to build something explosive again.",
+            tinkererPerson:getNickName() .. " seems to be happy for the price money.",
+            "It is interesting how the drones finance most of " .. Names.possessive(tinkererPerson:getNickName()) .. " research.",
         })
     end,
 })
