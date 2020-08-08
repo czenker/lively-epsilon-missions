@@ -138,10 +138,6 @@ local myPackages = {
     "01_krepios/main_story/40_final_evacuation_order.lua",
     "01_krepios/main_story/90_debrief.lua",
     "01_krepios/main_story/wiring.lua",
-
-    "01_krepios/simulations/utils.lua",
-    "01_krepios/simulations/helms_evasion.lua",
-    "01_krepios/simulations/helms_maneuver.lua",
 }
 
 if package ~= nil and package.path ~= nil then

@@ -95,9 +95,6 @@ function init()
             My.World.miningStation3:addUpgrade(upgrade)
         end
     end
-    --
-    --My.Simulations.HelmsEvasion:add()
-    --My.Simulations.HelmsManeuver:add()
 end
 
 function update(delta)
