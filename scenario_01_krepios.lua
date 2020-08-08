@@ -1,6 +1,6 @@
 -- Name: Krepios
 -- Description: The player crew finds itself in a mining colony far away from any civilization.
---- Recommended to be played with 20u scanner range.
+--- It is recommended to activate "Beam/Shield Frequencies" and "Per-System Damage" or some missions might not be possible to do.
 -- Type: Mission
 -- Variation[English]: english translation
 -- Variation[German]: Deutsche Uebersetzung
