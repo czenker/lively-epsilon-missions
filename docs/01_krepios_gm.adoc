@@ -34,6 +34,7 @@ The asteroid belt contains
 * **3 abandoned mining stations** on the map serve as mission locations and can be explored by the players
 * **several nebulas** on the map also serve as mission locations
 * **one science station** is situated in one of the nebulas. It also gives missions and trades to the players.
+* **one shipyard** which is used as home for a crazy tinkerer. It is close to a nebula.
 * **SMC Alpha** is counter-clock wise on the far side of the asteroid belt. It serves as a location for the main mission. More on it later.
 * **Minefields** on the map can be used strategically by the players and have a container in the center that gives the players credits (RP) and energy.
 * A **wormhole** at the center near the planet is used at the end of the mission. Outer World traders start there, but the players should not go there until they are tasked to.
@@ -70,6 +71,12 @@ The players do not get a notification and don't need to pay for the upgrade.
 Player > Storage::
 Manipulate what the ship has loaded. Good for role playing or fixing, when the players buy stuff that they can not sell anywhere.
 
+Player > Missions::
+You see a list of all side missions the crew has currently accepted. You can abort all side missions in case the players
+get stuck, annoyed or a situation develops where the completion of a mission does not work anymore. Usually all missions should
+end on their own if they can not be finished, but you never know where the bugs are.
+All missions are written in a way that they exit gracefully when you abort them.
+
 Player > Reset Menus::
 Some custom menus on the crew stations are nested (like the in-game database of the Science Officer).
 In theory there should _always_ be a back button `<=` visible to the stations to go back to the main menu.
@@ -85,7 +92,7 @@ Same as with the players storage you can manipulate the storage on the station e
 the station buys or sells.
 
 Stations > Missions::
-You get a climbs of the missions a station offers. If you dislike it, select it and hit the _Replace_ button.
+You get a glimpse of the missions a station offers. If you dislike it, select it and hit the _Replace_ button.
 
 Story::
 Theoretically you should never need to trigger story events as they run automatically, but if your crew gets bored, you can advance the story quicker.
@@ -229,7 +236,6 @@ It could help you recommend missions in case anyone gets bored.
 |Transport human ^|●● ^| ^| ^| ^| ●
 |Transport product ^|●● ^| ^|● ^| ^| ●
 |Transport thing ^|●● ^| ^|● ^| ^| ●
-|Other |Helms |Weapons |Engi |Science |Relay
 |Mining asteroids ^|● ^|● ^|●●● ^|●● ^|
 |Trading ^|●● ^| ^|● ^|● ^|●●|===
 |===
