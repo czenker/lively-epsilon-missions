@@ -33,6 +33,7 @@ local myPackages = {
     "01_krepios/lang/de/side_missions/de_capture.lua",
     "01_krepios/lang/de/side_missions/de_destroy_graveyard.lua",
     "01_krepios/lang/de/side_missions/de_disable_ship.lua",
+    "01_krepios/lang/de/side_missions/de_drive_test.lua",
     "01_krepios/lang/de/side_missions/de_gather_crystals.lua",
     "01_krepios/lang/de/side_missions/de_pirate_base.lua",
     "01_krepios/lang/de/side_missions/de_raging_miner.lua",

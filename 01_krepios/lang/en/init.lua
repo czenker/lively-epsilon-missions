@@ -34,6 +34,7 @@ local myPackages = {
     "01_krepios/lang/en/side_missions/en_capture.lua",
     "01_krepios/lang/en/side_missions/en_destroy_graveyard.lua",
     "01_krepios/lang/en/side_missions/en_disable_ship.lua",
+    "01_krepios/lang/en/side_missions/en_drive_test.lua",
     "01_krepios/lang/en/side_missions/en_gather_crystals.lua",
     "01_krepios/lang/en/side_missions/en_pirate_base.lua",
     "01_krepios/lang/en/side_missions/en_raging_miner.lua",

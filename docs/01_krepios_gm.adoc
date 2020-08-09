@@ -218,6 +218,7 @@ It could help you recommend missions in case anyone gets bored.
 |Capture someone ^| ●●● ^| ●●● ^| ●●● ^| ● ^| ●
 |Destroy space junk footnote:[Players are sometimes raided] ^| ●● ^| ●● ^| ● ^| ●● ^| ●
 |Disable ship ^| ● ^| ●● ^| ●● ^| ^| ●●footnote:[can hack the drive]
+|Drive test ^| ●● ^| ^| ●●● ^| ^| ●
 |Find and gather crystals ^| ● ^| ^| ^| ●● ^|●
 |Destroy pirate base ^| ●● ^| ●●● ^| ●● ^| ●● ^| ●
 |Raging Miner ^| ●●●footnote:[Outmaneuver the laser] ^| ●●● ^| ●●● ^| ●●footnote:[EMP burst occurs when one of the shields is repaired (0%). Getting the shields down only when those bursts occur gives a big advantage.] ^| ●●footnote:[can hack the laser or maneuverability]

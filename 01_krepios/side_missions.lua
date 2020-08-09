@@ -196,6 +196,9 @@ My.MissionGenerator = {
             function()
                 return My.SideMissions.ScanCrystal(from)
             end,
+            function()
+                return My.SideMissions.DriveTest(from)
+            end,
         }
 
         for i, missionFactory in ipairs(missionFactories) do
