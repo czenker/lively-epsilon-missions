@@ -21,6 +21,7 @@ My.Translator:register("en", {
             "This is the first invention of mine that is absolutely failure-proof. Trust me!",
         })
     end,
+    side_mission_drive_test_accept_dock = "You need to dock the station, so I can install the drive if you want to accept the mission.",
     side_mission_drive_test_accept = function()
         return "Alright. I have replaced your Impulse Drive with my newer version and set it to the parameters of your previous Impulse Drive. It also takes the place used for Jump or Warp Drives, so you can not use those for now. But in the final version, I will find a solution for it.\n\n" ..
         "I have marked waypoints on your map. Follow them and then dock with the station again, so I can reinstall your previous drive again. I will be monitoring the experiment from this station."

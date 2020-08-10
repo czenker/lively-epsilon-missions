@@ -197,7 +197,7 @@ My.MissionGenerator = {
                 return My.SideMissions.ScanCrystal(from)
             end,
             function()
-                return My.SideMissions.DriveTest(from)
+                return My.SideMissions.DriveTest(from, My.World.player)
             end,
         }
 

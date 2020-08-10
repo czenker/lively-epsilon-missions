@@ -3,7 +3,7 @@ local t = My.Translator.translate
 My = My or {}
 My.SideMissions = My.SideMissions or {}
 
-My.SideMissions.DriveTest = function(station)
+My.SideMissions.DriveTest = function(station, player)
     if not station:hasTag("shipyard") then return end
 
     local payment = (math.random() * 0.4 + 0.8) * 30 -- @TODO
@@ -166,6 +166,12 @@ My.SideMissions.DriveTest = function(station)
     local hadWarpDrive = nil
 
     mission = Mission:chain(wayPointMission, dockMission, {
+        acceptCondition = function(self)
+            if not player:isDocked(station) then
+                return t("side_mission_drive_test_accept_dock")
+            end
+            return true
+        end,
         onAccept = function(self)
             startTime = Cron.now()
             targetScenarioTime = getScenarioTime() + bonusTime * 60
@@ -199,7 +205,6 @@ My.SideMissions.DriveTest = function(station)
     Mission:withBroker(mission, t("side_mission_drive_test"), {
         description = t("side_mission_drive_test_description", person, payment, bonusTime, bonusPayment),
         acceptMessage = t("side_mission_drive_test_accept"),
-        -- @TODO: only acceptable when docked
     })
 
     return mission
