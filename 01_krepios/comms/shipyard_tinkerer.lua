@@ -12,7 +12,7 @@ My.Comms.ShipyardTinkerer = (function()
     menu = function(station, comms_source, welcomeString)
         welcomeString = welcomeString or t("shipyard_workshop_comms_hail", station:getCrewAtPosition("tinkerer"))
         local screen = Comms:newScreen()
-        screen:addText(welcomeString .. "\n")
+        screen:addText(welcomeString .. "\n\n")
         local upgrade = station:getCurrentUpgrade()
         if upgrade then
             local text
@@ -38,13 +38,13 @@ My.Comms.ShipyardTinkerer = (function()
             end
             screen:addText(text)
 
-            screen:addReply(Comms:newReply("Invest", investMenu))
+            screen:addReply(Comms:newReply(t("shipyard_workshop_comms_invest"), investMenu))
         else
             screen:addText(t("shipyard_workshop_comms_current_research_none"))
         end
 
         if Util.size(station:getUpgradeOptions()) > 0 then
-            screen:addReply(Comms:newReply("Change", changeMenu))
+            screen:addReply(Comms:newReply(t("shipyard_workshop_comms_change"), changeMenu))
         end
 
         screen:addReply(Comms:newReply(t("generic_button_back")))
@@ -76,6 +76,10 @@ My.Comms.ShipyardTinkerer = (function()
         else
             text = t("shipyard_workshop_comms_invest_hail_funding_3", upgrade:getName())
         end
+
+        text = text .. "\n\n" .. t("shipyard_workshop_comms_invest_description") .. "\n\n"
+        text = text .. upgrade:getDescription(comms_source)
+
         screen:addText(text)
 
         local playerRp = comms_source:getReputationPoints()
@@ -118,7 +122,7 @@ My.Comms.ShipyardTinkerer = (function()
     changeInfoMenu = function(upgrade)
         return function(station, comms_source)
             local screen = Comms:newScreen()
-            screen:addText(upgrade:getName() .. "\n")
+            screen:addText(upgrade:getName() .. "\n\n")
             screen:addText(upgrade:getDescription(comms_source) .. "\n\n")
             screen:addText(t("shipyard_workshop_comms_change_price", changePrice))
 

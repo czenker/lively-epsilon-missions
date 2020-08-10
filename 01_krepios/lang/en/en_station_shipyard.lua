@@ -2,7 +2,9 @@ local f = string.format
 
 My.Translator:register("en", {
 
-    shipyard_workshop_comms_current_research_none = "Aber leider sind mir die Ideen für gute, neue Erfindungen ausgegangen.",
+    shipyard_workshop_comms_current_research_none = "But unfortunately I have no more ideas for helpful new inventions.",
+
+    shipyard_workshop_comms_invest = "Invest in development",
     shipyard_workshop_comms_invest_hail_progress_0 = function(upgradeName)
         return f("I just started research on a project I call \"%s\".", upgradeName)
     end,
@@ -26,6 +28,14 @@ My.Translator:register("en", {
             "Are you one of the investors? I will give you a discount on it and I could speed up my work.",
         })
     end,
+    shipyard_workshop_comms_invest_description = function()
+        return Util.random({
+            "Here is what it does:",
+            "When it is finished it can do the following:",
+            "This is what it is good for:",
+            "Here is why I think it would be useful:",
+        })
+    end,
     shipyard_workshop_comms_invest_poor = "We don't have the funds currently either.",
     shipyard_workshop_comms_invest_amount = function(amount)
         return f("Invest %0.2fRP", amount)
@@ -33,6 +43,7 @@ My.Translator:register("en", {
 
     shipyard_workshop_comms_invest_thanks = "Wow. Thank you for your interest in almost safe inventions. I've also put you on my comms list, so will be informed once my latest inventions are out.",
 
+    shipyard_workshop_comms_change = "Change development",
     shipyard_workshop_comms_change_hail = "Well, you can get everything for a price. If you pay enough, I could put my other investors off and pursue something else.\n\nI have some other blueprints that you might be interested in:",
     shipyard_workshop_comms_change_response = function(upgradeName)
         return "Tell me about " .. upgradeName
