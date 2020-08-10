@@ -39,6 +39,7 @@ My.EventHandler:register("onStart", function()
             end
 
             isCurrentUpgradeDiscounted = false
+            My.Database:addOrUpdateUpgrade(upgrade)
         end
     end
 
