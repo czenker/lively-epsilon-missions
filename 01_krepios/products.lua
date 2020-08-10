@@ -75,6 +75,7 @@ products = {
         description = t("products_nanobot_description"),
         size = xl,
         basePrice = 12,
+        requiresUpgrade = "nanobot",
     },
 }
 
@@ -86,6 +87,7 @@ for k, v in pairs(products) do
     })
     products[k].basePrice = v.basePrice
     products[k].description = v.description
+    products[k].requiresUpgrade = v.requiresUpgrade
 end
 
 -- validate
@@ -114,6 +116,13 @@ My.sellingPrice = function(product)
     local price = product.basePrice * (math.random() * 0.1 + 0.8)
     return function(station, buyer)
         local factor = 1
+        if product.requiresUpgrade ~= nil then
+            if not Player:hasUpgradeTracker(buyer) then
+                return nil
+            elseif not buyer:hasUpgrade(product.requiresUpgrade) then
+                return nil
+            end
+        end
         if isEeShipTemplateBased(station) and isEeShipTemplateBased(buyer) then
             if station:isFriendly(buyer) then
                 factor = 0.9

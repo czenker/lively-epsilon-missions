@@ -58,8 +58,6 @@ My.EventHandler:register("onWorldCreation", function()
         },
     })
 
-    station:addUpgrade(My.Upgrades.nanobot)
-
     station:addTag("science")
 
     nebula:setUse("science", station)
