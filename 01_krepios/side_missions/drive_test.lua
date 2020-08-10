@@ -6,8 +6,8 @@ My.SideMissions = My.SideMissions or {}
 My.SideMissions.DriveTest = function(station, player)
     if not station:hasTag("shipyard") then return end
 
-    local payment = (math.random() * 0.4 + 0.8) * 30 -- @TODO
-    local bonusPayment = 30 -- @TODO
+    local payment = My.SideMissions.paymentPerDistance(4000 * 7) * (math.random() * 0.8 + 1.6)
+    local bonusPayment = My.SideMissions.paymentPerDistance(4000 * 7) * (math.random() * 0.4 + 0.8)
     local bonusTime = 7 * 4000 / 3600
     local startTime
     local targetScenarioTime
