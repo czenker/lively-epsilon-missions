@@ -49,6 +49,8 @@ My.EventHandler:register("onWorldCreation", function()
     station:setCallSign(My.wharfStationName())
     station:setScannedDescription(t("shipyard_station_description", nebula:getName()))
 
+    station:setRestocksScanProbes(false)
+
     local arenaX, arenaY, arenaZone = createArena(nebula)
 
     station.isInArena = function(thing)
