@@ -105,6 +105,9 @@ My.EventHandler:register("onWorldCreation", function()
         },
     })
 
+    My.LocalBuyer(station, products.ore, true)
+    My.FlyingSeller(station, {products.ore}, "Goods")
+
     My.EventHandler:register("onAttackersDetection", function()
         station:addTag("mute")
     end)

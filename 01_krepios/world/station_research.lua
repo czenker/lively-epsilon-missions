@@ -58,6 +58,9 @@ My.EventHandler:register("onWorldCreation", function()
         },
     })
 
+    My.LocalBuyer(station, products.ore, true)
+    My.FlyingSeller(station, {products.ore}, "Goods")
+
     station:addTag("science")
 
     nebula:setUse("science", station)
