@@ -20,9 +20,8 @@ local researchRatio = 1
 My.EventHandler:register("onStart", function()
     local station = My.World.shipyard
     local isCurrentUpgradeDiscounted = false
-    local tinkererPerson = Person:newHumanScientist()
-    local tinkererNick = tinkererPerson.getNickName()
-    tinkererPerson.getNickName = function() return "Crazy " .. tinkererNick end
+
+    local tinkererPerson = My.Config.tinkerer
 
     Station:withCrew(station, {
         tinkerer = tinkererPerson,
@@ -125,4 +124,33 @@ My.EventHandler:register("onStart", function()
     My.EventHandler:register("onAttackersDetection", function()
         Cron.abort(cronResearch)
     end)
+end)
+
+local ShipTemplate = function()
+    local ship = My.CpuShip("Stalker Q7", "SMC"):
+    setBeamWeapon(0, 0, 0, 0, 9999, 0):
+    setBeamWeapon(1, 0, 0, 0, 9999, 0):
+    setWeaponTubeCount(0):
+    setImpulseMaxSpeed(140)
+
+    return ship
+end
+
+My.EventHandler:register("onAttackersDetection", function()
+    local ship = ShipTemplate()
+    local tinkererPerson = My.Config.tinkerer
+
+    Ship:withCaptain(ship, tinkererPerson)
+    ship:setCallSign(tinkererPerson:getNickName())
+    ship:setCanBeDestroyed(false)
+    Util.spawnAtStation(My.World.shipyard, ship)
+
+    ship:setHailText(t("comms_generic_flight_hail"))
+    ship:setScannedDescription(t("mines_miner_description", ship:getCallSign(), ship:getCaptain()))
+
+    ship:addOrder(Order:dock(My.World.fortress, {
+        onCompletion = function(_, ship)
+            if ship:isValid() then ship:destroy() end
+        end
+    }))
 end)

@@ -145,5 +145,7 @@ My.Comms.ShipyardTinkerer = (function()
         end
     end
 
-    return Comms:newReply(function() return My.World.shipyard.getWorkshopName() end, menu)
+    return Comms:newReply(function() return My.World.shipyard.getWorkshopName() end, menu, function(station, player)
+        return not station:hasTag("mute") and not station:isEnemy(player)
+    end)
 end)()

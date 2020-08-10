@@ -83,3 +83,7 @@ My.EventHandler:register("onWorldCreation", function()
     table.insert(My.World.stations, station)
     My.Database:addOrUpdateStation(station)
 end, 50)
+
+My.EventHandler:register("onAttackersDetection", function()
+    My.World.shipyard:addTag("mute")
+end)

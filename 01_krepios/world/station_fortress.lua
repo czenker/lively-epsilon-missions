@@ -286,7 +286,13 @@ My.EventHandler:register("onDefensePlanned", function()
     local fortress = My.World.fortress
 
     local nextId = 1
-    local upgrades = Util.randomSort(My.Upgrades)
+    local upgrades = {}
+    for id, upgrade in pairs(My.Upgrades) do
+        if Generic:hasTags(upgrade) and upgrade:hasTag("freely-sold") then
+            upgrades[id] = upgrade
+        end
+    end
+    upgrades = Util.randomSort(upgrades)
 
     Cron.regular(function(self)
         local upgrade = upgrades[nextId]

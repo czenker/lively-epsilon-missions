@@ -41,6 +41,14 @@ My.Config = {
 
     -- the name of the commander of the SMC main station
     commander = Person:byName("Wright Hartman"),
+    tinkerer = (function()
+        local person = Person:newHumanScientist()
+        local tinkererNick = person.getNickName()
+        person.getNickName = function() return "Crazy " .. tinkererNick end
+
+        return person
+    end)(),
+
     playerShipName = "LC Libell",
 
     -- there is this one metal band that everyone loves
