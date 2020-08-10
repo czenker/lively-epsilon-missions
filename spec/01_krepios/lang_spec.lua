@@ -27,6 +27,7 @@ insulate("01 Krepios Translations", function()
 
     require "lively_epsilon.init"
     require "lively_epsilon.spec.mocks"
+    require "names.init"
     require "01_krepios.init"
     require "lively_epsilon.spec.asserts"
 
