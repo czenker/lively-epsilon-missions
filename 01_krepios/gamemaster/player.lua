@@ -48,6 +48,9 @@ createMainMenu = function()
         player:drawWeaponsMenu()
         player:drawEngineeringMenu()
     end, 6))
+    menu:addItem(Menu:newItem("Update DB", function()
+        My.Database:updateAll()
+    end, 6))
 
     menu:addItem(Menu:newItem("Raid Player", function()
         local player = My.World.player
