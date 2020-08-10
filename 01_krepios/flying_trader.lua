@@ -33,7 +33,7 @@ My.LocalBuyer = function(station, product, hasWarpDrive)
             [product] = math.floor(200 / product:getSize()),
         })
         Ship:behaveAsBuyer(ship, station, product, {
-            maxDistanceFromHome = hasWarpDrive and 200000 or 40000,
+            maxDistanceFromHome = hasWarpDrive and 200000 or 55000,
         })
 
         return ship
