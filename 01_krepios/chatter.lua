@@ -13,6 +13,9 @@ end
 local isMerchant = function(thing)
     return isEeShip(thing) and Generic:hasTags(thing) and thing:hasTag("merchant")
 end
+local isShipyard = function(thing)
+    return isEeStation(thing) and Generic:hasTags(thing) and thing:hasTag("shipyard")
+end
 local isPlayersEnemy = function(thing)
     return My.World.player:isEnemy(thing)
 end
@@ -343,6 +346,19 @@ end, {
         end,
     }
 }), "minerals")
+
+-- chatter_tinkerer
+My.ChatterNoise:addChatFactory(Chatter:newFactory(1, function(one)
+    return {
+        {one, t("chatter_tinkerer", My.Config.tinkerer, one:getCallSign(), My.Config.droidFighters[1])},
+    }
+end, {
+    filters = {
+        function(one)
+            return isShipyard(one) and not isMute(one)
+        end,
+    }
+}), "tinkerer")
 
 My.EventHandler:register("onAttackersDetection", function()
     for id, _ in pairs(My.ChatterNoise:getChatFactories()) do

@@ -54,6 +54,12 @@ My.Config = {
     -- there is this one metal band that everyone loves
     metalBandName = My.metalBandName(),
 
+    -- the best known droid fighters in the sector
+    droidFighters = {
+        My.droidName(),
+        My.droidName(),
+    },
+
     -- surrounding sectors
     sectorNames = {
         My.sectorName(),
