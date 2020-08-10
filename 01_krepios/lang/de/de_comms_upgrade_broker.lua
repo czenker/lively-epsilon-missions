@@ -10,7 +10,7 @@ My.Translator:register("de", {
     end,
     comms_upgrade_broker_detail_not_docked_free = "Wenn Sie an der Station andocken, kann ich Ihnen das Upgrade kostenlos installieren.",
     comms_upgrade_broker_detail_not_affordable = function(price)
-        return f("Es scheint, als können sich den Preis von %0.2fRP nicht leisten.", price)
+        return f("Es scheint, als können sie sich den Preis von %0.2fRP nicht leisten.", price)
     end,
     comms_upgrade_broker_detail_installable = function(price)
         return f("Ich kann das Upgrade für %0.2fRP auf ihrem Schiff installieren.", price)
