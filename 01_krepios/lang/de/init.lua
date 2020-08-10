@@ -17,7 +17,7 @@ local myPackages = {
     "lang/de/de_player.lua",
     "01_krepios/lang/de/de_pirates.lua",
     "01_krepios/lang/de/de_player.lua",
-    "01_krepios/lang/de/de_player_science.lua",
+    "01_krepios/lang/de/de_database.lua",
     "lang/de/de_products.lua",
     "01_krepios/lang/de/de_random_ships.lua",
     "01_krepios/lang/de/de_products.lua",

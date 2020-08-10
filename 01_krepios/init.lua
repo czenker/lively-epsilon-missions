@@ -84,6 +84,7 @@ local myPackages = {
     "01_krepios/upgrades.lua",
     "01_krepios/flying_trader.lua",
     "01_krepios/chatter.lua",
+    "01_krepios/database.lua",
     "01_krepios/raid.lua",
 
     "01_krepios/upgrades/auto_fof.lua",
@@ -104,7 +105,6 @@ local myPackages = {
     "01_krepios/world/player.lua",
     "01_krepios/world/player_mining.lua",
     "01_krepios/world/player_relay.lua",
-    "01_krepios/world/player_science.lua",
     --"01_krepios/world/random_ships.lua",
     "01_krepios/world/station_abandoned.lua",
     "01_krepios/world/station_fortress.lua",

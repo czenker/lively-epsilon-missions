@@ -49,12 +49,12 @@ stations to allow you to store more missiles and turn your ship into a better fi
 
 === Science
 
-* I recommend not using the classic _Database_. Information on factions and ships could spoil the fun for you. And you won't need it.
-* Instead you have access to in-game information through custom menus. To access them, click the _Scanning_ button on your screen and select _Other_. Don't ignore that! It will help your crew a lot:
-** You have a mission for a station or nebula your crew has not discovered yet? Look up its sector in the _Stations_ or _Nebulae_ menu.
-** To find rewarding trading routes check the _Products_ menu for buyers, sellers and average prices.
-** To get an overview at what _Upgrades_ are known in the Sector check the according menu.
-** If your captain decides to buy a _Jump Drive_, you can calculate vectors to known stations and waypoints set by relay.
+* Don't ignore the database. There is valuable information in there:
+** You have a mission for a station or nebula your crew has not discovered yet? Look up its sector in the _Stations_ or _Nebulae_ entries.
+** To find rewarding trading routes check the _Products_ entry for buyers, sellers and average prices.
+** To get an overview at what _Upgrades_ are known in the Sector check the according entries.
+* Depending on what upgrades your captain buys you might get some additional buttons. Click the _Scanning_ button on your screen and select _Other_.
+** For instance, if your captain decides to buy a _Jump Drive_, you can calculate vectors to known stations and waypoints set by relay.
 * Scanning asteroids might reveal a (figurative) gold mine. Asteroids with higher mineral content increase the chances to mine ore from it.
 
 === Relay

@@ -59,6 +59,7 @@ My.EventHandler:register("onWorldCreation", function()
 
     My.World.hq = hq
     table.insert(My.World.stations, hq)
+    My.Database:addOrUpdateStation(hq)
 end)
 
 My.EventHandler:register("onStart", function()

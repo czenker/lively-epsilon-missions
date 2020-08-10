@@ -65,4 +65,5 @@ My.EventHandler:register("onWorldCreation", function()
     nebula:setUse("science", station)
     station.inNebula = nebula
     table.insert(My.World.stations, station)
+    My.Database:addOrUpdateStation(station)
 end, 50)

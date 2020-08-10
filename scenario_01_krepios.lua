@@ -94,6 +94,7 @@ function init()
         else
             My.World.miningStation3:addUpgrade(upgrade)
         end
+        My.Database:addOrUpdateUpgrade(upgrade)
     end
 end
 

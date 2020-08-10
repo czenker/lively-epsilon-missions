@@ -248,6 +248,7 @@ My.EventHandler:register("onWorldCreation", function()
         local station = StationTemplate():setPosition(x, y)
         makeItAMine(station)
         table.insert(My.World.stations, station)
+        My.Database:addOrUpdateStation(station)
         if My.World.miningStation1 == nil then
             My.World.miningStation1 = station
         elseif My.World.miningStation2 == nil then

@@ -228,6 +228,7 @@ My.EventHandler:register("onWorldCreation", function()
     end
 
     My.World.fortress = station
+    My.Database:addOrUpdateStation(station)
 end)
 
 My.EventHandler:register("onFortressManned", function()

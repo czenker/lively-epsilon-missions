@@ -111,5 +111,6 @@ My.EventHandler:register("onWorldCreation", function()
         station:addComms(Comms:newReply(t("station_abandoned_leave"), function() return Comms:newScreen(t("station_abandoned_leave")) end, function(self, player) return station.wasSearched ~= true and player:isDocked(self) end))
 
         table.insert(My.World.abandonedStations, station)
+        My.Database:addOrUpdateStation(station)
     end
 end, 50)

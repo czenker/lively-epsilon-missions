@@ -4,8 +4,10 @@ local newNebula = function(artifact, clouds)
     local usage, usageData = nil, nil
 
     return {
+        isValid = function() return artifact:isValid() end,
         getArtifact = function() return artifact end,
         getName = function() return artifact:getCallSign() or "unknown" end,
+        getDescription = function(_, level) return artifact:getDescription(level) end,
         getRandomCloud = function()
             return Util.random(clouds)
         end,
@@ -77,7 +79,9 @@ My.EventHandler:register("onWorldCreation", function()
         end
         artifact:setPosition(sumX / numNebulas, sumY / numNebulas)
 
-        table.insert(My.World.nebulas, newNebula(artifact, clouds))
+        local nebula = newNebula(artifact, clouds)
+        table.insert(My.World.nebulas, nebula)
+        My.Database:addOrUpdateNebula(nebula)
     end
 end, 40)
 
