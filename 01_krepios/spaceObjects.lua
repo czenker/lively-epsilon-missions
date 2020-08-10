@@ -80,6 +80,7 @@ function My.Artifact(modelName)
 
     Generic:withTags(artifact)
 
+    artifact:setSpin(2.5)
     artifact:setDescription(t("generic_unknown_object"))
     artifact.setScannedDescription = setScannedDescription
     artifact:setScanningParameters(1, 1)
