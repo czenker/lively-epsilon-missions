@@ -8,10 +8,6 @@ local StationTemplate = function()
     return station
 end
 
-local TraderTemplate = function(size)
-    return My.CpuShip("Goods Freighter " .. size):setWarpDrive(true)
-end
-
 My.EventHandler:register("onWorldCreation", function()
     local hqX, hqY = vectorFromAngle(
         My.Config.avgAngle,
@@ -131,36 +127,10 @@ My.EventHandler:register("onStart", function()
           },
     })
 
-    local function spawnBuyer(product)
-        local size = math.random(1, 3)
-        local ship = TraderTemplate(size):setFaction(hq:getFaction()):setCallSign(My.civilianShipName())
-        ship:addTag("merchant")
-        ship:addTag("local")
-
-        local description = t("station_hq_ship_description", ship:getCallSign(), My.Config.metalBandName)
-        ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
-        ship:setDescriptionForScanState("friendorfoeidentified", description)
-        ship:setDescriptionForScanState("simple", description)
-        ship:setDescriptionForScanState("full", description)
-
-        ship.whoAreYouResponse = function()
-            return t("station_hq_ship_buyer_who_are_you", ship:getCaptain(), hq:getCallSign() or "", product:getName())
-        end
-
-        Util.spawnAtStation(hq, ship)
-
-        Ship:withStorageRooms(ship, {
-            [product] = math.floor(100 * size / product:getSize()),
-        })
-        Ship:behaveAsBuyer(ship, hq, product, {
-            maxDistanceFromHome = 100000,
-        })
-
-        return ship
-    end
-
-    local buyerOre = spawnBuyer(products.ore)
-    local buyerPlutonium = spawnBuyer(products.plutoniumOre)
+    My.LocalBuyer(hq, products.ore, true)
+    My.LocalBuyer(hq, products.plutoniumOre, true)
+    My.FlyingBuyer(My.World.hq, {products.homing, products.hvli, products.mine, products.emp, products.nuke}, "Equipment")
+    My.FlyingSeller(My.World.hq, {products.ore, products.plutoniumOre}, "Goods")
 
     Cron.regular(function(self)
         if not hq:isValid() then
@@ -169,32 +139,10 @@ My.EventHandler:register("onStart", function()
         end
     end, 1)
 
-    local cronId = "hq" .. hq:getCallSign()
-    Cron.regular(cronId, function()
-        if not hq:isValid() then
-            Cron.abort(cronId)
-        else
-            if not isEeShip(buyerOre) or not buyerOre:isValid() then
-                buyerOre = spawnBuyer(products.ore)
-            elseif not isEeShip(buyerPlutonium) or not buyerPlutonium:isValid() then
-                buyerPlutonium = spawnBuyer(products.plutoniumOre)
-            end
-        end
-    end, math.random(55, 64) + math.random())
-
     My.EventHandler:register("onAttackersDetection", function()
         My.World.hq:addTag("mute")
-        Cron.abort(cronId)
-        if buyerOre and buyerOre:isValid() then
-            My.fleeToFortress(buyerOre)
-        end
-        if buyerPlutonium and buyerPlutonium:isValid() then
-            My.fleeToFortress(buyerPlutonium)
-        end
     end)
 end)
 
 My.EventHandler:register("onStart", function()
-    My.FlyingBuyer(My.World.hq, {products.homing, products.hvli, products.mine, products.emp, products.nuke}, "Equipment")
-    My.FlyingSeller(My.World.hq, {products.ore, products.plutoniumOre}, "Goods")
 end)

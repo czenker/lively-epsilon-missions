@@ -4,15 +4,6 @@ local function StationTemplate()
     return My.SpaceStation("Medium Station", "SMC")
 end
 
-local TraderTemplate = function(size)
-    local ship = My.CpuShip("Goods Freighter " .. size):setWarpDrive(false)
-
-    ship:addTag("merchant")
-    ship:addTag("local")
-
-    return ship
-end
-
 local MinerTemplate = function()
     local ship = My.CpuShip("MT52 Hornet")
     ship:addTag("miner")
@@ -167,32 +158,15 @@ local function makeItAMine(station)
 
         return miner
     end
-    local function spawnBuyer(product)
-        local size = math.random(1, 3)
-        local ship = TraderTemplate(size):setFaction(station:getFaction()):setCallSign(My.civilianShipName())
-
-        ship:setScannedDescription(t("station_hq_ship_description", ship:getCallSign(), My.Config.metalBandName))
-        ship.whoAreYouResponse = function()
-            return t("station_hq_ship_buyer_who_are_you", ship:getCaptain(), station:getCallSign() or "", product:getName())
-        end
-
-        Util.spawnAtStation(station, ship)
-
-        Ship:withStorageRooms(ship, {
-            [product] = math.floor(100 * size / product:getSize()),
-        })
-        Ship:behaveAsBuyer(ship, station, product, {
-            maxDistanceFromHome = 100000,
-        })
-
-        return ship
-    end
-
-    local buyerMiningMachinery = nil
 
     local miners = {}
 
     local cronId = "mine_" .. station:getCallSign()
+
+    My.LocalBuyer(station, products.miningMachinery, false)
+    My.FlyingBuyer(station, {products.ore, products.plutoniumOre}, "Goods")
+    My.FlyingSeller(station, {products.miningMachinery}, "Equipment")
+    My.FlyingBuyer(station, {products.hvli, products.homing, products.mine}, "Equipment")
 
     Cron.regular(cronId, function()
         if not station:isValid() then
@@ -203,14 +177,10 @@ local function makeItAMine(station)
                     miners[i] = spawnMiner()
                 end
             end
-            if not isEeShip(buyerMiningMachinery) then
-                buyerMiningMachinery = spawnBuyer(products.miningMachinery)
-            end
         end
     end, math.random(55, 64) + math.random(), 0)
 
     My.EventHandler:register("onAttackersDetection", function()
-
         station:addTag("mute")
         -- @TODO: stop production
         Cron.abort(cronId)
@@ -219,9 +189,6 @@ local function makeItAMine(station)
             if miner:isValid() then
                 My.fleeToFortress(miner)
             end
-        end
-        if buyerMiningMachinery:isValid() then
-            My.fleeToFortress(buyerMiningMachinery)
         end
     end)
 
@@ -259,15 +226,3 @@ My.EventHandler:register("onWorldCreation", function()
     end
 
 end, 10)
-
-My.EventHandler:register("onStart", function()
-    My.FlyingBuyer(My.World.miningStation1, {products.ore, products.plutoniumOre}, "Goods")
-    My.FlyingSeller(My.World.miningStation1, {products.miningMachinery}, "Equipment")
-    My.FlyingBuyer(My.World.miningStation1, {products.hvli, products.homing, products.mine}, "Equipment")
-    My.FlyingBuyer(My.World.miningStation2, {products.ore, products.plutoniumOre}, "Goods")
-    My.FlyingSeller(My.World.miningStation2, {products.miningMachinery}, "Equipment")
-    My.FlyingBuyer(My.World.miningStation2, {products.hvli, products.homing, products.mine}, "Equipment")
-    My.FlyingBuyer(My.World.miningStation3, {products.ore, products.plutoniumOre}, "Goods")
-    My.FlyingSeller(My.World.miningStation3, {products.miningMachinery}, "Equipment")
-    My.FlyingBuyer(My.World.miningStation3, {products.hvli, products.homing, products.mine}, "Equipment")
-end)

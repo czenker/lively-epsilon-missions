@@ -1,10 +1,63 @@
 local t = My.Translator.translate
 
-local function ShipTemplate(freighterName)
+local function FlyingShipTemplate(freighterName)
     local rnd = math.random(1,5)
     return My.CpuShip(freighterName .. " Freighter " .. rnd, "Free Trader"):
     setWarpDrive(true):
     setJumpDrive(false)
+end
+
+local LocalTraderTemplate = function(hasWarpDrive)
+    local size = math.random(1,3)
+    return My.CpuShip("Goods Freighter " .. size):
+    setWarpDrive(hasWarpDrive):
+    setJumpDrive(false)
+end
+
+-- a system inhabiting trader that buys products for a station
+My.LocalBuyer = function(station, product, hasWarpDrive)
+    local function spawnBuyer()
+        local ship = LocalTraderTemplate(hasWarpDrive):setFaction(station:getFaction()):setCallSign(My.civilianShipName())
+        ship:addTag("merchant")
+        ship:addTag("local")
+
+        ship:setScannedDescription(t("local_trader_description", ship:getCallSign(), My.Config.metalBandName))
+
+        ship.whoAreYouResponse = function()
+            return t("local_trader_buyer_who_are_you", ship:getCaptain(), station:getCallSign() or "", product:getName())
+        end
+
+        Util.spawnAtStation(station, ship)
+
+        Ship:withStorageRooms(ship, {
+            [product] = math.floor(200 / product:getSize()),
+        })
+        Ship:behaveAsBuyer(ship, station, product, {
+            maxDistanceFromHome = hasWarpDrive and 200000 or 40000,
+        })
+
+        return ship
+    end
+
+    local ship
+
+    local cronId = station:getCallSign() .. "_trader_" .. Util.randomUuid()
+    Cron.regular(cronId, function()
+        if not station:isValid() then
+            Cron.abort(cronId)
+        else
+            if not isEeShip(ship) or not ship:isValid() then
+                ship = spawnBuyer(product)
+            end
+        end
+    end, math.random(55, 64) + math.random())
+
+    My.EventHandler:register("onAttackersDetection", function()
+        Cron.abort(cronId)
+        if ship and ship:isValid() then
+            My.fleeToFortress(ship)
+        end
+    end)
 end
 
 -- a ship that buys excessive goods
@@ -21,12 +74,11 @@ My.FlyingBuyer = function(station, carriedProducts, freighterName)
     freighterName = freighterName or "Equipment"
     if not isString(freighterName) then error("FreighterName needs to be a valid string, but " .. type(freighterName) .. " given.", 2) end
 
-
     local ship
     local cronId = station:getCallSign() .. "_dealer_" .. Util.randomUuid()
 
     local function createDealer()
-        ship = ShipTemplate(freighterName)
+        ship = FlyingShipTemplate(freighterName)
         ship:setCallSign(My.civilianShipName())
         ship:addTag("merchant")
         local storage = {}
@@ -34,11 +86,7 @@ My.FlyingBuyer = function(station, carriedProducts, freighterName)
             storage[product] = station:getMaxProductStorage(product)
         end
 
-        local description = t("flying_trader_description", ship:getCallSign())
-        ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
-        ship:setDescriptionForScanState("friendorfoeidentified", description)
-        ship:setDescriptionForScanState("simple", description)
-        ship:setDescriptionForScanState("full", description)
+        ship:setScannedDescription(t("flying_trader_description", ship:getCallSign()))
 
         ship.whoAreYouResponse = t("flying_trader_buyer_who_are_you", ship:getCaptain(), station:getCallSign() or "", Util.map(carriedProducts, function(product) return product:getName() end))
 
@@ -125,12 +173,11 @@ My.FlyingSeller = function(station, carriedProducts, freighterName)
     freighterName = freighterName or "Equipment"
     if not isString(freighterName) then error("FreighterName needs to be a valid string, but " .. type(freighterName) .. " given.", 2) end
 
-
     local ship
     local cronId = station:getCallSign() .. "_dealer_" .. Util.randomUuid()
 
     local function createDealer()
-        ship = ShipTemplate(freighterName)
+        ship = FlyingShipTemplate(freighterName)
         ship:setCallSign(My.civilianShipName())
         ship:addTag("merchant")
         local storage = {}
@@ -138,11 +185,7 @@ My.FlyingSeller = function(station, carriedProducts, freighterName)
             storage[product] = station:getMaxProductStorage(product)
         end
 
-        local description = t("flying_trader_description", ship:getCallSign())
-        ship:setDescriptionForScanState("notscanned", t("generic_unknown_ship"))
-        ship:setDescriptionForScanState("friendorfoeidentified", description)
-        ship:setDescriptionForScanState("simple", description)
-        ship:setDescriptionForScanState("full", description)
+        ship:setScannedDescription(t("flying_trader_description", ship:getCallSign()))
 
         ship.whoAreYouResponse = t("flying_trader_seller_who_are_you", ship:getCaptain(), station:getCallSign() or "", Util.map(carriedProducts, function(product) return product:getName() end))
 
