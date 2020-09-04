@@ -1,6 +1,6 @@
 local f = string.format
 
-local createMainMenu, createStationMenu, createStorageMenu, createStorageDetailMenu, createMissionMenu, createMissionDetailMenu, createTinkererMenu
+local createMainMenu, createStationMenu, createStorageMenu, createStorageDetailMenu, createMissionMenu, createMissionDetailMenu, createTinkererMenu, createChangeTinkererMenu
 
 local getSortedStations = function()
     local stations = {}
@@ -221,7 +221,61 @@ createTinkererMenu = function(station)
 
     return function()
         local menu = Menu:new()
+        local upgrade = station:getCurrentUpgrade()
         menu:addItem(Menu:newItem("< " .. station:getCallSign(), createStationMenu(station), 0))
+
+        if upgrade then
+            local progress = station:getCurrentUpgradeProgress()
+
+            menu:addItem(Menu:newItem(f("%s (%.0f%%)", upgrade:getName(), progress * 100), createChangeTinkererMenu(station), 1))
+
+            menu:addItem(Menu:newItem("Reset research", function()
+                station:addUpgradeProgress(-1 * progress)
+
+                return createTinkererMenu(station)()
+            end, 10))
+
+            for i, delta in pairs({-75, -50, -25, -10, 5, 10, 25, 50, 75}) do
+                local display = false
+                if delta > 0 and progress < 1 - delta / 100 then display = true end
+                if delta < 0 and progress > -1 * delta / 100 then display = true end
+
+                if display then
+                    menu:addItem(Menu:newItem(f("+ %d%%", delta), function()
+                        station:addUpgradeProgress(delta / 100)
+
+                        return createTinkererMenu(station)()
+                    end, i + 10))
+                end
+            end
+
+            menu:addItem(Menu:newItem("Finish now", function()
+                station:addUpgradeProgress(1)
+
+                return createTinkererMenu(station)()
+            end, 29))
+        end
+
+        return menu
+    end
+end
+
+createChangeTinkererMenu = function(station)
+    if not isShipyard(station) then return createStationMenu(station) end
+    return function()
+        local menu = Menu:new()
+        local upgrade = station:getCurrentUpgrade()
+        menu:addItem(Menu:newItem("< " .. station:getCallSign(), createTinkererMenu(station), 0))
+
+        for i, theUpgrade in ipairs(station:getUpgrades()) do
+            local label = theUpgrade:getName()
+            if theUpgrade:getId() == upgrade:getId() then label = "> " .. label .. " <" end
+            menu:addItem(Menu:newItem(label, function()
+                station:prioritizeUpgrade(theUpgrade)
+
+                return createTinkererMenu(station)()
+            end, i + 10))
+        end
 
         return menu
     end

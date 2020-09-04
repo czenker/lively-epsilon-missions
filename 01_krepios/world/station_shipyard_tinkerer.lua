@@ -47,6 +47,9 @@ My.EventHandler:register("onStart", function()
     station.getCurrentUpgrade = function(self)
         return upgrades[1]
     end
+    station.getUpgrades = function(self)
+        return upgrades
+    end
     station.getUpgradeOptions = function(self)
         local options = {}
         if not isNil(upgrades[2]) then table.insert(options, upgrades[2]) end
@@ -83,6 +86,12 @@ My.EventHandler:register("onStart", function()
     station.addFunding = function(self, amount)
         if not isNumber(amount) or amount < 0 then error("Expected added funding to be a positive number, but got " .. typeInspect(amount), 2) end
         funding = funding + amount
+    end
+    station.addUpgradeProgress = function(self, percent)
+        local upgrade = station:getCurrentUpgrade()
+        if upgrade then
+            remainingUpgradeProgress[upgrade:getId()] = remainingUpgradeProgress[upgrade:getId()] - percent * maxUpgradePoints
+        end
     end
 
     station:addComms(My.Comms.ShipyardTinkerer)
