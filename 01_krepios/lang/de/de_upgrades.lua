@@ -233,6 +233,7 @@ My.Translator:register("de", {
     upgrade_beam_description = function(storageMalusSize)
         return f("Auf ihrem Schiff kann ein weiterer Laser installiert werden, der das Heck des Schiffs gegen Beschuss verteidigen kann. Um Platz für den Laser zu schaffen werden %d Einheiten des Lagerraums benötigt, aber gerade bei Händlern ist dieser zusätzliche Laser sehr beliebt, da er das Schiff verteidigen kann, während der Sprungantrieb lädt.", storageMalusSize)
     end,
+
     upgrade_probe_name = "Sonden Lager",
     upgrade_probe_description = function(storageMalusSize, amount)
         return f("Den Laderaum für Sonden zu vergrößern ist ein sehr einfacher Prozess. Es muss lediglich der Lagerraum um %d Einheiten reduziert werden und als Lagerfläche für %d zusätzliche Sonden ausgewiesen werden.", storageMalusSize, amount)
@@ -266,4 +267,28 @@ My.Translator:register("de", {
     upgrade_nanobots_currently_active = "Aktiv",
     upgrade_nanobots_no_shields = "Nanobots können nur eingesetzt werden, wenn die Schilde deaktiviert sind.",
     upgrade_nanobots_no_shields_alert = "Durch das Aktivieren der Schilde wurden die Nanobots, die die Hülle reparierten, zerstört.",
+
+    upgrade_autofof_name = "Auto Freund-Feind-Erkennung",
+    upgrade_autofof_description = "Mit der Automatischen Freund-Feind-Erkennung werden Schiffe in der Nähe automatisch mit der Datenbank abgeglichen und in allen Stationen entsprechend als Freund oder Feind markiert.",
+
+    upgrade_shieldemp_name = "EMP Burst",
+    upgrade_shieldemp_description = function(rangeInU)
+        return f("In Notfällen kann das Schild des Schiffs abrupt abgestoßen werden, um EMP Schaden in einem Umkreis von bis zu %0.1fu anzurichten. Damit funktioniert es ähnlich wie eine EMP Rakete.", rangeInU)
+    end,
+    upgrade_shieldemp_label = "EMP Burst",
+    upgrade_shieldemp_info_label = "Info",
+    upgrade_shieldemp_info = function(rangeInU)
+        return f("Der EMP Burst hat einen ähnlichen Effekt wie eine EMP Rakete. Die elektromagnetische Strahlung wird druch das explosionsartige Abstoßen des Schildes verursacht. Alles in einem Umkreis von %0.1fu erhält EMP Schaden, abhängig von derEntfernung zum Ziel und dem Ladestand der Schilde. ", rangeInU)
+    end,
+    upgrade_shieldemp_info_current = function(minDamage, maxDamage)
+        return f("Wenn der EMP Burst jetzt ausgelöst wird, verursacht er zwischen %0.2f und %0.2f Schaden.", minDamage, maxDamage)
+    end,
+    upgrade_shieldemp_info_low_charge = function(minCharge)
+        return f("Die Schilde müssen eine Mindestladung von %0.2f haben, damit der EMP Burst eingesetzt werden kann.", minCharge)
+    end,
+    upgrade_shieldemp_fire_label = "Feuern",
+    upgrade_shieldemp_error_charge = function(minCharge)
+        return f("Die Schilde müssen eine Mindestladung von %0.2f haben, damit der EMP Burst eingesetzt werden kann.", minCharge)
+    end,
+    upgrade_shieldemp_error_shields_down = "Die Schilde müssen hoch gefahren sein um den EMP Burst zu nutzen!",
 })

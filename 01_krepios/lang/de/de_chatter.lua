@@ -376,4 +376,22 @@ My.Translator:register("de", {
         })
     end,
 
+    chatter_tinkerer = function(tinkererPerson, stationCallSign, droidName)
+        local HeShe
+        if Person:hasTags(tinkererPerson) and tinkererPerson:hasTag("male") then
+            HeShe = "Er"
+        else
+            HeShe = "Sie"
+        end
+        return Util.random({
+            f("Kommen und besuchen Sie %s. Es ist sicher! Die letzte Explosion in %s Werkstatt ist schon 3 Tage her.", stationCallSign, Names.possessive(tinkererPerson:getNickName())),
+            "Der Besitzer des Fasses mit Nitroglycerin wird gebeten, es so schnell wie möglich von Hangar B abzuholen.",
+            f("Bewerben Sie sich bei der Feuerwehr auf %s.", stationCallSign),
+            f("Es gibt kein giftiges Gasleck auf %s! Ich wiederhole: Es gibt kein giftiges Gasleck auf %s!", stationCallSign, stationCallSign),
+            f("Die Sicherheit auf %s wird von %s Robotern sicher gestellt. Jegliche Verletzungen und Brüche sind ihr eigenes Verschulden.", stationCallSign, Names.possessive(tinkererPerson:getNickName())),
+            f("Feier mit uns die Erfindungen von %s. %s brachte uns %s - den besten Dronenkämpfer des Sektors. Nun gut, vielleicht kamen damit auch ein paar Unfälle, die fast die Station zerstörten, aber lasst uns nicht kleinlich sein.", tinkererPerson:getNickName(), HeShe, droidName),
+            f("Falls sie Grüchte hören, dass %s Erfindungen früher oder später %s zerstören werden, dann denken sie immer daran: Ohne %s hätte die Station nie existiert.", Names.possessive(tinkererPerson:getNickName()), stationCallSign, tinkererPerson:getNickName()),
+        })
+    end,
+
 })

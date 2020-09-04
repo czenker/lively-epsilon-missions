@@ -6,7 +6,7 @@ My.Translator:register("en", {
     side_mission_drive_test_description = function(tinkererPerson, payment, bonusMinutes, bonusPayment)
         return Util.random({
             f("Hey there fellows. It's me, your favorite tinkerer %s.", tinkererPerson:getNickName()),
-            f("This is a very special mission from %s. Wanna do something valuable for my research?", tinkererPerson:getNickName())
+            f("This is a very special mission from %s. Wanna do something valuable for my development?", tinkererPerson:getNickName())
         }) .. " " .. Util.random({
             "I developed a new impulse drive. On paper it should work perfectly, but I need to give it a test run in the real world.",
             "I finally finished the prototype of a new impulse drive. Now I am looking for some one to test it out.",

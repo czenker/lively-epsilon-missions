@@ -2,6 +2,40 @@ local f = string.format
 
 My.Translator:register("en", {
 
+    shipyard_station_description = function(nebulaName)
+        return "This station used to repair and construct space ships. But some parts of the smaller stations of the sector were also produced here. " ..
+               "After it became unprofitable and was abandoned, some of the former engineers transformed this station into a tinker shop for drones and "  ..
+               "small space craft.\n\n" ..
+               "The station maintains an arena in the close nebula " .. nebulaName .. " and hosts regular show fights with drones."
+    end,
+
+    shipyard_workshop_name = function(tinkererPerson)
+        return Names.possessive(tinkererPerson:getNickName()) .. " Workshop"
+    end,
+
+    shipyard_workshop_comms_hail = function(tinkerPerson)
+        return Util.random({
+            "Welcome. I am " .. tinkerPerson:getNickName() .. "."
+        }) .. " " .. Util.random({
+            "If you are looking for scrap or tinkered upgrades, you found the right place.",
+            "Here you can find loads of junk that you won't find anywhere else.",
+        })
+    end,
+
+    shipyard_workshop_comms_upgrade_available = function(tinkererPerson, upgradeName, stationName, upgradePrice)
+        return Util.random({
+            "Hey Friends.",
+        }) .. " " .. Util.random({
+            f("Thanks to your generous contribution I was able to finish \"%s\". And you might be happy to hear that it explodes only half as often as before.", upgradeName),
+            f("Because you have supported me financially I can offer you \"%s\" as an Alpha Version.", upgradeName)
+        }) .. " " .. Util.random({
+            "It should be self-explanatory that I can not give any guaranteees.",
+            "I am not liable for damage to people or objects cause by static discharge, malfunctions or spontaneous ignition.",
+            "Please only report the most critical malfunctions. I can't take care of all of them.",
+        }) .. " " .. f("Stop at %s and I will sell it to you for a special price of %0.2fRP.", stationName, upgradePrice) ..
+                "\n\n- " .. tinkererPerson:getNickName()
+    end,
+
     shipyard_workshop_comms_current_research_none = "But unfortunately I have no more ideas for helpful new inventions.",
 
     shipyard_workshop_comms_invest = "Invest in development",
