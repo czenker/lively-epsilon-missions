@@ -267,7 +267,7 @@ createChangeTinkererMenu = function(station)
         local upgrade = station:getCurrentUpgrade()
         menu:addItem(Menu:newItem("< " .. station:getCallSign(), createTinkererMenu(station), 0))
 
-        for i, theUpgrade in ipairs(station:getUpgrades()) do
+        for i, theUpgrade in ipairs(station:getResearchableUpgrades()) do
             local label = theUpgrade:getName()
             if theUpgrade:getId() == upgrade:getId() then label = "> " .. label .. " <" end
             menu:addItem(Menu:newItem(label, function()

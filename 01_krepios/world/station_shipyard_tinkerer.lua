@@ -47,7 +47,7 @@ My.EventHandler:register("onStart", function()
     station.getCurrentUpgrade = function(self)
         return upgrades[1]
     end
-    station.getUpgrades = function(self)
+    station.getResearchableUpgrades = function(self)
         return upgrades
     end
     station.getUpgradeOptions = function(self)
