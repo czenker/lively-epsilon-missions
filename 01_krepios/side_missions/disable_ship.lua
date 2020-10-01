@@ -111,6 +111,9 @@ My.SideMissions.DisableShip = function(station, x, y, player)
                     ship:destroy()
                 end,
             }))
+            Cron.once(function()
+                target:setSystemHealth("impulse", math.max(0, target:getSystemHealth("impulse")))
+            end, 15)
             Tools:ensureComms(self:getTarget(), self:getPlayer(), t("side_mission_disable_ship_surrender_comms", shipCallSign, self:getPlayer():getCallSign(), thiefPerson, station:getCallSign()))
         end,
         onDestruction = function(self)
@@ -125,12 +128,14 @@ My.SideMissions.DisableShip = function(station, x, y, player)
 
             self:getTarget():setHailText(t("side_mission_disable_ship_taunt_hail1"))
         end,
-        onEnd = function(self)
-            Cron.abort(cronId)
+        onFailure = function(self)
             if isEeObject(self:getTarget()) then
                 self:getTarget():destroy()
             end
         end,
+        onEnd = function(self)
+            Cron.abort(cronId)
+        end
     })
 
     Mission:withBroker(mission, t("side_mission_disable_ship", sectorName), {
