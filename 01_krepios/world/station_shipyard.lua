@@ -75,20 +75,42 @@ My.EventHandler:register("onWorldCreation", function()
 
     Station:withStorageRooms(station, {
         [products.ore] = 100,
+        [products.hvli] = 8,
+        [products.homing] = 8,
         [products.scanProbe] = 4,
         [products.nanobot] = 4,
     })
     Station:withMerchant(station, {
         [products.ore] = { buyingPrice = My.buyingPrice(products.ore) },
+        [products.hvli] = { sellingPrice = My.sellingPrice(products.hvli)},
+        [products.homing] = { sellingPrice = My.sellingPrice(products.homing) },
         [products.scanProbe] = { sellingPrice = My.sellingPrice(products.scanProbe) },
         [products.nanobot] = { sellingPrice = My.sellingPrice(products.nanobot) },
     })
     station:modifyProductStorage(products.ore, math.random(10, 20))
+    station:modifyProductStorage(products.hvli, math.random(0, 4))
+    station:modifyProductStorage(products.homing, math.random(0, 4))
     station:modifyProductStorage(products.scanProbe, math.random(0, 1))
     station:modifyProductStorage(products.nanobot, math.random(0, 1))
 
     Station:withProduction(station, {
         {
+            productionTime = math.random(162, 192),
+            consumes = {
+                { product = products.ore, amount = 6 }
+            },
+            produces = {
+                { product = products.homing, amount = 2 }
+            }
+        },{
+            productionTime = math.random(108, 132),
+            consumes = {
+                { product = products.ore, amount = 6 }
+            },
+            produces = {
+                { product = products.hvli, amount = 2 }
+            }
+        },{
             productionTime = math.random(216, 264),
             consumes = {
                 { product = products.ore, amount = 2 }
