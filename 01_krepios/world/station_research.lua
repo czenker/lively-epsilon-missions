@@ -5,7 +5,9 @@ local function StationTemplate()
 end
 
 My.EventHandler:register("onWorldCreation", function()
-    local nebula = Util.random(My.World.nebulas)
+    local nebula = Util.random(My.World.nebulas, function(_, nebula)
+        return not nebula.hasUse()
+    end)
 
     if nebula == nil then
         logWarning("Not creating a science station, because there are no free nebulas. Consider creating more of them.")
