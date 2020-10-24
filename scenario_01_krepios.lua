@@ -73,6 +73,15 @@ My.Config = {
 
 require "01_krepios/init.lua"
 
+local function validateSettings()
+    if isFunction(areBeamShieldFrequenciesUsed) and not areBeamShieldFrequenciesUsed() then
+        error("It is highly recommended to activate \"Beam/Shield frequencies\" in the scenario settings")
+    end
+    if isFunction(isPerSystemDamageUsed) and not isPerSystemDamageUsed() then
+        error("It is highly recommended to activate \"Per System Damage\" in the scenario settings")
+    end
+end
+
 function init()
     if isFunction(allowNewPlayerShips) then allowNewPlayerShips(false) end -- supported starting end of 2020
 
@@ -112,6 +121,8 @@ function init()
         end
         My.Database:addOrUpdateUpgrade(upgrade)
     end
+
+    validateSettings()
 end
 
 function update(delta)
