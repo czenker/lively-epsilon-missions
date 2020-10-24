@@ -74,6 +74,8 @@ My.Config = {
 require "01_krepios/init.lua"
 
 function init()
+    if isFunction(allowNewPlayerShips) then allowNewPlayerShips(false) end -- supported starting end of 2020
+
     local t = My.Translator.translate
 
     local scenario = getScenarioVariation() or ""
