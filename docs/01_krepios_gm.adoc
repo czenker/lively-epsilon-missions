@@ -34,7 +34,7 @@ The asteroid belt contains
 * **3 abandoned mining stations** on the map serve as mission locations and can be explored by the players
 * **several nebulas** on the map also serve as mission locations
 * **one science station** is situated in one of the nebulas. It also gives missions and trades to the players.
-* **one shipyard** which is used as home for a crazy tinkerer. It is close to a nebula.
+* **one shipyard** which is used as home for a crazy tinkerer. It is close to a nebula and has an arena close-by.
 * **SMC Alpha** is counter-clock wise on the far side of the asteroid belt. It serves as a location for the main mission. More on it later.
 * **Minefields** on the map can be used strategically by the players and have a container in the center that gives the players credits (RP) and energy.
 * A **wormhole** at the center near the planet is used at the end of the mission. Outer World traders start there, but the players should not go there until they are tasked to.
@@ -125,22 +125,6 @@ The open world phase where the players can do whatever they want
 ==== Money earned (onFirstMoneyEarned)
 Phase 1 starts as soon as they have `150RP` gathered by doing a few mission. Wright Hartman says hi again and insults them,
 but this event does little more than start a few timers.
-
-==== Laser Refit Module (onLaserRefitReward)
-
-25 minutes after Phase 1 starts, Wright Hartman contacts the crew again and installs a module for the Weapons Officer.
-This allows them to modify their lasers to be more powerful, have further reach, etc and can be used for strategic
-purposes. This is mostly helpful to experienced players. Everything regarding the module should be described
-in-game.
-
-You can trigger this event early through the menu.
-
-==== Power Preset Module (onPowerPresetsReward)
-
-40 minutes after Phase 1 starts, Wright Hartman gifts them another upgrade for the Engineering Officer which allows
-them to store presets for power and coolant distribution. If you played Artemis, this should be pretty familiar.
-
-You can trigger this event early through the menu.
 
 === Phase 2: Enemies
 

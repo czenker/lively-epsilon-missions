@@ -1,8 +1,25 @@
 # Changelog
 
-#### next release (Science Update)
+#### v1.3 (Tinkerer Update)
 
-* new upgrade that does simple scans of close ships
+* there is a wharf station that houses a tinkerer. People have kept far from it, because it is known for its hazards,
+  but it might be worth checking out.
+* the tinkerer researches and sells experimental upgrades. Doing missions on that station or donating money
+  increases the speed with which upgrades are available and reduce their cost.
+  * The "Power Preset" and "Laser Refit" upgrade can now bought here
+  * new **Auto FoF** upgrade automatically identifies close ships as friend or foe
+  * new **Shield EMP** upgrade allows to explosively discharge the ships shields, dealing EMP damage close by
+  * new **Nanobot** upgrade allows to repair the ships hull while in space
+* you can fight against droids in an **Arena**. The fights get more and more difficult but give higher rewards.
+  Stop by the new wharf and look for a mission there.
+* new side mission to do a **single, very difficult scan** on the wharf station
+* new side mission to **test a new drive** the tinkerer has constructed. What could possibly go wrong?
+* all science information has been moved to the database
+* the science station got a buyer
+
+#### v1.2.2
+
+* fixes an incompatibility with the latest EmptyEpsilon builds
 
 #### v1.2 (Miners Update)
 
