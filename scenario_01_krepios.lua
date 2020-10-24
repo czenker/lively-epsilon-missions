@@ -26,6 +26,8 @@ _G.My = {}
 
 require "names/init.lua"
 
+local minEeVersion = 20200825
+
 My.Config = {
     -- the orientation of the asteroid field
     avgAngle = math.random(0,360),
@@ -83,6 +85,11 @@ local function validateSettings()
 end
 
 function init()
+    if isFunction(getEEVersion) then -- supported starting end of 2020
+        if getEEVersion() > 0 and getEEVersion() < minEeVersion then
+            error("Scenario requires EmptyEpsilon version " .. minEeVersion .. ", but you got " .. getEEVersion())
+        end
+    end
     if isFunction(allowNewPlayerShips) then allowNewPlayerShips(false) end -- supported starting end of 2020
 
     local t = My.Translator.translate
