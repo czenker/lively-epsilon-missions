@@ -1,10 +1,10 @@
 -- include original ships
-require("shipTemplates_Stations.lua")
-require("shipTemplates_StarFighters.lua")
-require("shipTemplates_Frigates.lua")
-require("shipTemplates_Corvette.lua")
-require("shipTemplates_Dreadnaught.lua")
-require("shipTemplates_OLD.lua")
+require("shiptemplates/stations.lua")
+require("shiptemplates/starFighters.lua")
+require("shiptemplates/frigates.lua")
+require("shiptemplates/corvette.lua")
+require("shiptemplates/dreadnaught.lua")
+require("shiptemplates/OLD.lua")
 
 -- player ship
 
